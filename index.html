@@ -1,0 +1,2554 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="./images/jcb_logo.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="BookMyEquipment - India's #1 B2B heavy equipment rental app. Book excavators, cranes, mixers and more. Zero middleman. Transparent pricing. Download now." />
+  <meta name="keywords" content="heavy equipment rental app, excavator booking, construction machinery India, JCB rental, crane hire, transit mixer rental, backhoe" />
+  <meta property="og:title" content="BookMyEquipment - Heavy Equipment Rental, Simplified" />
+  <meta property="og:description" content="The ultimate platform to book, list, and operate heavy machinery. No middleman. Complete transparency." />
+  <title>BookMyEquipment - Heavy Equipment Rental, Simplified</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Noto+Sans+Telugu:wght@400;500;600;700;800&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: {
+        colors: {
+          brand: {
+            primary: '#F97316',
+            primaryDark: '#EA580C',
+            primaryLight: '#FFEDD5',
+            emphasis: '#F59E0B',
+            dark: '#FFFFFF',
+            background: '#F8FAFC',
+            surface: '#FFFFFF',
+            surfaceElevated: '#F1F5F9',
+            card: '#FFFFFF',
+            border: '#E2E8F0',
+            textPrimary: '#0F172A',
+            textSecondary: '#475569',
+            muted: '#64748B',
+            textInverse: '#FFFFFF',
+            operator: '#0D9488',
+            operatorBg: '#F0FDFA',
+            admin: '#7C3AED',
+            success: '#16A34A',
+            warning: '#D97706',
+            error: '#DC2626',
+            info: '#0284C7',
+            yellow: '#F97316',
+            gold: '#EA580C',
+          }
+        },
+        fontFamily: {
+          sans: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'],
+          display: ['Poppins', 'system-ui', 'sans-serif']
+        },
+        animation: {
+          'float': 'float 6s ease-in-out infinite',
+          'pulse-glow': 'pulse-glow 2.5s ease-in-out infinite'
+        },
+        keyframes: {
+          float: {
+            '0%, 100%': { transform: 'translateY(0px)' },
+            '50%': { transform: 'translateY(-10px)' },
+          },
+          'pulse-glow': {
+            '0%, 100%': { opacity: '0.4', transform: 'scale(1)' },
+            '50%': { opacity: '0.7', transform: 'scale(1.05)' },
+          }
+        }
+      }}
+    }
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <link rel="stylesheet" href="./src/style.css" />
+  <script type="module" src="./src/i18n.js"></script>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans overflow-x-hidden selection:bg-brand-primary selection:text-white">
+
+  <!-- ===== NAV ===== -->
+  <header id="main-navbar" class="fixed top-0 left-0 w-full z-40 bg-white/95 backdrop-blur-xl border-b border-slate-200/90 shadow-xs transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 sm:h-20">
+        <a href="#hero" class="flex items-center space-x-2.5 group">
+          <div class="bg-brand-primary px-3 py-1.5 rounded-[6px] transition-transform group-hover:scale-105 shadow-sm">
+            <span class="text-white font-black text-xl tracking-wider" style="font-family:'Poppins',Impact,sans-serif;">BME</span>
+          </div>
+          <div class="border-l border-slate-200 pl-3">
+            <span class="text-[9px] tracking-[0.22em] text-brand-primary uppercase font-bold block">Heavy Equipment</span>
+            <div class="text-sm font-bold text-slate-900 tracking-tight">BookMyEquipment</div>
+          </div>
+        </a>
+        <nav class="hidden lg:flex items-center space-x-8 text-sm font-semibold text-slate-600">
+          <a href="/"           class="nav-link active">Home</a>
+          <a href="/about"      class="nav-link hover:text-brand-primary transition-colors">About Us</a>
+          <a href="/contact"    class="nav-link hover:text-brand-primary transition-colors">Contact Us</a>
+        </nav>
+        
+        <!-- Header Actions: Language Switcher + 3 Role Buttons ("I'm Customer", "I'm Machine Owner", "I'm Operator") -->
+        <div class="flex items-center space-x-2.5">
+          
+  <div class="site-language-control" data-i18n-ignore="">
+    <label class="sr-only" for="site-language">
+      <span lang="en">Language</span> / <span lang="te">భాష</span> / <span lang="hi">भाषा</span>
+    </label>
+    <svg class="language-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+      <circle cx="12" cy="12" r="9"/>
+      <path d="M3 12h18M12 3a18 18 0 0 1 0 18 18 18 0 0 1 0-18Z"/>
+    </svg>
+    <select class="site-language-select" aria-label="Select Language">
+      <option value="en" lang="en">English</option>
+      <option value="te" lang="te">తెలుగు</option>
+      <option value="hi" lang="hi">हिन्दी</option>
+    </select>
+    <svg class="language-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+      <path d="m4 6 4 4 4-4"/>
+    </svg>
+  </div>
+          <div class="hidden md:flex items-center space-x-2">
+            <a href="/customer" class="header-role-btn role-btn-customer inline-flex items-center justify-center bg-transparent border-[1.5px] border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white font-extrabold text-xs px-3.5 py-2 rounded-xl transition-all duration-200 shadow-2xs hover:shadow-md hover:shadow-brand-primary/25 hover:-translate-y-0.5 active:scale-95 cursor-pointer">
+              I'm Customer
+            </a>
+            <a href="/owner" class="header-role-btn role-btn-owner inline-flex items-center justify-center bg-transparent border-[1.5px] border-amber-500 text-amber-600 hover:bg-amber-500 hover:text-white font-extrabold text-xs px-3.5 py-2 rounded-xl transition-all duration-200 shadow-2xs hover:shadow-md hover:shadow-amber-500/25 hover:-translate-y-0.5 active:scale-95 cursor-pointer">
+              I'm Machine Owner
+            </a>
+            <a href="/operator" class="header-role-btn role-btn-operator inline-flex items-center justify-center bg-transparent border-[1.5px] border-teal-600 text-teal-600 hover:bg-teal-600 hover:text-white font-extrabold text-xs px-3.5 py-2 rounded-xl transition-all duration-200 shadow-2xs hover:shadow-md hover:shadow-teal-600/25 hover:-translate-y-0.5 active:scale-95 cursor-pointer">
+              I'm Operator
+            </a>
+          </div>
+          <button id="mobile-menu-toggle" aria-label="Toggle menu" class="lg:hidden text-slate-600 hover:text-slate-900 p-2">
+            <i data-lucide="menu" class="w-6 h-6"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="mobile-menu" class="lg:hidden hidden bg-white border-t border-slate-200 px-4 pt-3 pb-6 space-y-3 shadow-lg">
+      <div class="flex items-center justify-between pb-2 border-b border-slate-100">
+        <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Language</span>
+        
+  <div class="site-language-control" data-i18n-ignore="">
+    <label class="sr-only" for="site-language">
+      <span lang="en">Language</span> / <span lang="te">భాష</span> / <span lang="hi">भाषा</span>
+    </label>
+    <svg class="language-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+      <circle cx="12" cy="12" r="9"/>
+      <path d="M3 12h18M12 3a18 18 0 0 1 0 18 18 18 0 0 1 0-18Z"/>
+    </svg>
+    <select class="site-language-select" aria-label="Select Language">
+      <option value="en" lang="en">English</option>
+      <option value="te" lang="te">తెలుగు</option>
+      <option value="hi" lang="hi">हिन्दी</option>
+    </select>
+    <svg class="language-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+      <path d="m4 6 4 4 4-4"/>
+    </svg>
+  </div>
+      </div>
+      <a href="/"           class="block text-brand-primary font-bold py-2 border-b border-slate-100">Home</a>
+      <a href="/about"      class="block text-slate-700 font-semibold py-2 border-b border-slate-100 hover:text-brand-primary">About Us</a>
+      <a href="/contact"    class="block text-slate-700 font-semibold py-2 border-b border-slate-100 hover:text-brand-primary">Contact Us</a>
+      <div class="pt-2 space-y-2">
+        <a href="/customer" class="header-role-btn role-btn-customer w-full text-center bg-transparent border-[1.5px] border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white font-extrabold text-xs py-2.5 rounded-xl shadow-2xs block transition-all">
+          I'm Customer
+        </a>
+        <a href="/owner" class="header-role-btn role-btn-owner w-full text-center bg-transparent border-[1.5px] border-amber-500 text-amber-600 hover:bg-amber-500 hover:text-white font-extrabold text-xs py-2.5 rounded-xl shadow-2xs block transition-all">
+          I'm Machine Owner
+        </a>
+        <a href="/operator" class="header-role-btn role-btn-operator w-full text-center bg-transparent border-[1.5px] border-teal-600 text-teal-600 hover:bg-teal-600 hover:text-white font-extrabold text-xs py-2.5 rounded-xl shadow-2xs block transition-all">
+          I'm Operator
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== HERO CAROUSEL BANNER SECTION ===== -->
+  <section id="hero" class="relative min-h-screen flex items-center pt-24 lg:pt-28 pb-12 overflow-hidden bg-slate-50">
+    <!-- Grid pattern & Ambient lighting -->
+    <div class="absolute inset-0 pointer-events-none z-0" aria-hidden="true">
+      <div class="absolute top-1/4 left-[-10%] w-[500px] h-[500px] bg-brand-primary/10 rounded-full blur-[140px]"></div>
+      <div class="absolute bottom-0 right-[-5%] w-[450px] h-[450px] bg-brand-primary/10 rounded-full blur-[120px]"></div>
+      <div class="absolute inset-0 opacity-[0.035]" style="background-image:linear-gradient(rgba(249,115,22,0.4) 1px,transparent 1px),linear-gradient(90deg,rgba(249,115,22,0.4) 1px,transparent 1px);background-size:64px 64px;"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+      <!-- Carousel Slider Container -->
+      <div id="hero-carousel" class="relative w-full">
+        
+    <div class="hero-slide active w-full" data-slide-index="0">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+        <!-- Left: Slide Content & Actions -->
+        <div class="lg:col-span-7 space-y-4 lg:space-y-5 hero-slide-left">
+          <div class="inline-flex items-center space-x-2.5 bg-brand-primary/10 border border-brand-primary/30 rounded-full px-4 py-1.5 shadow-xs">
+            <span class="w-2 h-2 rounded-full bg-brand-primary animate-pulse shrink-0"></span>
+            <span class="text-brand-primary text-xs font-bold tracking-[0.16em] uppercase">Heavy Earthmoving Fleet</span>
+          </div>
+          <h1 class="font-display text-4xl sm:text-5xl lg:text-[54px] font-black tracking-tight leading-[1.05]">
+            <span class="block text-slate-900">Rent Heavy Machinery,</span>
+            <span class="block text-slate-900">Directly on</span>
+            <span class="block text-brand-primary">Your Mobile Phone.</span>
+          </h1>
+          <p class="text-slate-600 text-base sm:text-lg max-w-xl leading-relaxed">
+            Download the BookMyEquipment App to hire verified JCBs, Cranes, and Excavators in minutes. Experienced operators included, fixed rates, and delivery to your site in 2 to 4 hours.
+          </p>
+          <div class="flex flex-wrap gap-6 pt-1">
+            
+              
+              <div>
+                <div class="hero-stat-value text-2xl sm:text-3xl font-black text-slate-900 tracking-tight" data-value="5,000+">5,000+</div>
+                <div class="text-xs text-slate-500 mt-0.5 font-medium">Verified Machines</div>
+              </div>
+            
+              <div class="w-px bg-slate-200"></div>
+              <div>
+                <div class="hero-stat-value text-2xl sm:text-3xl font-black text-slate-900 tracking-tight" data-value="300+">300+</div>
+                <div class="text-xs text-slate-500 mt-0.5 font-medium">Cities Covered</div>
+              </div>
+            
+              <div class="w-px bg-slate-200"></div>
+              <div>
+                <div class="hero-stat-value text-2xl sm:text-3xl font-black text-slate-900 tracking-tight" data-value="2-4 Hours">2-4 Hours</div>
+                <div class="text-xs text-slate-500 mt-0.5 font-medium">Fast Site Delivery</div>
+              </div>
+            
+          </div>
+          <div class="pt-2">
+            
+  <div class="flex flex-wrap items-center gap-3.5 gap-4">
+    
+  <a href="#"  class="inline-block transition-transform duration-200 hover:scale-105 active:scale-95 drop-shadow-md rounded-[7px] overflow-hidden" aria-label="Get it on Google Play">
+    <img src="./images/google-play-badge.svg" alt="Get it on Google Play" class="h-11 sm:h-12 w-auto block">
+  </a>
+    
+  <a href="#"  class="inline-block transition-transform duration-200 hover:scale-105 active:scale-95 drop-shadow-md rounded-[7px] overflow-hidden" aria-label="Download on the App Store">
+    <img src="./images/app-store-badge.svg" alt="Download on the App Store" class="h-11 sm:h-12 w-auto block">
+  </a>
+  </div>
+          </div>
+        </div>
+
+        <!-- Right: Heavy Equipment Cutout Presentation -->
+        <div class="lg:col-span-5 flex justify-center items-center relative hero-slide-right min-h-[320px] sm:min-h-[380px]">
+          <div class="relative w-full max-w-[460px] flex justify-center items-center">
+            <!-- Subtle Warm Ambient Backdrop Glow -->
+            <div class="absolute inset-0 bg-brand-primary/15 blur-[100px] rounded-full scale-95 translate-y-4 pointer-events-none"></div>
+            
+            <!-- Floating Machinery Image -->
+            <img src="./images/hero_excavator.png" alt="Heavy Hydraulic Excavator" class="relative w-full max-h-[340px] sm:max-h-[390px] object-contain drop-shadow-[0_20px_35px_rgba(0,0,0,0.18)] filter animate-float transition-all duration-500 hover:scale-105" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-slide inactive w-full" data-slide-index="1">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+        <!-- Left: Slide Content & Actions -->
+        <div class="lg:col-span-7 space-y-4 lg:space-y-5 hero-slide-left">
+          <div class="inline-flex items-center space-x-2.5 bg-brand-primary/10 border border-brand-primary/30 rounded-full px-4 py-1.5 shadow-xs">
+            <span class="w-2 h-2 rounded-full bg-brand-primary animate-pulse shrink-0"></span>
+            <span class="text-brand-primary text-xs font-bold tracking-[0.16em] uppercase">Heavy Cranes & Rigging</span>
+          </div>
+          <h1 class="font-display text-4xl sm:text-5xl lg:text-[54px] font-black tracking-tight leading-[1.05]">
+            <span class="block text-slate-900">Hydra & Mobile Cranes,</span>
+            <span class="block text-slate-900">Delivered to</span>
+            <span class="block text-brand-primary">Your Project Site.</span>
+          </h1>
+          <p class="text-slate-600 text-base sm:text-lg max-w-xl leading-relaxed">
+            Heavy lifting made simple. Certified crane operators, safety checked machinery, and zero broker markups right on your phone.
+          </p>
+          <div class="flex flex-wrap gap-6 pt-1">
+            
+              
+              <div>
+                <div class="hero-stat-value text-2xl sm:text-3xl font-black text-slate-900 tracking-tight" data-value="1,200+">1,200+</div>
+                <div class="text-xs text-slate-500 mt-0.5 font-medium">Heavy Cranes</div>
+              </div>
+            
+              <div class="w-px bg-slate-200"></div>
+              <div>
+                <div class="hero-stat-value text-2xl sm:text-3xl font-black text-slate-900 tracking-tight" data-value="100%">100%</div>
+                <div class="text-xs text-slate-500 mt-0.5 font-medium">Certified Riggers</div>
+              </div>
+            
+              <div class="w-px bg-slate-200"></div>
+              <div>
+                <div class="hero-stat-value text-2xl sm:text-3xl font-black text-slate-900 tracking-tight" data-value="2 Hours">2 Hours</div>
+                <div class="text-xs text-slate-500 mt-0.5 font-medium">Rapid Mobilization</div>
+              </div>
+            
+          </div>
+          <div class="pt-2">
+            
+  <div class="flex flex-wrap items-center gap-3.5 gap-4">
+    
+  <a href="#"  class="inline-block transition-transform duration-200 hover:scale-105 active:scale-95 drop-shadow-md rounded-[7px] overflow-hidden" aria-label="Get it on Google Play">
+    <img src="./images/google-play-badge.svg" alt="Get it on Google Play" class="h-11 sm:h-12 w-auto block">
+  </a>
+    
+  <a href="#"  class="inline-block transition-transform duration-200 hover:scale-105 active:scale-95 drop-shadow-md rounded-[7px] overflow-hidden" aria-label="Download on the App Store">
+    <img src="./images/app-store-badge.svg" alt="Download on the App Store" class="h-11 sm:h-12 w-auto block">
+  </a>
+  </div>
+          </div>
+        </div>
+
+        <!-- Right: Heavy Equipment Cutout Presentation -->
+        <div class="lg:col-span-5 flex justify-center items-center relative hero-slide-right min-h-[320px] sm:min-h-[380px]">
+          <div class="relative w-full max-w-[460px] flex justify-center items-center">
+            <!-- Subtle Warm Ambient Backdrop Glow -->
+            <div class="absolute inset-0 bg-brand-primary/15 blur-[100px] rounded-full scale-95 translate-y-4 pointer-events-none"></div>
+            
+            <!-- Floating Machinery Image -->
+            <img src="./images/hero_hydra.png" alt="Hydra Heavy Pick and Carry Crane" class="relative w-full max-h-[340px] sm:max-h-[390px] object-contain drop-shadow-[0_20px_35px_rgba(0,0,0,0.18)] filter animate-float transition-all duration-500 hover:scale-105" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-slide inactive w-full" data-slide-index="2">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+        <!-- Left: Slide Content & Actions -->
+        <div class="lg:col-span-7 space-y-4 lg:space-y-5 hero-slide-left">
+          <div class="inline-flex items-center space-x-2.5 bg-brand-primary/10 border border-brand-primary/30 rounded-full px-4 py-1.5 shadow-xs">
+            <span class="w-2 h-2 rounded-full bg-brand-primary animate-pulse shrink-0"></span>
+            <span class="text-brand-primary text-xs font-bold tracking-[0.16em] uppercase">Ready-Mix Concrete Fleet</span>
+          </div>
+          <h1 class="font-display text-4xl sm:text-5xl lg:text-[54px] font-black tracking-tight leading-[1.05]">
+            <span class="block text-slate-900">Transit Mixers & Pumps,</span>
+            <span class="block text-slate-900">Ready for</span>
+            <span class="block text-brand-primary">Every Concrete Pour.</span>
+          </h1>
+          <p class="text-slate-600 text-base sm:text-lg max-w-xl leading-relaxed">
+            Never pause your concrete work. High-capacity transit mixers and mobile boom pumps dispatched right when you need them.
+          </p>
+          <div class="flex flex-wrap gap-6 pt-1">
+            
+              
+              <div>
+                <div class="hero-stat-value text-2xl sm:text-3xl font-black text-slate-900 tracking-tight" data-value="1,500+">1,500+</div>
+                <div class="text-xs text-slate-500 mt-0.5 font-medium">Transit Mixers</div>
+              </div>
+            
+              <div class="w-px bg-slate-200"></div>
+              <div>
+                <div class="hero-stat-value text-2xl sm:text-3xl font-black text-slate-900 tracking-tight" data-value="6-8 m³">6-8 m³</div>
+                <div class="text-xs text-slate-500 mt-0.5 font-medium">Drum Capacity</div>
+              </div>
+            
+              <div class="w-px bg-slate-200"></div>
+              <div>
+                <div class="hero-stat-value text-2xl sm:text-3xl font-black text-slate-900 tracking-tight" data-value="99.8%">99.8%</div>
+                <div class="text-xs text-slate-500 mt-0.5 font-medium">On-Time Pour</div>
+              </div>
+            
+          </div>
+          <div class="pt-2">
+            
+  <div class="flex flex-wrap items-center gap-3.5 gap-4">
+    
+  <a href="#"  class="inline-block transition-transform duration-200 hover:scale-105 active:scale-95 drop-shadow-md rounded-[7px] overflow-hidden" aria-label="Get it on Google Play">
+    <img src="./images/google-play-badge.svg" alt="Get it on Google Play" class="h-11 sm:h-12 w-auto block">
+  </a>
+    
+  <a href="#"  class="inline-block transition-transform duration-200 hover:scale-105 active:scale-95 drop-shadow-md rounded-[7px] overflow-hidden" aria-label="Download on the App Store">
+    <img src="./images/app-store-badge.svg" alt="Download on the App Store" class="h-11 sm:h-12 w-auto block">
+  </a>
+  </div>
+          </div>
+        </div>
+
+        <!-- Right: Heavy Equipment Cutout Presentation -->
+        <div class="lg:col-span-5 flex justify-center items-center relative hero-slide-right min-h-[320px] sm:min-h-[380px]">
+          <div class="relative w-full max-w-[460px] flex justify-center items-center">
+            <!-- Subtle Warm Ambient Backdrop Glow -->
+            <div class="absolute inset-0 bg-brand-primary/15 blur-[100px] rounded-full scale-95 translate-y-4 pointer-events-none"></div>
+            
+            <!-- Floating Machinery Image -->
+            <img src="./images/hero_transit_mixer.png" alt="Ready-Mix Transit Mixer Truck" class="relative w-full max-h-[340px] sm:max-h-[390px] object-contain drop-shadow-[0_20px_35px_rgba(0,0,0,0.18)] filter animate-float transition-all duration-500 hover:scale-105" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-slide inactive w-full" data-slide-index="3">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+        <!-- Left: Slide Content & Actions -->
+        <div class="lg:col-span-7 space-y-4 lg:space-y-5 hero-slide-left">
+          <div class="inline-flex items-center space-x-2.5 bg-brand-primary/10 border border-brand-primary/30 rounded-full px-4 py-1.5 shadow-xs">
+            <span class="w-2 h-2 rounded-full bg-brand-primary animate-pulse shrink-0"></span>
+            <span class="text-brand-primary text-xs font-bold tracking-[0.16em] uppercase">Road Construction Fleet</span>
+          </div>
+          <h1 class="font-display text-4xl sm:text-5xl lg:text-[54px] font-black tracking-tight leading-[1.05]">
+            <span class="block text-slate-900">Vibratory Compactors,</span>
+            <span class="block text-slate-900">Built for</span>
+            <span class="block text-brand-primary">Tough Roads.</span>
+          </h1>
+          <p class="text-slate-600 text-base sm:text-lg max-w-xl leading-relaxed">
+            Heavy soil compactors and tandem rollers for uniform road compaction. See fixed rates and hire in minutes on the mobile app.
+          </p>
+          <div class="flex flex-wrap gap-6 pt-1">
+            
+              
+              <div>
+                <div class="hero-stat-value text-2xl sm:text-3xl font-black text-slate-900 tracking-tight" data-value="1,800+">1,800+</div>
+                <div class="text-xs text-slate-500 mt-0.5 font-medium">Compaction Units</div>
+              </div>
+            
+              <div class="w-px bg-slate-200"></div>
+              <div>
+                <div class="hero-stat-value text-2xl sm:text-3xl font-black text-slate-900 tracking-tight" data-value="11.5T">11.5T</div>
+                <div class="text-xs text-slate-500 mt-0.5 font-medium">Dynamic Drum Force</div>
+              </div>
+            
+              <div class="w-px bg-slate-200"></div>
+              <div>
+                <div class="hero-stat-value text-2xl sm:text-3xl font-black text-slate-900 tracking-tight" data-value="2,100mm">2,100mm</div>
+                <div class="text-xs text-slate-500 mt-0.5 font-medium">Drum Width</div>
+              </div>
+            
+          </div>
+          <div class="pt-2">
+            
+  <div class="flex flex-wrap items-center gap-3.5 gap-4">
+    
+  <a href="#"  class="inline-block transition-transform duration-200 hover:scale-105 active:scale-95 drop-shadow-md rounded-[7px] overflow-hidden" aria-label="Get it on Google Play">
+    <img src="./images/google-play-badge.svg" alt="Get it on Google Play" class="h-11 sm:h-12 w-auto block">
+  </a>
+    
+  <a href="#"  class="inline-block transition-transform duration-200 hover:scale-105 active:scale-95 drop-shadow-md rounded-[7px] overflow-hidden" aria-label="Download on the App Store">
+    <img src="./images/app-store-badge.svg" alt="Download on the App Store" class="h-11 sm:h-12 w-auto block">
+  </a>
+  </div>
+          </div>
+        </div>
+
+        <!-- Right: Heavy Equipment Cutout Presentation -->
+        <div class="lg:col-span-5 flex justify-center items-center relative hero-slide-right min-h-[320px] sm:min-h-[380px]">
+          <div class="relative w-full max-w-[460px] flex justify-center items-center">
+            <!-- Subtle Warm Ambient Backdrop Glow -->
+            <div class="absolute inset-0 bg-brand-primary/15 blur-[100px] rounded-full scale-95 translate-y-4 pointer-events-none"></div>
+            
+            <!-- Floating Machinery Image -->
+            <img src="./images/hero_compactor.png" alt="Vibratory Soil Compactor Roller" class="relative w-full max-h-[340px] sm:max-h-[390px] object-contain drop-shadow-[0_20px_35px_rgba(0,0,0,0.18)] filter animate-float transition-all duration-500 hover:scale-105" />
+          </div>
+        </div>
+      </div>
+    </div>
+      </div>
+
+      <!-- Carousel Navigation Controls Bar (Pill dots & arrows, no numbering) -->
+      <div class="flex items-center justify-between pt-8 sm:pt-10 border-t border-slate-200 mt-8">
+        <!-- Slide Indicator Pills -->
+        <div class="flex items-center space-x-2.5" id="hero-carousel-dots">
+          <button class="hero-dot active w-8 h-2 rounded-full bg-brand-primary transition-all duration-300" data-slide="0" aria-label="Slide 1: Earthmoving"></button>
+          <button class="hero-dot w-2.5 h-2 rounded-full bg-slate-200 hover:bg-slate-300 transition-all duration-300" data-slide="1" aria-label="Slide 2: Heavy Lifting"></button>
+          <button class="hero-dot w-2.5 h-2 rounded-full bg-slate-200 hover:bg-slate-300 transition-all duration-300" data-slide="2" aria-label="Slide 3: Transit Mixers"></button>
+          <button class="hero-dot w-2.5 h-2 rounded-full bg-slate-200 hover:bg-slate-300 transition-all duration-300" data-slide="3" aria-label="Slide 4: Roadways"></button>
+        </div>
+
+        <!-- Arrow Controls -->
+        <div class="flex items-center space-x-1.5">
+          <button id="hero-prev-btn" class="w-8 h-8 rounded-lg bg-white border border-slate-200 hover:border-brand-primary flex items-center justify-center text-slate-600 hover:text-slate-900 transition-all shadow-xs" aria-label="Previous Slide">
+            <i data-lucide="chevron-left" class="w-4 h-4"></i>
+          </button>
+          <button id="hero-next-btn" class="w-8 h-8 rounded-lg bg-white border border-slate-200 hover:border-brand-primary flex items-center justify-center text-slate-600 hover:text-slate-900 transition-all shadow-xs" aria-label="Next Slide">
+            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FLEET SECTION (CATEGORIZED GRID LAYOUT) ===== -->
+  <section id="fleet" class="bg-white py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Title & Headline -->
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="inline-block text-brand-primary text-xs font-bold uppercase tracking-[0.22em] mb-2.5">EQUIPMENT FLEET</span>
+        <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+          <span class="block">The Right Machine for</span>
+          <span class="block text-brand-primary pt-[10px]">Every Job</span>
+        </h2>
+        <p class="text-slate-600 mt-3 text-sm sm:text-base leading-relaxed">
+          14 verified machinery types across 4 major industrial categories with guaranteed availability, zero middleman markups, and transparent daily, weekly, and monthly pricing.
+        </p>
+      </div>
+
+      <!-- 4 Value Highlights Row -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+        <div class="fleet-feature-card flex items-center space-x-3.5 bg-slate-50/80 border border-slate-200/90 rounded-2xl p-4 shadow-xs hover:border-slate-300 transition-all">
+          <div class="w-10 h-10 rounded-xl bg-brand-primary/10 flex items-center justify-center text-brand-primary shrink-0">
+            <i data-lucide="shield-check" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <div class="text-slate-900 font-bold text-xs sm:text-sm">Reliable Performance</div>
+            <div class="text-slate-500 text-[11px] mt-0.5">Built for 99% uptime</div>
+          </div>
+        </div>
+
+        <div class="fleet-feature-card flex items-center space-x-3.5 bg-slate-50/80 border border-slate-200/90 rounded-2xl p-4 shadow-xs hover:border-slate-300 transition-all">
+          <div class="w-10 h-10 rounded-xl bg-brand-primary/10 flex items-center justify-center text-brand-primary shrink-0">
+            <i data-lucide="headphones" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <div class="text-slate-900 font-bold text-xs sm:text-sm">24/7 Expert Support</div>
+            <div class="text-slate-500 text-[11px] mt-0.5">On-site &amp; telemetry</div>
+          </div>
+        </div>
+
+        <div class="fleet-feature-card flex items-center space-x-3.5 bg-slate-50/80 border border-slate-200/90 rounded-2xl p-4 shadow-xs hover:border-slate-300 transition-all">
+          <div class="w-10 h-10 rounded-xl bg-brand-primary/10 flex items-center justify-center text-brand-primary shrink-0">
+            <i data-lucide="calendar-clock" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <div class="text-slate-900 font-bold text-xs sm:text-sm">Flexible Rental Terms</div>
+            <div class="text-slate-500 text-[11px] mt-0.5">Daily, weekly, monthly</div>
+          </div>
+        </div>
+
+        <div class="fleet-feature-card flex items-center space-x-3.5 bg-slate-50/80 border border-slate-200/90 rounded-2xl p-4 shadow-xs hover:border-slate-300 transition-all">
+          <div class="w-10 h-10 rounded-xl bg-brand-primary/10 flex items-center justify-center text-brand-primary shrink-0">
+            <i data-lucide="award" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <div class="text-slate-900 font-bold text-xs sm:text-sm">OEM Certified &amp; Insured</div>
+            <div class="text-slate-500 text-[11px] mt-0.5">100% verified documents</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Category Filter Pills Bar -->
+      <div class="flex items-center justify-center gap-2 sm:gap-3 flex-wrap mb-14" id="fleet-category-filter">
+        <button class="fleet-filter-btn active-filter px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all bg-brand-primary text-white shadow-sm shadow-brand-primary/25 cursor-pointer" data-filter="all">
+          All Fleet
+        </button>
+        <button class="fleet-filter-btn px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all bg-slate-100 hover:bg-slate-200 text-slate-700 cursor-pointer" data-filter="cat-01">
+          Earthmoving
+        </button>
+        <button class="fleet-filter-btn px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all bg-slate-100 hover:bg-slate-200 text-slate-700 cursor-pointer" data-filter="cat-02">
+          Transport &amp; Cranes
+        </button>
+        <button class="fleet-filter-btn px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all bg-slate-100 hover:bg-slate-200 text-slate-700 cursor-pointer" data-filter="cat-03">
+          Concrete
+        </button>
+        <button class="fleet-filter-btn px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all bg-slate-100 hover:bg-slate-200 text-slate-700 cursor-pointer" data-filter="cat-04">
+          Road &amp; Power
+        </button>
+      </div>
+
+      <!-- Categorized Equipment Grid -->
+      <div class="space-y-16" id="fleet-grid-container">
+        
+  <div class="category-section-block space-y-6" data-category-id="cat-01">
+    <!-- Category Header Ribbon -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-200">
+      <div class="flex items-center space-x-3.5">
+        <div>
+          <h3 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">Excavators & Earthmoving</h3>
+          <p class="text-xs sm:text-sm text-slate-500 font-medium">Dig Deeper. Move Faster.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Responsive Grid of Equipment Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      
+  <div class="equipment-card bg-white border border-slate-200/90 rounded-2xl p-5 hover:border-brand-primary/40 hover:shadow-xl hover:shadow-brand-primary/5 hover:-translate-y-1 transition-all duration-300 cursor-pointer flex flex-col justify-between group shadow-xs" data-id="mini-excavator">
+    <!-- Machinery Image Stage -->
+    <div class="w-full h-44 sm:h-48 flex items-center justify-center bg-slate-50/80 rounded-xl p-4 mb-4 relative overflow-hidden transition-colors">
+      <img src="./images/mini_excavator.png" alt="Mini Excavator" class="max-h-full max-w-full object-contain filter drop-shadow-md group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+    </div>
+
+    <!-- Content & Specs -->
+    <div class="space-y-2 flex-1 flex flex-col justify-between">
+      <div>
+        <div class="mb-1.5">
+          <span class="inline-block text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-brand-primary/10 text-brand-primary border border-brand-primary/20">Earthmoving</span>
+        </div>
+        <h4 class="text-base sm:text-lg font-bold text-slate-900 group-hover:text-brand-primary transition-colors leading-tight mb-1">
+          Mini Excavator
+        </h4>
+        <p class="text-xs text-slate-500 line-clamp-1">1.8 - 3.5 Tonnes • 24.7 HP</p>
+      </div>
+
+      <!-- Pricing & View Specs Link -->
+      <div class="pt-3 border-t border-slate-100 flex items-center justify-between mt-3">
+        <div>
+          <span class="text-[10px] text-slate-400 block font-medium">Daily Rate</span>
+          <span class="text-base font-extrabold text-brand-primary">₹2,800</span><span class="text-xs text-slate-400 font-normal">/day</span>
+        </div>
+        <span class="text-xs font-bold text-slate-700 group-hover:text-brand-primary flex items-center gap-1 transition-colors">
+          <span>View Specs</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 group-hover:translate-x-0.5 transition-transform"></i>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="equipment-card bg-white border border-slate-200/90 rounded-2xl p-5 hover:border-brand-primary/40 hover:shadow-xl hover:shadow-brand-primary/5 hover:-translate-y-1 transition-all duration-300 cursor-pointer flex flex-col justify-between group shadow-xs" data-id="small-excavator">
+    <!-- Machinery Image Stage -->
+    <div class="w-full h-44 sm:h-48 flex items-center justify-center bg-slate-50/80 rounded-xl p-4 mb-4 relative overflow-hidden transition-colors">
+      <img src="./images/small_excavator.png" alt="Small Excavator" class="max-h-full max-w-full object-contain filter drop-shadow-md group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+    </div>
+
+    <!-- Content & Specs -->
+    <div class="space-y-2 flex-1 flex flex-col justify-between">
+      <div>
+        <div class="mb-1.5">
+          <span class="inline-block text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-brand-primary/10 text-brand-primary border border-brand-primary/20">Earthmoving</span>
+        </div>
+        <h4 class="text-base sm:text-lg font-bold text-slate-900 group-hover:text-brand-primary transition-colors leading-tight mb-1">
+          Small Excavator
+        </h4>
+        <p class="text-xs text-slate-500 line-clamp-1">8.5 Tonnes • 55 HP Turbo</p>
+      </div>
+
+      <!-- Pricing & View Specs Link -->
+      <div class="pt-3 border-t border-slate-100 flex items-center justify-between mt-3">
+        <div>
+          <span class="text-[10px] text-slate-400 block font-medium">Daily Rate</span>
+          <span class="text-base font-extrabold text-brand-primary">₹4,500</span><span class="text-xs text-slate-400 font-normal">/day</span>
+        </div>
+        <span class="text-xs font-bold text-slate-700 group-hover:text-brand-primary flex items-center gap-1 transition-colors">
+          <span>View Specs</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 group-hover:translate-x-0.5 transition-transform"></i>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="equipment-card bg-white border border-slate-200/90 rounded-2xl p-5 hover:border-brand-primary/40 hover:shadow-xl hover:shadow-brand-primary/5 hover:-translate-y-1 transition-all duration-300 cursor-pointer flex flex-col justify-between group shadow-xs" data-id="medium-excavator">
+    <!-- Machinery Image Stage -->
+    <div class="w-full h-44 sm:h-48 flex items-center justify-center bg-slate-50/80 rounded-xl p-4 mb-4 relative overflow-hidden transition-colors">
+      <img src="./images/medium_excavator.png" alt="Medium Excavator" class="max-h-full max-w-full object-contain filter drop-shadow-md group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+    </div>
+
+    <!-- Content & Specs -->
+    <div class="space-y-2 flex-1 flex flex-col justify-between">
+      <div>
+        <div class="mb-1.5">
+          <span class="inline-block text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-brand-primary/10 text-brand-primary border border-brand-primary/20">Earthmoving</span>
+        </div>
+        <h4 class="text-base sm:text-lg font-bold text-slate-900 group-hover:text-brand-primary transition-colors leading-tight mb-1">
+          Medium Excavator
+        </h4>
+        <p class="text-xs text-slate-500 line-clamp-1">21.5 Tonnes • 140 HP CRDi</p>
+      </div>
+
+      <!-- Pricing & View Specs Link -->
+      <div class="pt-3 border-t border-slate-100 flex items-center justify-between mt-3">
+        <div>
+          <span class="text-[10px] text-slate-400 block font-medium">Daily Rate</span>
+          <span class="text-base font-extrabold text-brand-primary">₹7,200</span><span class="text-xs text-slate-400 font-normal">/day</span>
+        </div>
+        <span class="text-xs font-bold text-slate-700 group-hover:text-brand-primary flex items-center gap-1 transition-colors">
+          <span>View Specs</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 group-hover:translate-x-0.5 transition-transform"></i>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="equipment-card bg-white border border-slate-200/90 rounded-2xl p-5 hover:border-brand-primary/40 hover:shadow-xl hover:shadow-brand-primary/5 hover:-translate-y-1 transition-all duration-300 cursor-pointer flex flex-col justify-between group shadow-xs" data-id="backhoe">
+    <!-- Machinery Image Stage -->
+    <div class="w-full h-44 sm:h-48 flex items-center justify-center bg-slate-50/80 rounded-xl p-4 mb-4 relative overflow-hidden transition-colors">
+      <img src="./images/backhoe.png" alt="Backhoe (JCB 3DX)" class="max-h-full max-w-full object-contain filter drop-shadow-md group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+    </div>
+
+    <!-- Content & Specs -->
+    <div class="space-y-2 flex-1 flex flex-col justify-between">
+      <div>
+        <div class="mb-1.5">
+          <span class="inline-block text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-brand-primary/10 text-brand-primary border border-brand-primary/20">Earthmoving</span>
+        </div>
+        <h4 class="text-base sm:text-lg font-bold text-slate-900 group-hover:text-brand-primary transition-colors leading-tight mb-1">
+          Backhoe (JCB 3DX)
+        </h4>
+        <p class="text-xs text-slate-500 line-clamp-1">7.6 Tonnes • 76 HP EcoMAX</p>
+      </div>
+
+      <!-- Pricing & View Specs Link -->
+      <div class="pt-3 border-t border-slate-100 flex items-center justify-between mt-3">
+        <div>
+          <span class="text-[10px] text-slate-400 block font-medium">Daily Rate</span>
+          <span class="text-base font-extrabold text-brand-primary">₹3,200</span><span class="text-xs text-slate-400 font-normal">/day</span>
+        </div>
+        <span class="text-xs font-bold text-slate-700 group-hover:text-brand-primary flex items-center gap-1 transition-colors">
+          <span>View Specs</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 group-hover:translate-x-0.5 transition-transform"></i>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="equipment-card bg-white border border-slate-200/90 rounded-2xl p-5 hover:border-brand-primary/40 hover:shadow-xl hover:shadow-brand-primary/5 hover:-translate-y-1 transition-all duration-300 cursor-pointer flex flex-col justify-between group shadow-xs" data-id="wheel-loader">
+    <!-- Machinery Image Stage -->
+    <div class="w-full h-44 sm:h-48 flex items-center justify-center bg-slate-50/80 rounded-xl p-4 mb-4 relative overflow-hidden transition-colors">
+      <img src="./images/wheel_loader.png" alt="Wheel Loader" class="max-h-full max-w-full object-contain filter drop-shadow-md group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+    </div>
+
+    <!-- Content & Specs -->
+    <div class="space-y-2 flex-1 flex flex-col justify-between">
+      <div>
+        <div class="mb-1.5">
+          <span class="inline-block text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-brand-primary/10 text-brand-primary border border-brand-primary/20">Earthmoving</span>
+        </div>
+        <h4 class="text-base sm:text-lg font-bold text-slate-900 group-hover:text-brand-primary transition-colors leading-tight mb-1">
+          Wheel Loader
+        </h4>
+        <p class="text-xs text-slate-500 line-clamp-1">11.2 Tonnes • 150 HP Turbo</p>
+      </div>
+
+      <!-- Pricing & View Specs Link -->
+      <div class="pt-3 border-t border-slate-100 flex items-center justify-between mt-3">
+        <div>
+          <span class="text-[10px] text-slate-400 block font-medium">Daily Rate</span>
+          <span class="text-base font-extrabold text-brand-primary">₹5,800</span><span class="text-xs text-slate-400 font-normal">/day</span>
+        </div>
+        <span class="text-xs font-bold text-slate-700 group-hover:text-brand-primary flex items-center gap-1 transition-colors">
+          <span>View Specs</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 group-hover:translate-x-0.5 transition-transform"></i>
+        </span>
+      </div>
+    </div>
+  </div>
+    </div>
+  </div>
+
+  <div class="category-section-block space-y-6" data-category-id="cat-02">
+    <!-- Category Header Ribbon -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-200">
+      <div class="flex items-center space-x-3.5">
+        <div>
+          <h3 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">Transport & Heavy Cranes</h3>
+          <p class="text-xs sm:text-sm text-slate-500 font-medium">Move More. Lift Higher.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Responsive Grid of Equipment Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      
+  <div class="equipment-card bg-white border border-slate-200/90 rounded-2xl p-5 hover:border-brand-primary/40 hover:shadow-xl hover:shadow-brand-primary/5 hover:-translate-y-1 transition-all duration-300 cursor-pointer flex flex-col justify-between group shadow-xs" data-id="hydra">
+    <!-- Machinery Image Stage -->
+    <div class="w-full h-44 sm:h-48 flex items-center justify-center bg-slate-50/80 rounded-xl p-4 mb-4 relative overflow-hidden transition-colors">
+      <img src="./images/hydra.png" alt="Hydra Crane" class="max-h-full max-w-full object-contain filter drop-shadow-md group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+    </div>
+
+    <!-- Content & Specs -->
+    <div class="space-y-2 flex-1 flex flex-col justify-between">
+      <div>
+        <div class="mb-1.5">
+          <span class="inline-block text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-brand-primary/10 text-brand-primary border border-brand-primary/20">Transport & Cranes</span>
+        </div>
+        <h4 class="text-base sm:text-lg font-bold text-slate-900 group-hover:text-brand-primary transition-colors leading-tight mb-1">
+          Hydra Crane
+        </h4>
+        <p class="text-xs text-slate-500 line-clamp-1">14 - 15 Tonnes • 10.5m Boom</p>
+      </div>
+
+      <!-- Pricing & View Specs Link -->
+      <div class="pt-3 border-t border-slate-100 flex items-center justify-between mt-3">
+        <div>
+          <span class="text-[10px] text-slate-400 block font-medium">Daily Rate</span>
+          <span class="text-base font-extrabold text-brand-primary">₹3,500</span><span class="text-xs text-slate-400 font-normal">/day</span>
+        </div>
+        <span class="text-xs font-bold text-slate-700 group-hover:text-brand-primary flex items-center gap-1 transition-colors">
+          <span>View Specs</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 group-hover:translate-x-0.5 transition-transform"></i>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="equipment-card bg-white border border-slate-200/90 rounded-2xl p-5 hover:border-brand-primary/40 hover:shadow-xl hover:shadow-brand-primary/5 hover:-translate-y-1 transition-all duration-300 cursor-pointer flex flex-col justify-between group shadow-xs" data-id="tipper">
+    <!-- Machinery Image Stage -->
+    <div class="w-full h-44 sm:h-48 flex items-center justify-center bg-slate-50/80 rounded-xl p-4 mb-4 relative overflow-hidden transition-colors">
+      <img src="./images/tipper.png" alt="Tipper Dump Truck" class="max-h-full max-w-full object-contain filter drop-shadow-md group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+    </div>
+
+    <!-- Content & Specs -->
+    <div class="space-y-2 flex-1 flex flex-col justify-between">
+      <div>
+        <div class="mb-1.5">
+          <span class="inline-block text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-brand-primary/10 text-brand-primary border border-brand-primary/20">Transport & Cranes</span>
+        </div>
+        <h4 class="text-base sm:text-lg font-bold text-slate-900 group-hover:text-brand-primary transition-colors leading-tight mb-1">
+          Tipper Dump Truck
+        </h4>
+        <p class="text-xs text-slate-500 line-clamp-1">16 - 25 Tonnes • 250 HP BS6</p>
+      </div>
+
+      <!-- Pricing & View Specs Link -->
+      <div class="pt-3 border-t border-slate-100 flex items-center justify-between mt-3">
+        <div>
+          <span class="text-[10px] text-slate-400 block font-medium">Daily Rate</span>
+          <span class="text-base font-extrabold text-brand-primary">₹4,000</span><span class="text-xs text-slate-400 font-normal">/day</span>
+        </div>
+        <span class="text-xs font-bold text-slate-700 group-hover:text-brand-primary flex items-center gap-1 transition-colors">
+          <span>View Specs</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 group-hover:translate-x-0.5 transition-transform"></i>
+        </span>
+      </div>
+    </div>
+  </div>
+    </div>
+  </div>
+
+  <div class="category-section-block space-y-6" data-category-id="cat-03">
+    <!-- Category Header Ribbon -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-200">
+      <div class="flex items-center space-x-3.5">
+        <div>
+          <h3 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">Concrete Equipment</h3>
+          <p class="text-xs sm:text-sm text-slate-500 font-medium">For Stronger Foundations.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Responsive Grid of Equipment Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      
+  <div class="equipment-card bg-white border border-slate-200/90 rounded-2xl p-5 hover:border-brand-primary/40 hover:shadow-xl hover:shadow-brand-primary/5 hover:-translate-y-1 transition-all duration-300 cursor-pointer flex flex-col justify-between group shadow-xs" data-id="transit-mixer">
+    <!-- Machinery Image Stage -->
+    <div class="w-full h-44 sm:h-48 flex items-center justify-center bg-slate-50/80 rounded-xl p-4 mb-4 relative overflow-hidden transition-colors">
+      <img src="./images/transit_mixer.png" alt="Transit Mixer" class="max-h-full max-w-full object-contain filter drop-shadow-md group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+    </div>
+
+    <!-- Content & Specs -->
+    <div class="space-y-2 flex-1 flex flex-col justify-between">
+      <div>
+        <div class="mb-1.5">
+          <span class="inline-block text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-brand-primary/10 text-brand-primary border border-brand-primary/20">Concrete</span>
+        </div>
+        <h4 class="text-base sm:text-lg font-bold text-slate-900 group-hover:text-brand-primary transition-colors leading-tight mb-1">
+          Transit Mixer
+        </h4>
+        <p class="text-xs text-slate-500 line-clamp-1">6 - 7 m³ Drum • 75 HP Slave</p>
+      </div>
+
+      <!-- Pricing & View Specs Link -->
+      <div class="pt-3 border-t border-slate-100 flex items-center justify-between mt-3">
+        <div>
+          <span class="text-[10px] text-slate-400 block font-medium">Daily Rate</span>
+          <span class="text-base font-extrabold text-brand-primary">₹4,800</span><span class="text-xs text-slate-400 font-normal">/day</span>
+        </div>
+        <span class="text-xs font-bold text-slate-700 group-hover:text-brand-primary flex items-center gap-1 transition-colors">
+          <span>View Specs</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 group-hover:translate-x-0.5 transition-transform"></i>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="equipment-card bg-white border border-slate-200/90 rounded-2xl p-5 hover:border-brand-primary/40 hover:shadow-xl hover:shadow-brand-primary/5 hover:-translate-y-1 transition-all duration-300 cursor-pointer flex flex-col justify-between group shadow-xs" data-id="self-loading-mixer">
+    <!-- Machinery Image Stage -->
+    <div class="w-full h-44 sm:h-48 flex items-center justify-center bg-slate-50/80 rounded-xl p-4 mb-4 relative overflow-hidden transition-colors">
+      <img src="./images/self_loading_mixer.png" alt="Self-Loading Mixer" class="max-h-full max-w-full object-contain filter drop-shadow-md group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+    </div>
+
+    <!-- Content & Specs -->
+    <div class="space-y-2 flex-1 flex flex-col justify-between">
+      <div>
+        <div class="mb-1.5">
+          <span class="inline-block text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-brand-primary/10 text-brand-primary border border-brand-primary/20">Concrete</span>
+        </div>
+        <h4 class="text-base sm:text-lg font-bold text-slate-900 group-hover:text-brand-primary transition-colors leading-tight mb-1">
+          Self-Loading Mixer
+        </h4>
+        <p class="text-xs text-slate-500 line-clamp-1">4.0 m³ Batch • 300° Swivel</p>
+      </div>
+
+      <!-- Pricing & View Specs Link -->
+      <div class="pt-3 border-t border-slate-100 flex items-center justify-between mt-3">
+        <div>
+          <span class="text-[10px] text-slate-400 block font-medium">Daily Rate</span>
+          <span class="text-base font-extrabold text-brand-primary">₹5,200</span><span class="text-xs text-slate-400 font-normal">/day</span>
+        </div>
+        <span class="text-xs font-bold text-slate-700 group-hover:text-brand-primary flex items-center gap-1 transition-colors">
+          <span>View Specs</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 group-hover:translate-x-0.5 transition-transform"></i>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="equipment-card bg-white border border-slate-200/90 rounded-2xl p-5 hover:border-brand-primary/40 hover:shadow-xl hover:shadow-brand-primary/5 hover:-translate-y-1 transition-all duration-300 cursor-pointer flex flex-col justify-between group shadow-xs" data-id="concrete-pump">
+    <!-- Machinery Image Stage -->
+    <div class="w-full h-44 sm:h-48 flex items-center justify-center bg-slate-50/80 rounded-xl p-4 mb-4 relative overflow-hidden transition-colors">
+      <img src="./images/concrete_pump.png" alt="Concrete Pump" class="max-h-full max-w-full object-contain filter drop-shadow-md group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+    </div>
+
+    <!-- Content & Specs -->
+    <div class="space-y-2 flex-1 flex flex-col justify-between">
+      <div>
+        <div class="mb-1.5">
+          <span class="inline-block text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-brand-primary/10 text-brand-primary border border-brand-primary/20">Concrete</span>
+        </div>
+        <h4 class="text-base sm:text-lg font-bold text-slate-900 group-hover:text-brand-primary transition-colors leading-tight mb-1">
+          Concrete Pump
+        </h4>
+        <p class="text-xs text-slate-500 line-clamp-1">36m RZ Boom • 90-120 m³/hr</p>
+      </div>
+
+      <!-- Pricing & View Specs Link -->
+      <div class="pt-3 border-t border-slate-100 flex items-center justify-between mt-3">
+        <div>
+          <span class="text-[10px] text-slate-400 block font-medium">Daily Rate</span>
+          <span class="text-base font-extrabold text-brand-primary">₹6,500</span><span class="text-xs text-slate-400 font-normal">/day</span>
+        </div>
+        <span class="text-xs font-bold text-slate-700 group-hover:text-brand-primary flex items-center gap-1 transition-colors">
+          <span>View Specs</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 group-hover:translate-x-0.5 transition-transform"></i>
+        </span>
+      </div>
+    </div>
+  </div>
+    </div>
+  </div>
+
+  <div class="category-section-block space-y-6" data-category-id="cat-04">
+    <!-- Category Header Ribbon -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-200">
+      <div class="flex items-center space-x-3.5">
+        <div>
+          <h3 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">Road Construction & Power</h3>
+          <p class="text-xs sm:text-sm text-slate-500 font-medium">Smooth Roads. Uninterrupted Power.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Responsive Grid of Equipment Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      
+  <div class="equipment-card bg-white border border-slate-200/90 rounded-2xl p-5 hover:border-brand-primary/40 hover:shadow-xl hover:shadow-brand-primary/5 hover:-translate-y-1 transition-all duration-300 cursor-pointer flex flex-col justify-between group shadow-xs" data-id="soil-compactor">
+    <!-- Machinery Image Stage -->
+    <div class="w-full h-44 sm:h-48 flex items-center justify-center bg-slate-50/80 rounded-xl p-4 mb-4 relative overflow-hidden transition-colors">
+      <img src="./images/soil_compactor.png" alt="Soil Compactor" class="max-h-full max-w-full object-contain filter drop-shadow-md group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+    </div>
+
+    <!-- Content & Specs -->
+    <div class="space-y-2 flex-1 flex flex-col justify-between">
+      <div>
+        <div class="mb-1.5">
+          <span class="inline-block text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-brand-primary/10 text-brand-primary border border-brand-primary/20">Road & Power</span>
+        </div>
+        <h4 class="text-base sm:text-lg font-bold text-slate-900 group-hover:text-brand-primary transition-colors leading-tight mb-1">
+          Soil Compactor
+        </h4>
+        <p class="text-xs text-slate-500 line-clamp-1">11.5 Tonnes • 2,100mm Drum</p>
+      </div>
+
+      <!-- Pricing & View Specs Link -->
+      <div class="pt-3 border-t border-slate-100 flex items-center justify-between mt-3">
+        <div>
+          <span class="text-[10px] text-slate-400 block font-medium">Daily Rate</span>
+          <span class="text-base font-extrabold text-brand-primary">₹3,800</span><span class="text-xs text-slate-400 font-normal">/day</span>
+        </div>
+        <span class="text-xs font-bold text-slate-700 group-hover:text-brand-primary flex items-center gap-1 transition-colors">
+          <span>View Specs</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 group-hover:translate-x-0.5 transition-transform"></i>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="equipment-card bg-white border border-slate-200/90 rounded-2xl p-5 hover:border-brand-primary/40 hover:shadow-xl hover:shadow-brand-primary/5 hover:-translate-y-1 transition-all duration-300 cursor-pointer flex flex-col justify-between group shadow-xs" data-id="tandem-roller">
+    <!-- Machinery Image Stage -->
+    <div class="w-full h-44 sm:h-48 flex items-center justify-center bg-slate-50/80 rounded-xl p-4 mb-4 relative overflow-hidden transition-colors">
+      <img src="./images/tandem_roller.png" alt="Tandem Roller" class="max-h-full max-w-full object-contain filter drop-shadow-md group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+    </div>
+
+    <!-- Content & Specs -->
+    <div class="space-y-2 flex-1 flex flex-col justify-between">
+      <div>
+        <div class="mb-1.5">
+          <span class="inline-block text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-brand-primary/10 text-brand-primary border border-brand-primary/20">Road & Power</span>
+        </div>
+        <h4 class="text-base sm:text-lg font-bold text-slate-900 group-hover:text-brand-primary transition-colors leading-tight mb-1">
+          Tandem Roller
+        </h4>
+        <p class="text-xs text-slate-500 line-clamp-1">3.0 - 9.0 Tonnes • Dual Drum</p>
+      </div>
+
+      <!-- Pricing & View Specs Link -->
+      <div class="pt-3 border-t border-slate-100 flex items-center justify-between mt-3">
+        <div>
+          <span class="text-[10px] text-slate-400 block font-medium">Daily Rate</span>
+          <span class="text-base font-extrabold text-brand-primary">₹3,200</span><span class="text-xs text-slate-400 font-normal">/day</span>
+        </div>
+        <span class="text-xs font-bold text-slate-700 group-hover:text-brand-primary flex items-center gap-1 transition-colors">
+          <span>View Specs</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 group-hover:translate-x-0.5 transition-transform"></i>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="equipment-card bg-white border border-slate-200/90 rounded-2xl p-5 hover:border-brand-primary/40 hover:shadow-xl hover:shadow-brand-primary/5 hover:-translate-y-1 transition-all duration-300 cursor-pointer flex flex-col justify-between group shadow-xs" data-id="pneumatic-roller">
+    <!-- Machinery Image Stage -->
+    <div class="w-full h-44 sm:h-48 flex items-center justify-center bg-slate-50/80 rounded-xl p-4 mb-4 relative overflow-hidden transition-colors">
+      <img src="./images/pneumatic_roller.png" alt="Pneumatic Roller" class="max-h-full max-w-full object-contain filter drop-shadow-md group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+    </div>
+
+    <!-- Content & Specs -->
+    <div class="space-y-2 flex-1 flex flex-col justify-between">
+      <div>
+        <div class="mb-1.5">
+          <span class="inline-block text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-brand-primary/10 text-brand-primary border border-brand-primary/20">Road & Power</span>
+        </div>
+        <h4 class="text-base sm:text-lg font-bold text-slate-900 group-hover:text-brand-primary transition-colors leading-tight mb-1">
+          Pneumatic Roller
+        </h4>
+        <p class="text-xs text-slate-500 line-clamp-1">14 - 24 Tonnes • 8 Wheels</p>
+      </div>
+
+      <!-- Pricing & View Specs Link -->
+      <div class="pt-3 border-t border-slate-100 flex items-center justify-between mt-3">
+        <div>
+          <span class="text-[10px] text-slate-400 block font-medium">Daily Rate</span>
+          <span class="text-base font-extrabold text-brand-primary">₹4,200</span><span class="text-xs text-slate-400 font-normal">/day</span>
+        </div>
+        <span class="text-xs font-bold text-slate-700 group-hover:text-brand-primary flex items-center gap-1 transition-colors">
+          <span>View Specs</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 group-hover:translate-x-0.5 transition-transform"></i>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="equipment-card bg-white border border-slate-200/90 rounded-2xl p-5 hover:border-brand-primary/40 hover:shadow-xl hover:shadow-brand-primary/5 hover:-translate-y-1 transition-all duration-300 cursor-pointer flex flex-col justify-between group shadow-xs" data-id="generator">
+    <!-- Machinery Image Stage -->
+    <div class="w-full h-44 sm:h-48 flex items-center justify-center bg-slate-50/80 rounded-xl p-4 mb-4 relative overflow-hidden transition-colors">
+      <img src="./images/generator.png" alt="Generator (125 kVA)" class="max-h-full max-w-full object-contain filter drop-shadow-md group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+    </div>
+
+    <!-- Content & Specs -->
+    <div class="space-y-2 flex-1 flex flex-col justify-between">
+      <div>
+        <div class="mb-1.5">
+          <span class="inline-block text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-brand-primary/10 text-brand-primary border border-brand-primary/20">Road & Power</span>
+        </div>
+        <h4 class="text-base sm:text-lg font-bold text-slate-900 group-hover:text-brand-primary transition-colors leading-tight mb-1">
+          Generator (125 kVA)
+        </h4>
+        <p class="text-xs text-slate-500 line-clamp-1">125 kVA Canopy • &lt; 75 dBA</p>
+      </div>
+
+      <!-- Pricing & View Specs Link -->
+      <div class="pt-3 border-t border-slate-100 flex items-center justify-between mt-3">
+        <div>
+          <span class="text-[10px] text-slate-400 block font-medium">Daily Rate</span>
+          <span class="text-base font-extrabold text-brand-primary">₹2,500</span><span class="text-xs text-slate-400 font-normal">/day</span>
+        </div>
+        <span class="text-xs font-bold text-slate-700 group-hover:text-brand-primary flex items-center gap-1 transition-colors">
+          <span>View Specs</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 group-hover:translate-x-0.5 transition-transform"></i>
+        </span>
+      </div>
+    </div>
+  </div>
+    </div>
+  </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== ECOSYSTEM SECTION (IMAGE 1 SECTION: KEPT INTACT) ===== -->
+  <section id="ecosystem" class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14 eco-header">
+        <span class="inline-block text-brand-primary text-xs font-bold uppercase tracking-[0.22em] mb-3">The Ecosystem</span>
+        <h2 class="font-display text-4xl sm:text-5xl font-black text-slate-900 tracking-tight">One Marketplace. <span class="text-brand-primary">Three Different Roles.</span></h2>
+        <p class="text-slate-600 mt-4 text-base max-w-xl mx-auto">Whether you are a Customer, Machine Owner, or Operator &mdash; BookMyEquipment is built for you.</p>
+      </div>
+      
+      <!-- Role Tab Switcher Bar -->
+      <div class="flex justify-center mb-12">
+        <div class="inline-flex bg-white border border-slate-200/90 rounded-2xl p-1.5 shadow-sm">
+          <button id="tab-customer" data-tab="customer" class="tab-btn tab-btn--active px-6 py-2.5 rounded-xl text-sm font-bold transition-all duration-300">Customer</button>
+          <button id="tab-owner"    data-tab="owner"    class="tab-btn px-6 py-2.5 rounded-xl text-sm font-bold text-slate-600 hover:text-slate-900 transition-all duration-300">Owner</button>
+          <button id="tab-operator" data-tab="operator" class="tab-btn px-6 py-2.5 rounded-xl text-sm font-bold text-slate-600 hover:text-slate-900 transition-all duration-300">Operator</button>
+        </div>
+      </div>
+
+      <!-- Dedicated Role Showcase Cards (Image 1 Style) -->
+      
+        <div id="panel-customer" class="tab-panel grid bg-gradient-to-br from-orange-50/95 via-white to-amber-50/40 border-2 border-orange-200/90 rounded-3xl p-6 sm:p-8 lg:p-12 shadow-xl shadow-orange-500/5 grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center transition-all duration-300">
+          <div class="space-y-6">
+            <div class="inline-flex items-center space-x-2 bg-orange-500/10 border border-orange-500/30 rounded-full px-3.5 py-1">
+              <span class="w-2 h-2 rounded-full bg-orange-600"></span>
+              <span class="text-orange-600 text-xs font-bold uppercase tracking-wider">For Contractors & Hirers</span>
+            </div>
+            <h3 class="font-display text-3xl sm:text-4xl font-black text-slate-900 leading-tight">Rent verified heavy machinery on the app with <span class="text-brand-primary">zero hidden fees.</span></h3>
+            <ul class="space-y-3">
+              <li class="ecosystem-feature"><i data-lucide="check-circle-2" class="w-5 h-5 text-orange-600 shrink-0"></i><span class="text-slate-700 font-medium">Find verified machines near your site in 2 minutes</span></li>
+              <li class="ecosystem-feature"><i data-lucide="check-circle-2" class="w-5 h-5 text-orange-600 shrink-0"></i><span class="text-slate-700 font-medium">Zero down payment — pay only for active working hours</span></li>
+              <li class="ecosystem-feature"><i data-lucide="check-circle-2" class="w-5 h-5 text-orange-600 shrink-0"></i><span class="text-slate-700 font-medium">Experienced certified operator included with every machine</span></li>
+              <li class="ecosystem-feature"><i data-lucide="check-circle-2" class="w-5 h-5 text-orange-600 shrink-0"></i><span class="text-slate-700 font-medium">3-hour mechanic arrival guarantee if repairs are needed</span></li>
+              <li class="ecosystem-feature"><i data-lucide="check-circle-2" class="w-5 h-5 text-orange-600 shrink-0"></i><span class="text-slate-700 font-medium">Track machine delivery live on your phone</span></li>
+              <li class="ecosystem-feature"><i data-lucide="check-circle-2" class="w-5 h-5 text-orange-600 shrink-0"></i><span class="text-slate-700 font-medium">Full GST commercial tax invoice for every rental</span></li>
+            </ul>
+            <div class="pt-3">
+              
+  <div class="flex flex-wrap items-center gap-3.5 ">
+    
+  <a href="#"  class="inline-block transition-transform duration-200 hover:scale-105 active:scale-95 drop-shadow-md rounded-[7px] overflow-hidden" aria-label="Get it on Google Play">
+    <img src="./images/google-play-badge.svg" alt="Get it on Google Play" class="h-11 w-auto block">
+  </a>
+    
+  <a href="#"  class="inline-block transition-transform duration-200 hover:scale-105 active:scale-95 drop-shadow-md rounded-[7px] overflow-hidden" aria-label="Download on the App Store">
+    <img src="./images/app-store-badge.svg" alt="Download on the App Store" class="h-11 w-auto block">
+  </a>
+  </div>
+            </div>
+          </div>
+          <div class="flex justify-center items-center">
+            <div class="relative w-full max-w-[380px] flex justify-center">
+              <div class="absolute inset-0 bg-orange-500/20 blur-[90px] rounded-full scale-95 translate-y-6"></div>
+              <img src="./images/hero_phone_mockup.png" alt="Customer app showing map with excavators" class="relative w-full max-w-[340px] lg:max-w-[380px] mx-auto rounded-3xl animate-float drop-shadow-2xl" style="animation-duration:7s;">
+            </div>
+          </div>
+        </div>
+      
+        <div id="panel-owner" class="tab-panel hidden bg-gradient-to-br from-amber-50/95 via-white to-orange-50/40 border-2 border-amber-200/90 rounded-3xl p-6 sm:p-8 lg:p-12 shadow-xl shadow-amber-500/5 grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center transition-all duration-300">
+          <div class="space-y-6 lg:order-2">
+            <div class="inline-flex items-center space-x-2 bg-amber-500/10 border border-amber-500/30 rounded-full px-3.5 py-1">
+              <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+              <span class="text-amber-600 text-xs font-bold uppercase tracking-wider">For Machine & Fleet Owners</span>
+            </div>
+            <h3 class="font-display text-3xl sm:text-4xl font-black text-slate-900 leading-tight">Keep your machines working 20+ days a month with <span class="text-amber-500">0% broker cuts.</span></h3>
+            <ul class="space-y-3">
+              <li class="ecosystem-feature"><i data-lucide="check-circle-2" class="w-5 h-5 text-amber-600 shrink-0"></i><span class="text-slate-700 font-medium">0% broker commission — keep 100% of your rental rate</span></li>
+              <li class="ecosystem-feature"><i data-lucide="check-circle-2" class="w-5 h-5 text-amber-600 shrink-0"></i><span class="text-slate-700 font-medium">Guaranteed weekly payouts deposited to your bank every Monday</span></li>
+              <li class="ecosystem-feature"><i data-lucide="check-circle-2" class="w-5 h-5 text-amber-600 shrink-0"></i><span class="text-slate-700 font-medium">Free live GPS tracking & remote engine cutoff on phone</span></li>
+              <li class="ecosystem-feature"><i data-lucide="check-circle-2" class="w-5 h-5 text-amber-600 shrink-0"></i><span class="text-slate-700 font-medium">Verified contractors and safe digital deposits upfront</span></li>
+              <li class="ecosystem-feature"><i data-lucide="check-circle-2" class="w-5 h-5 text-amber-600 shrink-0"></i><span class="text-slate-700 font-medium">Set your own rental rates and calendar availability</span></li>
+              <li class="ecosystem-feature"><i data-lucide="check-circle-2" class="w-5 h-5 text-amber-600 shrink-0"></i><span class="text-slate-700 font-medium">Automated GST-ready invoices for every booking</span></li>
+            </ul>
+            <div class="pt-3">
+              
+  <div class="flex flex-wrap items-center gap-3.5 ">
+    
+  <a href="#"  class="inline-block transition-transform duration-200 hover:scale-105 active:scale-95 drop-shadow-md rounded-[7px] overflow-hidden" aria-label="Get it on Google Play">
+    <img src="./images/google-play-badge.svg" alt="Get it on Google Play" class="h-11 w-auto block">
+  </a>
+    
+  <a href="#"  class="inline-block transition-transform duration-200 hover:scale-105 active:scale-95 drop-shadow-md rounded-[7px] overflow-hidden" aria-label="Download on the App Store">
+    <img src="./images/app-store-badge.svg" alt="Download on the App Store" class="h-11 w-auto block">
+  </a>
+  </div>
+            </div>
+          </div>
+          <div class="flex justify-center items-center lg:order-1">
+            <div class="relative w-full max-w-[380px] flex justify-center">
+              <div class="absolute inset-0 bg-amber-500/25 blur-[90px] rounded-full scale-95 translate-y-6"></div>
+              <img src="./images/idle.png" alt="Fleet owner idle machine and utilization dashboard" class="relative w-full max-w-[340px] lg:max-w-[380px] mx-auto rounded-3xl animate-float drop-shadow-2xl" style="animation-duration:8.5s;animation-delay:1s;">
+            </div>
+          </div>
+        </div>
+      
+        <div id="panel-operator" class="tab-panel hidden bg-gradient-to-br from-teal-50/95 via-white to-emerald-50/40 border-2 border-teal-200/90 rounded-3xl p-6 sm:p-8 lg:p-12 shadow-xl shadow-teal-500/5 grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center transition-all duration-300">
+          <div class="space-y-6">
+            <div class="inline-flex items-center space-x-2 bg-teal-600/10 border border-teal-600/30 rounded-full px-3.5 py-1">
+              <span class="w-2 h-2 rounded-full bg-teal-600"></span>
+              <span class="text-teal-600 text-xs font-bold uppercase tracking-wider">For Heavy Machine Operators</span>
+            </div>
+            <h3 class="font-display text-3xl sm:text-4xl font-black text-slate-900 leading-tight">Get steady construction site jobs with <span class="text-teal-600">no middleman cuts.</span></h3>
+            <ul class="space-y-3">
+              <li class="ecosystem-feature"><i data-lucide="check-circle-2" class="w-5 h-5 text-teal-600 shrink-0"></i><span class="text-slate-700 font-medium">Steady monthly site jobs with verified contractors</span></li>
+              <li class="ecosystem-feature"><i data-lucide="check-circle-2" class="w-5 h-5 text-teal-600 shrink-0"></i><span class="text-slate-700 font-medium">On-time salary transferred to your bank on 1st & 16th</span></li>
+              <li class="ecosystem-feature"><i data-lucide="check-circle-2" class="w-5 h-5 text-teal-600 shrink-0"></i><span class="text-slate-700 font-medium">Fixed 8-hour duty shifts with paid overtime</span></li>
+              <li class="ecosystem-feature"><i data-lucide="check-circle-2" class="w-5 h-5 text-teal-600 shrink-0"></i><span class="text-slate-700 font-medium">Free ₹5,00,000 accident and hospitalization insurance</span></li>
+              <li class="ecosystem-feature"><i data-lucide="check-circle-2" class="w-5 h-5 text-teal-600 shrink-0"></i><span class="text-slate-700 font-medium">Digital work record and verified experience badge on phone</span></li>
+              <li class="ecosystem-feature"><i data-lucide="check-circle-2" class="w-5 h-5 text-teal-600 shrink-0"></i><span class="text-slate-700 font-medium">No thekedar or contractor commission deductions</span></li>
+            </ul>
+            <div class="pt-3">
+              
+  <div class="flex flex-wrap items-center gap-3.5 ">
+    
+  <a href="#"  class="inline-block transition-transform duration-200 hover:scale-105 active:scale-95 drop-shadow-md rounded-[7px] overflow-hidden" aria-label="Get it on Google Play">
+    <img src="./images/google-play-badge.svg" alt="Get it on Google Play" class="h-11 w-auto block">
+  </a>
+    
+  <a href="#"  class="inline-block transition-transform duration-200 hover:scale-105 active:scale-95 drop-shadow-md rounded-[7px] overflow-hidden" aria-label="Download on the App Store">
+    <img src="./images/app-store-badge.svg" alt="Download on the App Store" class="h-11 w-auto block">
+  </a>
+  </div>
+            </div>
+          </div>
+          <div class="flex justify-center items-center">
+            <div class="relative w-full max-w-[380px] flex justify-center">
+              <div class="absolute inset-0 bg-teal-600/25 blur-[90px] rounded-full scale-95 translate-y-6"></div>
+              <img src="./images/earnings.png" alt="Operator earnings and payout records dashboard" class="relative w-full max-w-[340px] lg:max-w-[380px] mx-auto rounded-3xl animate-float drop-shadow-2xl" style="animation-duration:10s;animation-delay:2s;">
+            </div>
+          </div>
+        </div>
+    </div>
+  </section>
+
+  <!-- ===== TRUST & COMPLIANCE SECTION ===== -->
+  <section id="trust" class="relative py-24 overflow-hidden bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div class="space-y-7 trust-left">
+          <div class="inline-flex items-center space-x-2 bg-emerald-500/10 border border-emerald-500/25 rounded-full px-3.5 py-1">
+            <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-600"></i>
+            <span class="text-emerald-700 text-xs font-bold uppercase tracking-wider">Trust &amp; Compliance</span>
+          </div>
+          <h2 class="font-display text-4xl sm:text-5xl font-black text-slate-900 leading-tight tracking-tight">Built on Reliability<br/>and <span class="text-brand-primary">Compliance</span></h2>
+          <p class="text-slate-600 text-lg leading-relaxed max-w-lg">Every user on our platform undergoes strict digital verification. From Aadhar and Driving License checks for operators to comprehensive RC, PUC, Fitness, and Insurance validation for fleet owners, we ensure your site operates <strong class="text-slate-900">safely and legally</strong>.</p>
+          
+          <!-- 4 Trust Pillars -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+            <div class="trust-pillar border border-slate-200/90 bg-white rounded-2xl p-4 flex items-center space-x-3.5 shadow-xs hover:border-brand-primary/30 transition-all">
+              <div class="w-9 h-9 rounded-xl bg-brand-primary/10 flex items-center justify-center text-brand-primary shrink-0">
+                <i data-lucide="fingerprint" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <div class="text-slate-900 font-bold text-sm">Aadhar Verified</div>
+                <div class="text-slate-500 text-xs mt-0.5">All operators ID-verified digitally</div>
+              </div>
+            </div>
+
+            <div class="trust-pillar border border-slate-200/90 bg-white rounded-2xl p-4 flex items-center space-x-3.5 shadow-xs hover:border-brand-primary/30 transition-all">
+              <div class="w-9 h-9 rounded-xl bg-brand-primary/10 flex items-center justify-center text-brand-primary shrink-0">
+                <i data-lucide="car" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <div class="text-slate-900 font-bold text-sm">RC, PUC &amp; Driving License Checked</div>
+                <div class="text-slate-500 text-xs mt-0.5">Every machine &amp; operator document validated</div>
+              </div>
+            </div>
+
+            <div class="trust-pillar border border-slate-200/90 bg-white rounded-2xl p-4 flex items-center space-x-3.5 shadow-xs hover:border-brand-primary/30 transition-all">
+              <div class="w-9 h-9 rounded-xl bg-brand-primary/10 flex items-center justify-center text-brand-primary shrink-0">
+                <i data-lucide="file-badge" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <div class="text-slate-900 font-bold text-sm">Insurance Validated</div>
+                <div class="text-slate-500 text-xs mt-0.5">Active insurance for every booking</div>
+              </div>
+            </div>
+
+            <div class="trust-pillar border border-slate-200/90 bg-white rounded-2xl p-4 flex items-center space-x-3.5 shadow-xs hover:border-brand-primary/30 transition-all">
+              <div class="w-9 h-9 rounded-xl bg-brand-primary/10 flex items-center justify-center text-brand-primary shrink-0">
+                <i data-lucide="indian-rupee" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <div class="text-slate-900 font-bold text-sm">GST Compliant</div>
+                <div class="text-slate-500 text-xs mt-0.5">Every transaction fully GST-ready</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side: Orbit Visualization & Stats -->
+        <div class="flex justify-center trust-right">
+          <div class="relative w-full max-w-sm">
+            <div class="flex items-center justify-center">
+              
+              <!-- Circular Layout Wrapper with Ambient Orange Glow -->
+              <div class="relative w-64 h-64 sm:w-72 sm:h-72 flex items-center justify-center trust-orbit-container">
+                
+                <!-- Ambient Orange Glow Backdrop -->
+                <div class="absolute inset-0 bg-gradient-to-tr from-orange-400/25 via-amber-400/20 to-orange-500/20 rounded-full blur-2xl pointer-events-none"></div>
+
+                <!-- Outer Rotating Dashed Track with Orbiting Badges -->
+                <div class="trust-orbit-track">
+                  <!-- Top Badge (Fingerprint KYC) -->
+                  <div class="trust-orbit-node" style="top: -21px; left: calc(50% - 21px);">
+                    <div class="trust-orbit-badge" title="100% KYC Verified"><i data-lucide="fingerprint" class="w-5 h-5 text-brand-primary"></i></div>
+                  </div>
+                  <!-- Right Badge (Document Check) -->
+                  <div class="trust-orbit-node" style="top: calc(50% - 21px); right: -21px;">
+                    <div class="trust-orbit-badge" title="RC &amp; Insurance Checked"><i data-lucide="file-check" class="w-5 h-5 text-brand-primary"></i></div>
+                  </div>
+                  <!-- Bottom Badge (Certified Badge) -->
+                  <div class="trust-orbit-node" style="bottom: -21px; left: calc(50% - 21px);">
+                    <div class="trust-orbit-badge" title="Certified Machine Fitness"><i data-lucide="badge-check" class="w-5 h-5 text-brand-primary"></i></div>
+                  </div>
+                  <!-- Left Badge (Escrow Lock) -->
+                  <div class="trust-orbit-node" style="top: calc(50% - 21px); left: -21px;">
+                    <div class="trust-orbit-badge" title="Escrow Security"><i data-lucide="lock" class="w-5 h-5 text-brand-primary"></i></div>
+                  </div>
+                </div>
+
+                <!-- Inner Counter-Rotating Orbit Ring -->
+                <div class="trust-orbit-track-inner"></div>
+
+                <!-- Pulsing Aura Behind Shield -->
+                <div class="absolute w-32 h-32 sm:w-36 sm:h-36 rounded-full bg-brand-primary/15 animate-ping pointer-events-none" style="animation-duration: 3.5s;"></div>
+
+                <!-- Center Shield Emblem with Rich Orange Gradient & Shading -->
+                <div class="relative z-10 w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-gradient-to-tr from-orange-600 via-brand-primary to-amber-500 flex items-center justify-center shadow-2xl shadow-brand-primary/45 ring-4 ring-orange-200/90 ring-offset-4 ring-offset-white text-white transition-transform hover:scale-105 duration-300">
+                  <i data-lucide="shield-check" class="w-12 h-12 sm:w-14 sm:h-14 drop-shadow-md"></i>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Stat Badges (All with brand orange numbers) -->
+            <div class="grid grid-cols-3 gap-2 sm:gap-3 mt-8">
+              <div class="trust-stat-card text-center bg-white border border-slate-200/80 rounded-xl px-2 py-2.5 sm:p-3 shadow-xs hover:border-brand-primary/40 transition-all hover:shadow-sm">
+                <div class="text-brand-primary font-black text-lg sm:text-xl">100%</div>
+                <div class="text-slate-500 text-[9px] sm:text-[10px] font-semibold mt-0.5 leading-tight">KYC Verified</div>
+              </div>
+              <div class="trust-stat-card text-center bg-white border border-slate-200/80 rounded-xl px-2 py-2.5 sm:p-3 shadow-xs hover:border-brand-primary/40 transition-all hover:shadow-sm">
+                <div class="text-brand-primary font-black text-lg sm:text-xl">&#8377;0</div>
+                <div class="text-slate-500 text-[9px] sm:text-[10px] font-semibold mt-0.5 leading-tight">Hidden Fees</div>
+              </div>
+              <div class="trust-stat-card text-center bg-white border border-slate-200/80 rounded-xl px-2 py-2.5 sm:p-3 shadow-xs hover:border-brand-primary/40 transition-all hover:shadow-sm">
+                <div class="text-brand-primary font-black text-lg sm:text-xl">24/7</div>
+                <div class="text-slate-500 text-[9px] sm:text-[10px] font-semibold mt-0.5 leading-tight">Support</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== OUR SERVICES & LOCATIONS SECTION ===== -->
+  <section id="services-section" class="py-20 sm:py-28 bg-slate-50/70 scroll-mt-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+      
+      <!-- Part 1: Section Header -->
+      <div class="text-center max-w-3xl mx-auto space-y-3">
+        <div class="inline-flex items-center space-x-2 bg-orange-500/10 border border-orange-500/20 text-brand-primary rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider">
+          <span class="w-2 h-2 rounded-full bg-brand-primary animate-pulse"></span>
+          <span>Our Services</span>
+        </div>
+        <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+          Comprehensive Solutions for<br class="hidden sm:inline" /> Heavy Construction
+        </h2>
+        <p class="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
+          From on-demand machinery hire and certified operators to fleet telematics and rapid field support.
+        </p>
+      </div>
+
+      <!-- Part 2: Square Service Cards in Continuous Horizontal Auto-Scrolling Marquee -->
+      <div class="services-marquee-wrapper">
+        <div class="services-marquee-track">
+          
+          <!-- Card 1: Equipment Rental (Vibrant Solid Orange) -->
+          <a href="/customer" class="service-square-card bg-gradient-to-br from-[#EA580C] via-[#F97316] to-[#C2410C] text-white group">
+            <div class="absolute -right-8 -bottom-8 w-40 h-40 bg-white/10 rounded-full blur-2xl pointer-events-none group-hover:scale-125 transition-transform duration-500"></div>
+            <div class="flex items-center justify-between relative z-10">
+              <span class="inline-flex items-center space-x-1.5 px-3.5 py-1.5 rounded-full bg-black/25 backdrop-blur-md text-white text-xs font-black uppercase tracking-wider border border-white/30 shadow-xs">
+                <i data-lucide="truck" class="w-3.5 h-3.5"></i>
+                <span>Equipment Rental</span>
+              </span>
+              <span class="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center text-white/90 group-hover:bg-white group-hover:text-slate-900 group-hover:scale-110 transition-all duration-300 shadow-sm">
+                <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+              </span>
+            </div>
+            <div class="relative z-10 my-auto py-2">
+              <h3 class="font-display text-xl sm:text-2xl font-black text-white leading-tight tracking-tight drop-shadow-xs">
+                On-Demand Machinery Hire
+              </h3>
+              <p class="text-xs sm:text-sm font-semibold text-white/95 leading-relaxed drop-shadow-xs mt-3">
+                Book verified JCBs, excavators, cranes &amp; rollers in 3 taps with ₹0 down payment and 100% legal paperwork.
+              </p>
+            </div>
+            <div class="flex items-center space-x-2 text-xs font-extrabold text-white/90 uppercase tracking-wider relative z-10">
+              <span>Learn More</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-1.5 transition-transform duration-200"></i>
+            </div>
+          </a>
+
+          <!-- Card 2: Certified Operators (Deep Jewel Teal) -->
+          <a href="/operator" class="service-square-card bg-gradient-to-br from-[#0D9488] via-[#0F766E] to-[#115E59] text-white group">
+            <div class="absolute -right-8 -bottom-8 w-40 h-40 bg-white/10 rounded-full blur-2xl pointer-events-none group-hover:scale-125 transition-transform duration-500"></div>
+            <div class="flex items-center justify-between relative z-10">
+              <span class="inline-flex items-center space-x-1.5 px-3.5 py-1.5 rounded-full bg-black/25 backdrop-blur-md text-white text-xs font-black uppercase tracking-wider border border-white/30 shadow-xs">
+                <i data-lucide="hard-hat" class="w-3.5 h-3.5"></i>
+                <span>Skilled Crew</span>
+              </span>
+              <span class="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center text-white/90 group-hover:bg-white group-hover:text-slate-900 group-hover:scale-110 transition-all duration-300 shadow-sm">
+                <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+              </span>
+            </div>
+            <div class="relative z-10 my-auto py-2">
+              <h3 class="font-display text-xl sm:text-2xl font-black text-white leading-tight tracking-tight drop-shadow-xs">
+                Certified Machine Operators
+              </h3>
+              <p class="text-xs sm:text-sm font-semibold text-white/95 leading-relaxed drop-shadow-xs mt-3">
+                Licensed operators with verified commercial driving licenses, background checks, and minimum 3 years site experience.
+              </p>
+            </div>
+            <div class="flex items-center space-x-2 text-xs font-extrabold text-white/90 uppercase tracking-wider relative z-10">
+              <span>Learn More</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-1.5 transition-transform duration-200"></i>
+            </div>
+          </a>
+
+          <!-- Card 3: Fleet Owner Solutions (Radiant Warm Amber) -->
+          <a href="/owner" class="service-square-card bg-gradient-to-br from-[#D97706] via-[#F59E0B] to-[#B45309] text-white group">
+            <div class="absolute -right-8 -bottom-8 w-40 h-40 bg-white/10 rounded-full blur-2xl pointer-events-none group-hover:scale-125 transition-transform duration-500"></div>
+            <div class="flex items-center justify-between relative z-10">
+              <span class="inline-flex items-center space-x-1.5 px-3.5 py-1.5 rounded-full bg-black/25 backdrop-blur-md text-white text-xs font-black uppercase tracking-wider border border-white/30 shadow-xs">
+                <i data-lucide="wallet" class="w-3.5 h-3.5"></i>
+                <span>Fleet Owners</span>
+              </span>
+              <span class="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center text-white/90 group-hover:bg-white group-hover:text-slate-900 group-hover:scale-110 transition-all duration-300 shadow-sm">
+                <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+              </span>
+            </div>
+            <div class="relative z-10 my-auto py-2">
+              <h3 class="font-display text-xl sm:text-2xl font-black text-white leading-tight tracking-tight drop-shadow-xs">
+                Fleet Monetization &amp; Listing
+              </h3>
+              <p class="text-xs sm:text-sm font-semibold text-white/95 leading-relaxed drop-shadow-xs mt-3">
+                Keep 100% of your rate with 0% broker cuts, achieve 20+ active monthly work days, and receive guaranteed Monday payouts.
+              </p>
+            </div>
+            <div class="flex items-center space-x-2 text-xs font-extrabold text-white/90 uppercase tracking-wider relative z-10">
+              <span>Learn More</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-1.5 transition-transform duration-200"></i>
+            </div>
+          </a>
+
+          <!-- Card 4: Field Mechanics & 3h SLA (Royal Cobalt Blue) -->
+          <a href="/contact" class="service-square-card bg-gradient-to-br from-[#2563EB] via-[#1D4ED8] to-[#1E40AF] text-white group">
+            <div class="absolute -right-8 -bottom-8 w-40 h-40 bg-white/10 rounded-full blur-2xl pointer-events-none group-hover:scale-125 transition-transform duration-500"></div>
+            <div class="flex items-center justify-between relative z-10">
+              <span class="inline-flex items-center space-x-1.5 px-3.5 py-1.5 rounded-full bg-black/25 backdrop-blur-md text-white text-xs font-black uppercase tracking-wider border border-white/30 shadow-xs">
+                <i data-lucide="wrench" class="w-3.5 h-3.5"></i>
+                <span>3-Hour SLA</span>
+              </span>
+              <span class="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center text-white/90 group-hover:bg-white group-hover:text-slate-900 group-hover:scale-110 transition-all duration-300 shadow-sm">
+                <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+              </span>
+            </div>
+            <div class="relative z-10 my-auto py-2">
+              <h3 class="font-display text-xl sm:text-2xl font-black text-white leading-tight tracking-tight drop-shadow-xs">
+                On-Site Maintenance &amp; Repair
+              </h3>
+              <p class="text-xs sm:text-sm font-semibold text-white/95 leading-relaxed drop-shadow-xs mt-3">
+                Mobile emergency service vans arrive within 3 hours. Free standby machine replacement if site repairs require more time.
+              </p>
+            </div>
+            <div class="flex items-center space-x-2 text-xs font-extrabold text-white/90 uppercase tracking-wider relative z-10">
+              <span>Learn More</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-1.5 transition-transform duration-200"></i>
+            </div>
+          </a>
+
+          <!-- Card 5: Real-Time Telematics & GPS (Rich Royal Purple) -->
+          <a href="/customer#download-app-section" class="service-square-card bg-gradient-to-br from-[#7C3AED] via-[#6D28D9] to-[#5B21B6] text-white group">
+            <div class="absolute -right-8 -bottom-8 w-40 h-40 bg-white/10 rounded-full blur-2xl pointer-events-none group-hover:scale-125 transition-transform duration-500"></div>
+            <div class="flex items-center justify-between relative z-10">
+              <span class="inline-flex items-center space-x-1.5 px-3.5 py-1.5 rounded-full bg-black/25 backdrop-blur-md text-white text-xs font-black uppercase tracking-wider border border-white/30 shadow-xs">
+                <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
+                <span>Live Telemetry</span>
+              </span>
+              <span class="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center text-white/90 group-hover:bg-white group-hover:text-slate-900 group-hover:scale-110 transition-all duration-300 shadow-sm">
+                <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+              </span>
+            </div>
+            <div class="relative z-10 my-auto py-2">
+              <h3 class="font-display text-xl sm:text-2xl font-black text-white leading-tight tracking-tight drop-shadow-xs">
+                GPS Tracking &amp; Engine Control
+              </h3>
+              <p class="text-xs sm:text-sm font-semibold text-white/95 leading-relaxed drop-shadow-xs mt-3">
+                Live mobile telemetry tracking machine transit, daily engine run-hours, diesel burn, and remote immobilizer security.
+              </p>
+            </div>
+            <div class="flex items-center space-x-2 text-xs font-extrabold text-white/90 uppercase tracking-wider relative z-10">
+              <span>Learn More</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-1.5 transition-transform duration-200"></i>
+            </div>
+          </a>
+
+          <!-- ================= DUPLICATE SET FOR SEAMLESS CONTINUOUS LOOP ================= -->
+          <!-- Card 1 Duplicate -->
+          <a href="/customer" class="service-square-card bg-gradient-to-br from-[#EA580C] via-[#F97316] to-[#C2410C] text-white group" aria-hidden="true" tabindex="-1">
+            <div class="absolute -right-8 -bottom-8 w-40 h-40 bg-white/10 rounded-full blur-2xl pointer-events-none group-hover:scale-125 transition-transform duration-500"></div>
+            <div class="flex items-center justify-between relative z-10">
+              <span class="inline-flex items-center space-x-1.5 px-3.5 py-1.5 rounded-full bg-black/25 backdrop-blur-md text-white text-xs font-black uppercase tracking-wider border border-white/30 shadow-xs">
+                <i data-lucide="truck" class="w-3.5 h-3.5"></i>
+                <span>Equipment Rental</span>
+              </span>
+              <span class="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center text-white/90 group-hover:bg-white group-hover:text-slate-900 group-hover:scale-110 transition-all duration-300 shadow-sm">
+                <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+              </span>
+            </div>
+            <div class="relative z-10 my-auto py-2">
+              <h3 class="font-display text-xl sm:text-2xl font-black text-white leading-tight tracking-tight drop-shadow-xs">
+                On-Demand Machinery Hire
+              </h3>
+              <p class="text-xs sm:text-sm font-semibold text-white/95 leading-relaxed drop-shadow-xs mt-3">
+                Book verified JCBs, excavators, cranes &amp; rollers in 3 taps with ₹0 down payment and 100% legal paperwork.
+              </p>
+            </div>
+            <div class="flex items-center space-x-2 text-xs font-extrabold text-white/90 uppercase tracking-wider relative z-10">
+              <span>Learn More</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-1.5 transition-transform duration-200"></i>
+            </div>
+          </a>
+
+          <!-- Card 2 Duplicate -->
+          <a href="/operator" class="service-square-card bg-gradient-to-br from-[#0D9488] via-[#0F766E] to-[#115E59] text-white group" aria-hidden="true" tabindex="-1">
+            <div class="absolute -right-8 -bottom-8 w-40 h-40 bg-white/10 rounded-full blur-2xl pointer-events-none group-hover:scale-125 transition-transform duration-500"></div>
+            <div class="flex items-center justify-between relative z-10">
+              <span class="inline-flex items-center space-x-1.5 px-3.5 py-1.5 rounded-full bg-black/25 backdrop-blur-md text-white text-xs font-black uppercase tracking-wider border border-white/30 shadow-xs">
+                <i data-lucide="hard-hat" class="w-3.5 h-3.5"></i>
+                <span>Skilled Crew</span>
+              </span>
+              <span class="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center text-white/90 group-hover:bg-white group-hover:text-slate-900 group-hover:scale-110 transition-all duration-300 shadow-sm">
+                <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+              </span>
+            </div>
+            <div class="relative z-10 my-auto py-2">
+              <h3 class="font-display text-xl sm:text-2xl font-black text-white leading-tight tracking-tight drop-shadow-xs">
+                Certified Machine Operators
+              </h3>
+              <p class="text-xs sm:text-sm font-semibold text-white/95 leading-relaxed drop-shadow-xs mt-3">
+                Licensed operators with verified commercial driving licenses, background checks, and minimum 3 years site experience.
+              </p>
+            </div>
+            <div class="flex items-center space-x-2 text-xs font-extrabold text-white/90 uppercase tracking-wider relative z-10">
+              <span>Learn More</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-1.5 transition-transform duration-200"></i>
+            </div>
+          </a>
+
+          <!-- Card 3 Duplicate -->
+          <a href="/owner" class="service-square-card bg-gradient-to-br from-[#D97706] via-[#F59E0B] to-[#B45309] text-white group" aria-hidden="true" tabindex="-1">
+            <div class="absolute -right-8 -bottom-8 w-40 h-40 bg-white/10 rounded-full blur-2xl pointer-events-none group-hover:scale-125 transition-transform duration-500"></div>
+            <div class="flex items-center justify-between relative z-10">
+              <span class="inline-flex items-center space-x-1.5 px-3.5 py-1.5 rounded-full bg-black/25 backdrop-blur-md text-white text-xs font-black uppercase tracking-wider border border-white/30 shadow-xs">
+                <i data-lucide="wallet" class="w-3.5 h-3.5"></i>
+                <span>Fleet Owners</span>
+              </span>
+              <span class="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center text-white/90 group-hover:bg-white group-hover:text-slate-900 group-hover:scale-110 transition-all duration-300 shadow-sm">
+                <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+              </span>
+            </div>
+            <div class="relative z-10 my-auto py-2">
+              <h3 class="font-display text-xl sm:text-2xl font-black text-white leading-tight tracking-tight drop-shadow-xs">
+                Fleet Monetization &amp; Listing
+              </h3>
+              <p class="text-xs sm:text-sm font-semibold text-white/95 leading-relaxed drop-shadow-xs mt-3">
+                Keep 100% of your rate with 0% broker cuts, achieve 20+ active monthly work days, and receive guaranteed Monday payouts.
+              </p>
+            </div>
+            <div class="flex items-center space-x-2 text-xs font-extrabold text-white/90 uppercase tracking-wider relative z-10">
+              <span>Learn More</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-1.5 transition-transform duration-200"></i>
+            </div>
+          </a>
+
+          <!-- Card 4 Duplicate -->
+          <a href="/contact" class="service-square-card bg-gradient-to-br from-[#2563EB] via-[#1D4ED8] to-[#1E40AF] text-white group" aria-hidden="true" tabindex="-1">
+            <div class="absolute -right-8 -bottom-8 w-40 h-40 bg-white/10 rounded-full blur-2xl pointer-events-none group-hover:scale-125 transition-transform duration-500"></div>
+            <div class="flex items-center justify-between relative z-10">
+              <span class="inline-flex items-center space-x-1.5 px-3.5 py-1.5 rounded-full bg-black/25 backdrop-blur-md text-white text-xs font-black uppercase tracking-wider border border-white/30 shadow-xs">
+                <i data-lucide="wrench" class="w-3.5 h-3.5"></i>
+                <span>3-Hour SLA</span>
+              </span>
+              <span class="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center text-white/90 group-hover:bg-white group-hover:text-slate-900 group-hover:scale-110 transition-all duration-300 shadow-sm">
+                <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+              </span>
+            </div>
+            <div class="relative z-10 my-auto py-2">
+              <h3 class="font-display text-xl sm:text-2xl font-black text-white leading-tight tracking-tight drop-shadow-xs">
+                On-Site Maintenance &amp; Repair
+              </h3>
+              <p class="text-xs sm:text-sm font-semibold text-white/95 leading-relaxed drop-shadow-xs mt-3">
+                Mobile emergency service vans arrive within 3 hours. Free standby machine replacement if site repairs require more time.
+              </p>
+            </div>
+            <div class="flex items-center space-x-2 text-xs font-extrabold text-white/90 uppercase tracking-wider relative z-10">
+              <span>Learn More</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-1.5 transition-transform duration-200"></i>
+            </div>
+          </a>
+
+          <!-- Card 5 Duplicate -->
+          <a href="/customer#download-app-section" class="service-square-card bg-gradient-to-br from-[#7C3AED] via-[#6D28D9] to-[#5B21B6] text-white group" aria-hidden="true" tabindex="-1">
+            <div class="absolute -right-8 -bottom-8 w-40 h-40 bg-white/10 rounded-full blur-2xl pointer-events-none group-hover:scale-125 transition-transform duration-500"></div>
+            <div class="flex items-center justify-between relative z-10">
+              <span class="inline-flex items-center space-x-1.5 px-3.5 py-1.5 rounded-full bg-black/25 backdrop-blur-md text-white text-xs font-black uppercase tracking-wider border border-white/30 shadow-xs">
+                <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
+                <span>Live Telemetry</span>
+              </span>
+              <span class="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center text-white/90 group-hover:bg-white group-hover:text-slate-900 group-hover:scale-110 transition-all duration-300 shadow-sm">
+                <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+              </span>
+            </div>
+            <div class="relative z-10 my-auto py-2">
+              <h3 class="font-display text-xl sm:text-2xl font-black text-white leading-tight tracking-tight drop-shadow-xs">
+                GPS Tracking &amp; Engine Control
+              </h3>
+              <p class="text-xs sm:text-sm font-semibold text-white/95 leading-relaxed drop-shadow-xs mt-3">
+                Live mobile telemetry tracking machine transit, daily engine run-hours, diesel burn, and remote immobilizer security.
+              </p>
+            </div>
+            <div class="flex items-center space-x-2 text-xs font-extrabold text-white/90 uppercase tracking-wider relative z-10">
+              <span>Learn More</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-1.5 transition-transform duration-200"></i>
+            </div>
+          </a>
+
+        </div>
+      </div>
+
+      <!-- Part 3: Operational Service Locations (Currently Hyderabad, Later Chennai, Amaravati, Mumbai, Bangalore) -->
+      <div class="pt-10 border-t border-slate-200">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+          <div class="space-y-2 max-w-xl">
+            <div class="inline-flex items-center space-x-2 bg-emerald-500/10 border border-emerald-500/20 text-emerald-700 rounded-full px-3.5 py-1 text-xs font-bold uppercase tracking-wider">
+              <i data-lucide="map-pin" class="w-3.5 h-3.5 text-emerald-600"></i>
+              <span>Operational Coverage</span>
+            </div>
+            <h3 class="font-display text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
+              Where We Deliver Heavy Machinery
+            </h3>
+            <p class="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
+              Currently powering construction sites with live dispatch across Greater Hyderabad, expanding rapidly to premier infrastructure hubs across India.
+            </p>
+          </div>
+          <div class="flex items-center space-x-3 text-xs font-bold shrink-0">
+            <span class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
+              <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+              <span>Currently Live</span>
+            </span>
+            <span class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-full bg-slate-100 text-slate-600 border border-slate-200">
+              <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+              <span>Expanding Next</span>
+            </span>
+          </div>
+        </div>
+
+        <!-- 2-Part Locations Grid: 1 Hero Live Hub (Hyderabad) + 4 Upcoming Cities -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+          
+          <!-- Hero Live Hub: Hyderabad (5 Cols) -->
+          <div class="lg:col-span-5 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 text-white rounded-3xl p-7 sm:p-8 shadow-xl border border-slate-800/90 flex flex-col justify-between relative overflow-hidden group">
+            <div class="absolute -right-12 -bottom-12 w-52 h-52 bg-orange-500/20 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -left-12 -top-12 w-52 h-52 bg-emerald-500/15 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="space-y-5 relative z-10">
+              <div class="flex items-center justify-between">
+                <span class="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-xs font-black uppercase tracking-wider">
+                  <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                  <span>Currently Live &amp; Active</span>
+                </span>
+                <span class="text-xs font-bold text-slate-400">Headquarters Hub</span>
+              </div>
+
+              <div>
+                <h4 class="font-display text-3xl font-black text-white tracking-tight flex items-center space-x-2">
+                  <span>Hyderabad</span>
+                  <i data-lucide="check-circle-2" class="w-6 h-6 text-emerald-400 shrink-0"></i>
+                </h4>
+                <p class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
+                  Full guaranteed fleet coverage across Hitec City, ORR Corridor, Shamshabad, Patancheru, Medchal, and Gachibowli industrial zones.
+                </p>
+              </div>
+
+              <!-- Quick Metrics in Hyderabad -->
+              <div class="grid grid-cols-3 gap-2.5 pt-3 border-t border-slate-800/80 text-center">
+                <div class="p-3 rounded-2xl bg-slate-800/60 border border-slate-700/60">
+                  <div class="text-brand-primary font-black text-lg">&lt; 3 Hours</div>
+                  <div class="text-[10px] text-slate-400 uppercase font-bold mt-0.5">Site Delivery</div>
+                </div>
+                <div class="p-3 rounded-2xl bg-slate-800/60 border border-slate-700/60">
+                  <div class="text-brand-primary font-black text-lg">150+</div>
+                  <div class="text-[10px] text-slate-400 uppercase font-bold mt-0.5">Fleet Yards</div>
+                </div>
+                <div class="p-3 rounded-2xl bg-slate-800/60 border border-slate-700/60">
+                  <div class="text-brand-primary font-black text-lg">24/7</div>
+                  <div class="text-[10px] text-slate-400 uppercase font-bold mt-0.5">Live Dispatch</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Expanding Cities: Chennai, Amaravati, Mumbai, Bangalore (7 Cols) -->
+          <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            
+            <!-- City 1: Bengaluru -->
+            <div class="bg-white border border-slate-200/90 rounded-2xl p-5 hover:border-brand-primary/40 hover:shadow-xs transition-all flex flex-col justify-between space-y-3 group">
+              <div class="flex items-start justify-between">
+                <div>
+                  <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400 block">Karnataka</span>
+                  <h5 class="font-display text-xl font-black text-slate-900 group-hover:text-brand-primary transition-colors">Bangalore</h5>
+                </div>
+                <span class="inline-flex items-center space-x-1 px-2.5 py-0.5 rounded-full bg-amber-50 text-amber-700 border border-amber-200 text-[10px] font-extrabold">
+                  <i data-lucide="clock" class="w-3 h-3"></i>
+                  <span>Launching Next</span>
+                </span>
+              </div>
+              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                Metro rail phases, STRR expressway networks, industrial logistics parks &amp; commercial zones.
+              </p>
+              <div class="text-xs font-semibold text-slate-500 flex items-center space-x-1.5 pt-2 border-t border-slate-100">
+                <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-600 shrink-0"></i>
+                <span>Pre-onboarding fleet owners &amp; operators</span>
+              </div>
+            </div>
+
+            <!-- City 2: Chennai -->
+            <div class="bg-white border border-slate-200/90 rounded-2xl p-5 hover:border-brand-primary/40 hover:shadow-xs transition-all flex flex-col justify-between space-y-3 group">
+              <div class="flex items-start justify-between">
+                <div>
+                  <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400 block">Tamil Nadu</span>
+                  <h5 class="font-display text-xl font-black text-slate-900 group-hover:text-brand-primary transition-colors">Chennai</h5>
+                </div>
+                <span class="inline-flex items-center space-x-1 px-2.5 py-0.5 rounded-full bg-amber-50 text-amber-700 border border-amber-200 text-[10px] font-extrabold">
+                  <i data-lucide="clock" class="w-3 h-3"></i>
+                  <span>Launching Next</span>
+                </span>
+              </div>
+              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                Port connectivity corridors, automotive manufacturing belts, and metro phase-2 civil sites.
+              </p>
+              <div class="text-xs font-semibold text-slate-500 flex items-center space-x-1.5 pt-2 border-t border-slate-100">
+                <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-600 shrink-0"></i>
+                <span>Pre-onboarding fleet owners &amp; operators</span>
+              </div>
+            </div>
+
+            <!-- City 3: Amaravati -->
+            <div class="bg-white border border-slate-200/90 rounded-2xl p-5 hover:border-brand-primary/40 hover:shadow-xs transition-all flex flex-col justify-between space-y-3 group">
+              <div class="flex items-start justify-between">
+                <div>
+                  <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400 block">Andhra Pradesh</span>
+                  <h5 class="font-display text-xl font-black text-slate-900 group-hover:text-brand-primary transition-colors">Amaravati</h5>
+                </div>
+                <span class="inline-flex items-center space-x-1 px-2.5 py-0.5 rounded-full bg-amber-50 text-amber-700 border border-amber-200 text-[10px] font-extrabold">
+                  <i data-lucide="clock" class="w-3 h-3"></i>
+                  <span>Launching Next</span>
+                </span>
+              </div>
+              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                Capital region infrastructure, government complex zones, highways, and riverfront projects.
+              </p>
+              <div class="text-xs font-semibold text-slate-500 flex items-center space-x-1.5 pt-2 border-t border-slate-100">
+                <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-600 shrink-0"></i>
+                <span>Pre-onboarding fleet owners &amp; operators</span>
+              </div>
+            </div>
+
+            <!-- City 4: Mumbai & MMR -->
+            <div class="bg-white border border-slate-200/90 rounded-2xl p-5 hover:border-brand-primary/40 hover:shadow-xs transition-all flex flex-col justify-between space-y-3 group">
+              <div class="flex items-start justify-between">
+                <div>
+                  <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400 block">Maharashtra</span>
+                  <h5 class="font-display text-xl font-black text-slate-900 group-hover:text-brand-primary transition-colors">Mumbai &amp; MMR</h5>
+                </div>
+                <span class="inline-flex items-center space-x-1 px-2.5 py-0.5 rounded-full bg-amber-50 text-amber-700 border border-amber-200 text-[10px] font-extrabold">
+                  <i data-lucide="clock" class="w-3 h-3"></i>
+                  <span>Launching Next</span>
+                </span>
+              </div>
+              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                Coastal road corridors, Navi Mumbai airport zone, trans-harbour links, and civil works.
+              </p>
+              <div class="text-xs font-semibold text-slate-500 flex items-center space-x-1.5 pt-2 border-t border-slate-100">
+                <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-600 shrink-0"></i>
+                <span>Pre-onboarding fleet owners &amp; operators</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== READY TO TRANSFORM CTA BANNER ===== -->
+  <section class="py-20 relative overflow-hidden bg-gradient-to-r from-orange-500 via-orange-600 to-amber-500 text-white">
+    <div class="absolute inset-0 pointer-events-none opacity-20" aria-hidden="true" style="background-image:radial-gradient(circle at 50% 50%, white 1px, transparent 1px);background-size:24px 24px;"></div>
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      <div class="inline-flex items-center space-x-2 bg-white/20 border border-white/30 backdrop-blur-md rounded-full px-4 py-1.5 mb-6">
+        <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+        <span class="text-white text-xs font-bold uppercase tracking-wider">Zero Middleman • Zero Subscription</span>
+      </div>
+      <h2 class="font-display text-4xl sm:text-5xl font-black text-white tracking-tight leading-tight mb-4">
+        Ready to transform your<br />construction operations?
+      </h2>
+      <p class="text-orange-100 text-base sm:text-lg max-w-xl mx-auto mb-8 font-normal">
+        Join 12,000+ contractors, fleet owners, and certified operators already renting on BookMyEquipment.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+        <a href="#fleet" class="inline-flex items-center justify-center space-x-2 bg-white hover:bg-orange-50 text-brand-primary font-black text-sm uppercase tracking-wider px-8 py-4 rounded-xl transition-all shadow-xl shadow-black/15 hover:-translate-y-0.5">
+          <span>Explore 5,000+ Machines</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+        <button onclick="openQuoteModal('General Inquiry')" class="inline-flex items-center justify-center space-x-2 bg-black/15 hover:bg-black/25 text-white font-bold text-sm px-8 py-4 rounded-xl border border-white/40 transition-all hover:-translate-y-0.5 backdrop-blur-sm cursor-pointer">
+          <span>Request Custom Quotation</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer id="footer-section" class="bg-slate-50 text-slate-600 border-t border-slate-200 pt-16 pb-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10">
+        <div class="lg:col-span-4 space-y-4">
+          <div class="flex items-center space-x-2.5">
+            <div class="bg-brand-primary px-3 py-1.5 rounded-[4px] shadow-sm">
+              <span class="text-white font-black text-xl tracking-wider" style="font-family:'Poppins',Impact,sans-serif;">BME</span>
+            </div>
+            <div class="border-l border-slate-300 pl-3">
+              <span class="text-[9px] tracking-[0.22em] text-brand-primary uppercase font-bold">Heavy Equipment</span>
+              <div class="text-sm font-bold text-slate-900 tracking-tight">BookMyEquipment</div>
+            </div>
+          </div>
+          <p class="text-slate-600 text-sm max-w-sm leading-relaxed">
+            India&#39;s #1 B2B heavy equipment rental and listing platform. Zero middlemen. Complete transparency for every stakeholder.
+          </p>
+        </div>
+        <div class="lg:col-span-2">
+          <h4 class="text-brand-primary font-bold text-xs uppercase tracking-wider mb-4">Company</h4>
+          <ul class="space-y-2.5">
+            <li><a href="/about" class="footer-link">About Us</a></li>
+            <li><a href="#" class="footer-link">How It Works</a></li>
+            <li><a href="#" class="footer-link">Careers</a></li>
+            <li><a href="#" class="footer-link">Press &amp; Media</a></li>
+            <li><a href="#" class="footer-link">Blog</a></li>
+            <li><a href="#" class="footer-link">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="lg:col-span-2">
+          <h4 class="text-brand-primary font-bold text-xs uppercase tracking-wider mb-4">Legal</h4>
+          <ul class="space-y-2.5">
+            <li><a href="#" class="footer-link">Fleet Guidelines</a></li>
+            <li><a href="#" class="footer-link">Operator Rules</a></li>
+            <li><a href="#" class="footer-link">Privacy Policy</a></li>
+            <li><a href="#" class="footer-link">Terms &amp; Conditions</a></li>
+            <li><a href="#" class="footer-link">Refund Policy</a></li>
+            <li><a href="#" class="footer-link">GST &amp; Invoicing Guide</a></li>
+          </ul>
+        </div>
+        <div class="lg:col-span-4 space-y-3.5">
+          <h4 class="text-brand-primary font-bold text-xs uppercase tracking-wider">Get the App</h4>
+          <p class="text-slate-600 text-xs leading-relaxed">Available on iOS and Android. Free to download, transparent pricing.</p>
+          
+          <!-- For Customers -->
+          <div class="space-y-1.5 pt-1">
+            <span class="inline-block text-[11px] font-bold text-brand-primary uppercase tracking-wider">For Customers</span>
+            <div class="flex flex-wrap items-center gap-2.5">
+              
+  <a href="#"  class="inline-block transition-transform duration-200 hover:scale-105 active:scale-95 drop-shadow-md rounded-[7px] overflow-hidden" aria-label="Get it on Google Play">
+    <img src="./images/google-play-badge.svg" alt="Get it on Google Play" class="h-9 w-auto block">
+  </a>
+              
+  <a href="#"  class="inline-block transition-transform duration-200 hover:scale-105 active:scale-95 drop-shadow-md rounded-[7px] overflow-hidden" aria-label="Download on the App Store">
+    <img src="./images/app-store-badge.svg" alt="Download on the App Store" class="h-9 w-auto block">
+  </a>
+            </div>
+          </div>
+
+          <!-- For Partners -->
+          <div class="space-y-1.5 pt-1">
+            <span class="inline-block text-[11px] font-bold text-amber-600 uppercase tracking-wider">For Fleet Owners &amp; Operators</span>
+            <div class="flex flex-wrap items-center gap-2.5">
+              
+  <a href="#"  class="inline-block transition-transform duration-200 hover:scale-105 active:scale-95 drop-shadow-md rounded-[7px] overflow-hidden" aria-label="Get it on Google Play">
+    <img src="./images/google-play-badge.svg" alt="Get it on Google Play" class="h-9 w-auto block">
+  </a>
+              
+  <a href="#"  class="inline-block transition-transform duration-200 hover:scale-105 active:scale-95 drop-shadow-md rounded-[7px] overflow-hidden" aria-label="Download on the App Store">
+    <img src="./images/app-store-badge.svg" alt="Download on the App Store" class="h-9 w-auto block">
+  </a>
+            </div>
+          </div>
+
+          <div class="text-xs text-slate-600 space-y-1.5 pt-2 border-t border-slate-200">
+            <div class="flex items-center space-x-1.5"><i data-lucide="mail" class="w-3.5 h-3.5 text-brand-primary"></i><a href="mailto:hello@bookmyequipment.in" class="hover:text-brand-primary transition-colors">hello@bookmyequipment.in</a></div>
+            <div class="flex items-center space-x-1.5"><i data-lucide="phone" class="w-3.5 h-3.5 text-brand-primary"></i><a href="tel:+918000000000" class="hover:text-brand-primary transition-colors">+91 80000 00000</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-slate-200 pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+      <div>&copy; 2026 BookMyEquipment. All rights reserved. Made with <span class="text-red-500">&hearts;</span> in India.</div>
+      <div class="flex items-center space-x-6">
+        <span class="flex items-center space-x-1.5"><i data-lucide="shield-check" class="w-4 h-4 text-emerald-600"></i><span class="text-slate-700 font-medium">SSL 256-bit Encrypted</span></span>
+        <span class="text-slate-300">&bull;</span>
+        <span class="text-slate-700 font-medium">GST Registered</span>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ===== EQUIPMENT DETAILS / TECHNICAL SPECS MODAL ===== -->
+  <div id="equipment-modal" class="fixed inset-0 z-50 hidden bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="relative w-full max-w-3xl bg-white border border-slate-200 rounded-3xl shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+      <button id="modal-close-btn" aria-label="Close modal" class="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center transition-colors">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+      <div class="p-6 sm:p-8 space-y-6 max-h-[90vh] overflow-y-auto">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center">
+          <div class="bg-slate-50 rounded-2xl p-4 flex items-center justify-center h-48 sm:h-56 border border-slate-200 shadow-inner">
+            <img id="modal-eq-image" src="" alt="Equipment preview" class="max-h-full max-w-full object-contain" />
+          </div>
+          <div class="space-y-3">
+            <span id="modal-eq-category" class="inline-block text-[11px] font-bold text-white bg-brand-primary px-2.5 py-0.5 rounded uppercase tracking-wider"></span>
+            <h3 id="modal-eq-title" class="text-2xl sm:text-3xl font-black text-slate-900 leading-tight"></h3>
+            <p id="modal-eq-tagline" class="text-sm text-slate-600"></p>
+            <div class="pt-2">
+              <div class="text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1">Estimated Rental Rates (Approx.)</div>
+              <div class="grid grid-cols-3 gap-2 bg-slate-50 p-2.5 rounded-xl border border-slate-200 text-center">
+                <div>
+                  <div class="text-[10px] text-slate-500">Daily</div>
+                  <div id="modal-eq-daily" class="font-bold text-sm text-brand-primary"></div>
+                </div>
+                <div>
+                  <div class="text-[10px] text-slate-500">Weekly</div>
+                  <div id="modal-eq-weekly" class="font-bold text-sm text-slate-700"></div>
+                </div>
+                <div>
+                  <div class="text-[10px] text-slate-500">Monthly</div>
+                  <div id="modal-eq-monthly" class="font-bold text-sm text-slate-700"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Key Technical Specifications</h4>
+          <div id="modal-eq-specs" class="space-y-2"></div>
+        </div>
+
+        <!-- Rental Cost Estimator (Matching Owner Style in Image 1) -->
+        <div class="pt-5 border-t border-slate-200 space-y-3">
+          
+          <!-- Controls: Equipment Dropdown + Duration Dropdown + Calculate Button -->
+          <div class="bg-slate-50/90 border border-slate-200 rounded-2xl p-3.5 sm:p-4">
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-3 items-end">
+              <!-- Equipment Select -->
+              <div class="sm:col-span-5">
+                <label for="modal-calc-equipment" class="block text-[11px] font-bold uppercase tracking-wider text-slate-700 mb-1">
+                  Equipment Model
+                </label>
+                <div class="relative flex items-center">
+                  <span class="absolute left-3 text-slate-400 pointer-events-none">
+                    <i data-lucide="truck" class="w-4 h-4"></i>
+                  </span>
+                  <select id="modal-calc-equipment" class="w-full pl-9 pr-8 py-2.5 bg-white border border-slate-300 rounded-xl text-xs sm:text-sm font-semibold text-slate-900 focus:outline-none focus:ring-2 focus:ring-brand-primary cursor-pointer appearance-none">
+                    <option value="mini-excavator">Mini Excavator (1.8 - 3.5T)</option>
+                    <option value="small-excavator">Small Excavator (8.5T)</option>
+                    <option value="medium-excavator">Medium Excavator (21.5T)</option>
+                    <option value="backhoe">Backhoe (JCB 3DX)</option>
+                    <option value="wheel-loader">Wheel Loader (11.2T)</option>
+                    <option value="hydra">Hydra Crane (14 - 15T)</option>
+                    <option value="tipper">Tipper Dump Truck (16 - 25T)</option>
+                    <option value="transit-mixer">Transit Mixer (6 - 7 m³)</option>
+                    <option value="self-loading-mixer">Self-Loading Mixer (4.0 m³)</option>
+                    <option value="concrete-pump">Concrete Pump (36m)</option>
+                    <option value="soil-compactor">Soil Compactor (11.5T)</option>
+                    <option value="tandem-roller">Tandem Roller (3.0 - 9.0T)</option>
+                    <option value="pneumatic-roller">Pneumatic Roller (14 - 24T)</option>
+                    <option value="generator">Generator (125 kVA)</option>
+                  </select>
+                  <span class="absolute right-3 text-slate-400 pointer-events-none">
+                    <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                  </span>
+                </div>
+              </div>
+
+              <!-- Duration Select -->
+              <div class="sm:col-span-4">
+                <label for="modal-calc-duration" class="block text-[11px] font-bold uppercase tracking-wider text-slate-700 mb-1">
+                  Project Duration
+                </label>
+                <div class="relative flex items-center">
+                  <span class="absolute left-3 text-slate-400 pointer-events-none">
+                    <i data-lucide="calendar" class="w-4 h-4"></i>
+                  </span>
+                  <select id="modal-calc-duration" class="w-full pl-9 pr-8 py-2.5 bg-white border border-slate-300 rounded-xl text-xs sm:text-sm font-semibold text-slate-900 focus:outline-none focus:ring-2 focus:ring-brand-primary cursor-pointer appearance-none">
+                    <option value="1">1 Month</option>
+                    <option value="3" selected>3 Months</option>
+                    <option value="6">6 Months</option>
+                    <option value="12">12 Months</option>
+                  </select>
+                  <span class="absolute right-3 text-slate-400 pointer-events-none">
+                    <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                  </span>
+                </div>
+              </div>
+
+              <!-- Calculate Button -->
+              <div class="sm:col-span-3">
+                <button type="button" id="modal-calc-btn" class="w-full py-2.5 px-4 bg-brand-primary hover:bg-orange-600 text-white font-extrabold text-xs sm:text-sm rounded-xl transition-all shadow-xs cursor-pointer flex items-center justify-center">
+                  <span>Calculate</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Clean Result Display Box (Matching Image 1) -->
+          <div id="modal-calc-results" class="pt-1 animate-in fade-in duration-200">
+            <div class="text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-1.5">
+              Total Estimated Rental Outlay (Approx.)
+            </div>
+            <div class="bg-emerald-50/90 border-2 border-emerald-300/80 rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-center justify-between gap-3 shadow-2xs">
+              <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center shrink-0 shadow-xs">
+                  <i data-lucide="indian-rupee" class="w-5 h-5 stroke-[2.5]"></i>
+                </div>
+                <div>
+                  <span class="text-xs font-bold text-emerald-800 uppercase tracking-wide block">
+                    <span>Estimated Rental Cost</span> (<span id="modal-calc-duration-badge">3 Months Hire</span>)
+                  </span>
+                  <div class="flex items-baseline space-x-2 mt-0.5">
+                    <span id="modal-calc-rent-total" class="font-display text-2xl sm:text-3xl font-black text-emerald-950 tracking-tight">
+                      Approx. ₹ 2,10,000
+                    </span>
+                    <span id="modal-calc-rent-monthly" class="text-xs sm:text-sm font-semibold text-emerald-700">
+                      (~Approx. ₹ 70,000 / month)
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-emerald-200/80 text-emerald-900 text-xs font-bold shrink-0">
+                <i data-lucide="check" class="w-3.5 h-3.5 stroke-[3]"></i>
+                <span>Direct Site Dispatch</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        </div>
+
+        <!-- App-First Booking Prompt (Placed AFTER Estimator) -->
+        <div class="pt-4 border-t border-slate-200">
+          <div class="bg-orange-50 border border-orange-200 rounded-2xl p-3.5 flex flex-col sm:flex-row items-center justify-between gap-3">
+            <div class="flex items-center space-x-2.5">
+              <div class="w-8 h-8 rounded-lg bg-brand-primary text-white flex items-center justify-center shrink-0">
+                <i data-lucide="smartphone" class="w-4 h-4"></i>
+              </div>
+              <div>
+                <div class="text-xs font-bold text-slate-900">Book via BookMyEquipment App</div>
+                <div class="text-[11px] text-slate-500">Live GPS tracking, verified driver &amp; delivery in 2-4 hours.</div>
+              </div>
+            </div>
+            <a href="#footer-section" onclick="document.getElementById('equipment-modal').classList.add('hidden')" class="px-4 py-2 rounded-xl bg-brand-primary hover:bg-orange-600 text-white font-extrabold text-xs whitespace-nowrap shadow-xs transition-all">
+              Download App
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ===== CUSTOM QUOTE MODAL ===== -->
+  <div id="quote-modal" class="fixed inset-0 z-50 hidden bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white border border-slate-200 rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl relative animate-in fade-in zoom-in-95 duration-200">
+      <button id="close-quote-modal" aria-label="Close modal" class="absolute top-5 right-5 p-1.5 text-slate-400 hover:text-slate-700 rounded-full hover:bg-slate-100 transition-colors">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+      <div class="space-y-2 mb-6">
+        <span class="text-xs font-bold text-brand-primary uppercase tracking-wider">Fast Quotation</span>
+        <h3 class="font-display text-2xl font-black text-slate-900">Request Equipment Quote</h3>
+        <p class="text-xs text-slate-500">Get guaranteed availability and on-site dispatcher callback within 15 minutes.</p>
+      </div>
+      <form id="quote-form" class="space-y-4">
+        <div>
+          <label for="quote-name" class="block text-xs font-bold text-slate-700 mb-1">Full Name / Company</label>
+          <input type="text" id="quote-name" required placeholder="e.g. Larsen &amp; Toubro Ltd." class="w-full px-3.5 py-2.5 text-sm rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-primary" />
+        </div>
+        <div>
+          <label for="quote-phone" class="block text-xs font-bold text-slate-700 mb-1">Phone Number (+91)</label>
+          <input type="tel" id="quote-phone" required pattern="[6-9][0-9]{9}" placeholder="98765 43210" class="w-full px-3.5 py-2.5 text-sm rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-primary" />
+        </div>
+        <div>
+          <label for="quote-equipment-select" class="block text-xs font-bold text-slate-700 mb-1">Selected Machinery</label>
+          <select id="quote-equipment-select" class="w-full px-3.5 py-2.5 text-sm rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-primary bg-white">
+            <option value="General Inquiry">General Fleet Inquiry (Any Machine)</option>
+            <option value="Mini Excavator">Mini Excavator (1.8 - 3.5T)</option>
+            <option value="Small Excavator">Small Excavator (8.5T)</option>
+            <option value="Medium Excavator">Medium Excavator (21.5T)</option>
+            <option value="Backhoe (JCB 3DX)">Backhoe (JCB 3DX)</option>
+            <option value="Wheel Loader">Wheel Loader (11.2T)</option>
+            <option value="Hydra Crane">Hydra Crane (14 - 15T)</option>
+            <option value="Transit Mixer">Transit Mixer (6 - 7 m³)</option>
+            <option value="Self-Loading Mixer">Self-Loading Mixer (4.0 m³)</option>
+            <option value="Concrete Pump">Concrete Pump (36m Boom)</option>
+            <option value="Soil Compactor">Soil Compactor (11.5T)</option>
+            <option value="Tandem Roller">Tandem Roller (3 - 9T)</option>
+            <option value="Generator (125 kVA)">Generator (125 kVA Canopy)</option>
+          </select>
+        </div>
+        <div>
+          <label for="quote-duration" class="block text-xs font-bold text-slate-700 mb-1">Rental Tenure</label>
+          <select id="quote-duration" class="w-full px-3.5 py-2.5 text-sm rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-primary bg-white">
+            <option value="daily">Daily Rental (1 - 6 Days)</option>
+            <option value="weekly">Weekly Rental (1 - 3 Weeks)</option>
+            <option value="monthly">Monthly Rental (1 - 6 Months)</option>
+            <option value="project">Long-term Project (> 6 Months)</option>
+          </select>
+        </div>
+        <button type="submit" class="w-full bg-brand-primary hover:bg-brand-primaryDark text-white font-extrabold text-xs uppercase py-3.5 rounded-xl shadow-lg shadow-brand-primary/25 transition-all hover:-translate-y-0.5 cursor-pointer">
+          Submit &amp; Get Callback in 15 Mins
+        </button>
+      </form>
+    </div>
+  </div>
+
+
+  <!-- ===== SCRIPTS ===== -->
+  <script>
+    // Initialize Lucide Icons
+    if (typeof lucide !== 'undefined') lucide.createIcons();
+
+    // Mobile menu toggle
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenuToggle?.addEventListener('click', () => {
+      mobileMenu?.classList.toggle('hidden');
+    });
+    mobileMenu?.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+    });
+
+    // Close Modals
+    const closeEqModalBtn = document.getElementById('modal-close-btn');
+    const eqModal = document.getElementById('equipment-modal');
+    closeEqModalBtn?.addEventListener('click', () => eqModal?.classList.add('hidden'));
+    eqModal?.addEventListener('click', (e) => {
+      if (e.target === eqModal) eqModal.classList.add('hidden');
+    });
+
+    const closeQuoteModalBtn = document.getElementById('close-quote-modal');
+    const quoteModal = document.getElementById('quote-modal');
+    closeQuoteModalBtn?.addEventListener('click', () => quoteModal?.classList.add('hidden'));
+    quoteModal?.addEventListener('click', (e) => {
+      if (e.target === quoteModal) quoteModal.classList.add('hidden');
+    });
+
+    window.openQuoteModal = function(eqName = '') {
+      const qSelect = document.getElementById('quote-equipment-select');
+      if (qSelect && eqName) {
+        for (let i = 0; i < qSelect.options.length; i++) {
+          if (qSelect.options[i].text.toLowerCase().includes(eqName.toLowerCase())) {
+            qSelect.selectedIndex = i;
+            break;
+          }
+        }
+      }
+      quoteModal?.classList.remove('hidden');
+    };
+
+    document.getElementById('quote-form')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Thank you! Your quotation request has been received. Our site dispatcher will call you within 15 minutes.');
+      document.getElementById('quote-modal')?.classList.add('hidden');
+    });
+
+    // Ecosystem Role Tabs
+    const tabBtns   = document.querySelectorAll('.tab-btn');
+    const tabPanels = document.querySelectorAll('.tab-panel');
+    function activateTab(key) {
+      tabBtns.forEach(b => {
+        const a = b.dataset.tab === key;
+        b.classList.toggle('tab-btn--active', a);
+        b.classList.toggle('text-slate-600', !a);
+      });
+      tabPanels.forEach(p => {
+        const t = p.id === 'panel-' + key;
+        p.classList.toggle('hidden', !t);
+        p.classList.toggle('grid', t);
+        if (t) {
+          if (typeof gsap !== 'undefined') gsap.fromTo(p, { opacity:0, y:20 }, { opacity:1, y:0, duration:0.45, ease:'power2.out' });
+          if (typeof lucide !== 'undefined') lucide.createIcons();
+        }
+      });
+    }
+    tabBtns.forEach(b => b.addEventListener('click', () => activateTab(b.dataset.tab)));
+
+    // ===== CASINO ROLL / ROLLING COUNTER ANIMATION =====
+    function rollCounter(el) {
+      const raw = el.getAttribute('data-value') || el.textContent.trim();
+      const match = raw.match(/^([^0-9.]*)([0-9,]+(?:\.[0-9]+)?)(.*)$/);
+      if (!match) return; // Non-numeric values like "One-Time" remain static
+
+      const prefix = match[1] || '';
+      const numStr = match[2].replace(/,/g, '');
+      const suffix = match[3] || '';
+      const targetVal = parseFloat(numStr);
+      if (isNaN(targetVal)) return;
+
+      const hasDecimals = numStr.includes('.');
+      const hasComma = match[2].includes(',');
+      const duration = 1200; // 1.2s rolling duration
+      const startTime = performance.now();
+
+      function update(now) {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const easeProgress = 1 - Math.pow(1 - progress, 3); // cubic ease out
+
+        const currentVal = targetVal * easeProgress;
+        let formattedVal;
+        if (hasDecimals) {
+          formattedVal = currentVal.toFixed(1);
+        } else {
+          const rounded = Math.round(currentVal);
+          formattedVal = hasComma ? rounded.toLocaleString('en-US') : rounded.toString();
+        }
+
+        el.textContent = prefix + formattedVal + suffix;
+
+        if (progress < 1) {
+          requestAnimationFrame(update);
+        } else {
+          el.textContent = raw; // guarantee exact target string at completion
+        }
+      }
+
+      if (el._rollAnimFrame) cancelAnimationFrame(el._rollAnimFrame);
+      const initialFormatted = hasDecimals ? (0).toFixed(1) : '0';
+      el.textContent = prefix + initialFormatted + suffix;
+      el._rollAnimFrame = requestAnimationFrame(update);
+    }
+
+    function triggerSlideCounters(slideEl) {
+      if (!slideEl) return;
+      const counters = slideEl.querySelectorAll('.hero-stat-value');
+      counters.forEach(counter => rollCounter(counter));
+    }
+
+    // ===== HERO BANNER CAROUSEL CONTROLLER =====
+    const slides = document.querySelectorAll('.hero-slide');
+    const dots   = document.querySelectorAll('.hero-dot');
+    const prevBtn = document.getElementById('hero-prev-btn');
+    const nextBtn = document.getElementById('hero-next-btn');
+    let currentSlide = 0;
+    const totalSlides = slides.length;
+    let carouselTimer = null;
+
+    function showSlide(index) {
+      if (index < 0) index = totalSlides - 1;
+      if (index >= totalSlides) index = 0;
+      currentSlide = index;
+
+      slides.forEach((sl, idx) => {
+        const isActive = idx === currentSlide;
+        sl.classList.toggle('active', isActive);
+        sl.classList.toggle('inactive', !isActive);
+      });
+
+      dots.forEach((dot, idx) => {
+        const isActive = idx === currentSlide;
+        dot.classList.toggle('active', isActive);
+        if (isActive) {
+          dot.className = 'hero-dot active w-8 h-2 rounded-full bg-brand-primary transition-all duration-300';
+        } else {
+          dot.className = 'hero-dot w-2.5 h-2 rounded-full bg-slate-200 hover:bg-slate-300 transition-all duration-300';
+        }
+      });
+
+      // Trigger casino roll on every slide transition
+      triggerSlideCounters(slides[currentSlide]);
+    }
+
+    function nextSlide() {
+      showSlide(currentSlide + 1);
+    }
+    function prevSlide() {
+      showSlide(currentSlide - 1);
+    }
+
+    function startAutoScroll() {
+      stopAutoScroll();
+      carouselTimer = setInterval(nextSlide, 3400);
+    }
+    function stopAutoScroll() {
+      if (carouselTimer) {
+        clearInterval(carouselTimer);
+        carouselTimer = null;
+      }
+    }
+
+    dots.forEach(d => {
+      d.addEventListener('click', () => {
+        const target = parseInt(d.dataset.slide, 10);
+        showSlide(target);
+        startAutoScroll();
+      });
+    });
+
+    prevBtn?.addEventListener('click', () => {
+      prevSlide();
+      startAutoScroll();
+    });
+    nextBtn?.addEventListener('click', () => {
+      nextSlide();
+      startAutoScroll();
+    });
+
+    const carouselContainer = document.getElementById('hero-carousel');
+    carouselContainer?.addEventListener('mouseenter', stopAutoScroll);
+    carouselContainer?.addEventListener('mouseleave', startAutoScroll);
+
+    // Initial roll and autoscroll start
+    if (slides[0]) {
+      triggerSlideCounters(slides[0]);
+    }
+    startAutoScroll();
+
+    // ===== FLEET SECTION CATEGORY FILTER PILLS =====
+    const fleetFilterBtns = document.querySelectorAll('.fleet-filter-btn');
+    const categoryBlocks = document.querySelectorAll('.category-section-block');
+
+    fleetFilterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.dataset.filter;
+
+        fleetFilterBtns.forEach(b => {
+          const isActive = b === btn;
+          b.classList.toggle('active-filter', isActive);
+          if (isActive) {
+            b.className = 'fleet-filter-btn active-filter px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all bg-brand-primary text-white shadow-sm shadow-brand-primary/25 cursor-pointer';
+          } else {
+            b.className = 'fleet-filter-btn px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all bg-slate-100 hover:bg-slate-200 text-slate-700 cursor-pointer';
+          }
+        });
+
+        categoryBlocks.forEach(block => {
+          if (filter === 'all' || block.dataset.categoryId === filter) {
+            block.classList.remove('hidden');
+          } else {
+            block.classList.add('hidden');
+          }
+        });
+      });
+    });
+
+    // ===== FLEET ESTIMATES DATA & MODAL CALCULATOR =====
+    const FLEET_ESTIMATES = {
+      'mini-excavator': { name: 'Mini Excavator (1.8 - 3.5T)', monthlyRent: 70000, buyPrice: 1800000, downPayment: 360000, monthlyEmi: 29000, monthlyMaint: 11000 },
+      'small-excavator': { name: 'Small Excavator (8.5T)', monthlyRent: 115000, buyPrice: 3000000, downPayment: 600000, monthlyEmi: 48000, monthlyMaint: 19000 },
+      'medium-excavator': { name: 'Medium Excavator (21.5T)', monthlyRent: 185000, buyPrice: 5500000, downPayment: 1100000, monthlyEmi: 88000, monthlyMaint: 32000 },
+      'backhoe': { name: 'Backhoe (JCB 3DX)', monthlyRent: 85000, buyPrice: 3200000, downPayment: 640000, monthlyEmi: 51000, monthlyMaint: 18000 },
+      'wheel-loader': { name: 'Wheel Loader (11.2T)', monthlyRent: 150000, buyPrice: 4200000, downPayment: 840000, monthlyEmi: 67000, monthlyMaint: 24000 },
+      'hydra': { name: 'Hydra Crane (14 - 15T)', monthlyRent: 90000, buyPrice: 2400000, downPayment: 480000, monthlyEmi: 38000, monthlyMaint: 16000 },
+      'tipper': { name: 'Tipper Dump Truck (16 - 25T)', monthlyRent: 105000, buyPrice: 2800000, downPayment: 560000, monthlyEmi: 45000, monthlyMaint: 18000 },
+      'transit-mixer': { name: 'Transit Mixer (6 - 7 m³)', monthlyRent: 125000, buyPrice: 3500000, downPayment: 700000, monthlyEmi: 56000, monthlyMaint: 22000 },
+      'self-loading-mixer': { name: 'Self-Loading Mixer (4.0 m³)', monthlyRent: 135000, buyPrice: 3800000, downPayment: 760000, monthlyEmi: 61000, monthlyMaint: 24000 },
+      'concrete-pump': { name: 'Concrete Pump (36m)', monthlyRent: 170000, buyPrice: 5200000, downPayment: 1040000, monthlyEmi: 83000, monthlyMaint: 30000 },
+      'soil-compactor': { name: 'Soil Compactor (11.5T)', monthlyRent: 98000, buyPrice: 2700000, downPayment: 540000, monthlyEmi: 43000, monthlyMaint: 17000 },
+      'tandem-roller': { name: 'Tandem Roller (3.0 - 9.0T)', monthlyRent: 82000, buyPrice: 2200000, downPayment: 440000, monthlyEmi: 35000, monthlyMaint: 14000 },
+      'pneumatic-roller': { name: 'Pneumatic Roller (14 - 24T)', monthlyRent: 110000, buyPrice: 3100000, downPayment: 620000, monthlyEmi: 50000, monthlyMaint: 19000 },
+      'generator': { name: 'Generator (125 kVA)', monthlyRent: 65000, buyPrice: 1600000, downPayment: 320000, monthlyEmi: 26000, monthlyMaint: 10000 }
+    };
+
+    function updateModalEstimate() {
+      const eqSelect = document.getElementById('modal-calc-equipment');
+      const durSelect = document.getElementById('modal-calc-duration');
+      if (!eqSelect || !durSelect) return;
+
+      const eqKey = eqSelect.value;
+      const est = FLEET_ESTIMATES[eqKey] || FLEET_ESTIMATES['mini-excavator'];
+      const months = parseInt(durSelect.value || 3, 10);
+
+      const totalRent = est.monthlyRent * months;
+
+      const rentTotalEl = document.getElementById('modal-calc-rent-total');
+      const rentMonthlyEl = document.getElementById('modal-calc-rent-monthly');
+      const durationBadgeEl = document.getElementById('modal-calc-duration-badge');
+
+      if (rentTotalEl) rentTotalEl.textContent = 'Approx. ₹ ' + totalRent.toLocaleString('en-IN');
+      if (rentMonthlyEl) rentMonthlyEl.textContent = '(~Approx. ₹ ' + est.monthlyRent.toLocaleString('en-IN') + ' / month)';
+      if (durationBadgeEl) durationBadgeEl.textContent = months + (months === 1 ? ' Month Hire' : ' Months Hire');
+    }
+    window.updateModalEstimate = updateModalEstimate;
+
+    const modalCalcBtn = document.getElementById('modal-calc-btn');
+    if (modalCalcBtn) {
+      modalCalcBtn.addEventListener('click', () => {
+        const resultsEl = document.getElementById('modal-calc-results');
+        if (resultsEl) {
+          resultsEl.classList.remove('hidden');
+        }
+        updateModalEstimate();
+        if (typeof lucide !== 'undefined') lucide.createIcons();
+      });
+    }
+    const modalCalcEq = document.getElementById('modal-calc-equipment');
+    if (modalCalcEq) {
+      modalCalcEq.addEventListener('change', () => {
+        updateModalEstimate();
+        if (typeof lucide !== 'undefined') lucide.createIcons();
+      });
+    }
+    const modalCalcDur = document.getElementById('modal-calc-duration');
+    if (modalCalcDur) {
+      modalCalcDur.addEventListener('change', () => {
+        updateModalEstimate();
+        if (typeof lucide !== 'undefined') lucide.createIcons();
+      });
+    }
+
+    // Initialize modal estimate with default values
+    updateModalEstimate();
+
+    // ===== FLEET EQUIPMENT CARD MODAL TRIGGER =====
+    const fleetCategoryData = [{"id":"cat-01","num":"01","name":"Earthmoving","fullName":"Excavators & Earthmoving","tagline":"Dig Deeper. Move Faster.","items":[{"id":"mini-excavator","name":"Mini Excavator","specs":"1.8 - 3.5 Tonnes • 24.7 HP","rate":"₹2,800","img":"./images/mini_excavator.png"},{"id":"small-excavator","name":"Small Excavator","specs":"8.5 Tonnes • 55 HP Turbo","rate":"₹4,500","img":"./images/small_excavator.png"},{"id":"medium-excavator","name":"Medium Excavator","specs":"21.5 Tonnes • 140 HP CRDi","rate":"₹7,200","img":"./images/medium_excavator.png"},{"id":"backhoe","name":"Backhoe (JCB 3DX)","specs":"7.6 Tonnes • 76 HP EcoMAX","rate":"₹3,200","img":"./images/backhoe.png"},{"id":"wheel-loader","name":"Wheel Loader","specs":"11.2 Tonnes • 150 HP Turbo","rate":"₹5,800","img":"./images/wheel_loader.png"}]},{"id":"cat-02","num":"02","name":"Transport & Cranes","fullName":"Transport & Heavy Cranes","tagline":"Move More. Lift Higher.","items":[{"id":"hydra","name":"Hydra Crane","specs":"14 - 15 Tonnes • 10.5m Boom","rate":"₹3,500","img":"./images/hydra.png"},{"id":"tipper","name":"Tipper Dump Truck","specs":"16 - 25 Tonnes • 250 HP BS6","rate":"₹4,000","img":"./images/tipper.png"}]},{"id":"cat-03","num":"03","name":"Concrete","fullName":"Concrete Equipment","tagline":"For Stronger Foundations.","items":[{"id":"transit-mixer","name":"Transit Mixer","specs":"6 - 7 m³ Drum • 75 HP Slave","rate":"₹4,800","img":"./images/transit_mixer.png"},{"id":"self-loading-mixer","name":"Self-Loading Mixer","specs":"4.0 m³ Batch • 300° Swivel","rate":"₹5,200","img":"./images/self_loading_mixer.png"},{"id":"concrete-pump","name":"Concrete Pump","specs":"36m RZ Boom • 90-120 m³/hr","rate":"₹6,500","img":"./images/concrete_pump.png"}]},{"id":"cat-04","num":"04","name":"Road & Power","fullName":"Road Construction & Power","tagline":"Smooth Roads. Uninterrupted Power.","items":[{"id":"soil-compactor","name":"Soil Compactor","specs":"11.5 Tonnes • 2,100mm Drum","rate":"₹3,800","img":"./images/soil_compactor.png"},{"id":"tandem-roller","name":"Tandem Roller","specs":"3.0 - 9.0 Tonnes • Dual Drum","rate":"₹3,200","img":"./images/tandem_roller.png"},{"id":"pneumatic-roller","name":"Pneumatic Roller","specs":"14 - 24 Tonnes • 8 Wheels","rate":"₹4,200","img":"./images/pneumatic_roller.png"},{"id":"generator","name":"Generator (125 kVA)","specs":"125 kVA Canopy • &lt; 75 dBA","rate":"₹2,500","img":"./images/generator.png"}]}];
+    document.querySelectorAll('.equipment-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const eqId = card.dataset.id;
+        
+        // Preselect clicked equipment in estimator and show updated result
+        const modalCalcEquipment = document.getElementById('modal-calc-equipment');
+        if (modalCalcEquipment && eqId) {
+          modalCalcEquipment.value = eqId;
+        }
+        updateModalEstimate();
+        const resultsEl = document.getElementById('modal-calc-results');
+        if (resultsEl) {
+          resultsEl.classList.remove('hidden');
+        }
+
+        if (window.equipmentData && window.openEquipmentDetails) {
+          const item = window.equipmentData.find(e => e.id === eqId);
+          if (item) {
+            window.openEquipmentDetails(item);
+            return;
+          }
+        }
+
+        // Fallback specs modal populate
+        for (const cat of fleetCategoryData) {
+          const item = cat.items.find(i => i.id === eqId);
+          if (item) {
+            const modal = document.getElementById('equipment-modal');
+            if (!modal) return;
+            const titleEl = document.getElementById('modal-eq-title');
+            const catEl = document.getElementById('modal-eq-category');
+            const taglineEl = document.getElementById('modal-eq-tagline');
+            const imgEl = document.getElementById('modal-eq-image');
+            const dailyEl = document.getElementById('modal-eq-daily');
+            const weeklyEl = document.getElementById('modal-eq-weekly');
+            const monthlyEl = document.getElementById('modal-eq-monthly');
+            const specsEl = document.getElementById('modal-eq-specs');
+
+            if (titleEl) titleEl.textContent = item.name;
+            if (catEl) catEl.textContent = cat.fullName;
+            if (taglineEl) taglineEl.textContent = cat.tagline;
+            if (imgEl) imgEl.src = item.img;
+            if (dailyEl) dailyEl.textContent = item.rate;
+            if (weeklyEl) weeklyEl.textContent = 'Call for quote';
+            if (monthlyEl) monthlyEl.textContent = 'Custom bulk';
+
+            if (specsEl) {
+              specsEl.innerHTML = `
+                <div class="flex justify-between items-center py-2.5 border-b border-slate-200 text-sm">
+                  <span class="text-slate-600 font-medium">Specifications</span>
+                  <span class="font-bold text-slate-900">${item.specs}</span>
+                </div>
+                <div class="flex justify-between items-center py-2.5 border-b border-slate-200 text-sm">
+                  <span class="text-slate-600 font-medium">Category</span>
+                  <span class="font-bold text-slate-900">${cat.name}</span>
+                </div>
+                <div class="flex justify-between items-center py-2.5 border-b border-slate-200 text-sm">
+                  <span class="text-slate-600 font-medium">Availability</span>
+                  <span class="font-bold text-emerald-600">Immediate Dispatch</span>
+                </div>
+              `;
+            }
+
+            modal.classList.remove('hidden');
+            if (typeof lucide !== 'undefined') lucide.createIcons();
+            break;
+          }
+        }
+      });
+    });
+
+    // ── Dynamic ScrollSpy Active Section Indicator ──
+    const navSections = [
+      { id: 'hero', link: document.querySelector('.nav-link[href="#hero"]') },
+      { id: 'fleet', link: document.querySelector('.nav-link[href="#fleet"]') },
+      { id: 'ecosystem', link: document.querySelector('.nav-link[href="#ecosystem"]') },
+      { id: 'trust', link: document.querySelector('.nav-link[href="#trust"]') },
+      { id: 'footer-section', link: document.querySelector('.nav-link[href="#footer-section"]') }
+    ].filter(s => s.link && document.getElementById(s.id));
+
+    function updateActiveNav() {
+      const scrollPos = window.scrollY + 140; // 140px nav clearance
+      const isAtBottom = (window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 120);
+      
+      let activeId = 'hero';
+      if (isAtBottom) {
+        activeId = 'footer-section';
+      } else {
+        for (const item of navSections) {
+          const el = document.getElementById(item.id);
+          if (el && scrollPos >= el.offsetTop) {
+            activeId = item.id;
+          }
+        }
+      }
+
+      navSections.forEach(item => {
+        if (item.id === activeId) {
+          item.link.classList.add('active');
+        } else {
+          item.link.classList.remove('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', updateActiveNav, { passive: true });
+    window.addEventListener('DOMContentLoaded', updateActiveNav);
+    updateActiveNav();
+
+    // Smooth scroll on click
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          const el = document.querySelector(href);
+          if (el) {
+            e.preventDefault();
+            const top = el.getBoundingClientRect().top + window.scrollY - 80;
+            window.scrollTo({ top, behavior: 'smooth' });
+            history.pushState(null, null, href);
+            updateActiveNav();
+          }
+        }
+      });
+    });
+
+    // GSAP Scroll Animations
+    window.addEventListener('DOMContentLoaded', () => {
+      if (typeof lucide !== 'undefined') lucide.createIcons();
+      if (typeof gsap === 'undefined') return;
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.from('.eco-header > *', {
+        scrollTrigger:{ trigger:'#ecosystem', start:'top 80%', once:true },
+        opacity:0, y:30, stagger:0.15, duration:0.7, ease:'power2.out'
+      });
+      gsap.from('.trust-left > *', {
+        scrollTrigger:{ trigger:'#trust', start:'top 75%', once:true },
+        opacity:0, x:-40, stagger:0.12, duration:0.7, ease:'power3.out'
+      });
+      gsap.from('.trust-right', {
+        scrollTrigger:{ trigger:'#trust', start:'top 75%', once:true },
+        opacity:0, x:40, duration:0.9, ease:'power3.out'
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,937 @@
+/* BookMyEquipment – EquipRent Light Theme CSS (Clean White/Slate Canvas + Vibrant Orange) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@600;700;800;900&display=swap');
+
+:root {
+  /* Brand Palette (EquipRent Light/App Theme) */
+  --primary:         #F97316; /* Vibrant Orange Primary */
+  --primary-dark:    #EA580C; /* Deeper orange for hover */
+  --primary-light:   #FFEDD5; /* Pale supporting orange tint */
+  --emphasis:        #F59E0B; /* Amber emphasis */
+
+  /* Light Theme Surfaces & Canvas */
+  --dark:            #FFFFFF; /* Screen canvas */
+  --background:      #F8FAFC; /* Slate-50 background */
+  --surface:         #FFFFFF; /* Pure white card surface */
+  --surface-elevated: #F1F5F9; /* Slate-100 raised surface */
+  --card:            #FFFFFF;
+  --border:          #E2E8F0; /* Clean Slate-200 border */
+
+  /* Typography Colors */
+  --text-primary:    #0F172A; /* Deep Slate-900 for high emphasis headings & body */
+  --text-secondary:  #475569; /* Slate-600 for descriptions & subheads */
+  --muted:           #64748B; /* Slate-500 for lower emphasis text */
+  --text-inverse:    #FFFFFF; /* White text on primary buttons */
+
+  /* Role Accents */
+  --role-customer:   #F97316; /* Orange */
+  --role-owner:      #F59E0B; /* Amber */
+  --role-operator:   #0D9488; /* Teal */
+  --role-operator-bg: #F0FDFA;
+  --role-admin:      #7C3AED; /* Purple */
+
+  /* Semantic Feedback */
+  --success:         #16A34A;
+  --success-bg:      #DCFCE7;
+  --warning:         #D97706;
+  --warning-bg:      #FEF3C7;
+  --error:           #DC2626;
+  --error-bg:        #FEE2E2;
+  --info:            #0284C7;
+  --info-bg:         #E0F2FE;
+
+  /* Aliases */
+  --yellow:          #F97316;
+  --gold:            #EA580C;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--background);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Scrollbar ──────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #F1F5F9; }
+::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--primary); }
+
+/* ── Nav link dynamic underline & active states ───────── */
+.nav-link {
+  position: relative;
+  transition: color 0.2s ease, font-weight 0.15s ease;
+  color: var(--text-secondary);
+  padding-bottom: 4px;
+  cursor: pointer;
+}
+.nav-link:hover {
+  color: var(--primary);
+}
+.nav-link.active {
+  color: #0F172A;
+  font-weight: 700;
+}
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 100%;
+  height: 2.5px;
+  background-color: var(--primary);
+  border-radius: 2px;
+  animation: navUnderlineSlide 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Role Pages Nav link dynamic underline ───────────── */
+.role-nav-link {
+  position: relative;
+  transition: color 0.2s ease, font-weight 0.15s ease;
+  color: #475569;
+  padding-bottom: 4px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.role-nav-link:hover {
+  color: #0F172A;
+}
+.role-nav-link.active {
+  color: #0F172A !important;
+  font-weight: 700 !important;
+}
+.role-nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 100%;
+  height: 2.5px;
+  background-color: var(--role-nav-color, var(--primary));
+  border-radius: 2px;
+  animation: navUnderlineSlide 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes navUnderlineSlide {
+  from {
+    transform: scaleX(0.3);
+    opacity: 0;
+  }
+  to {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+
+/* ── Hero Carousel & Slides ─────────────────────────── */
+.hero-slide {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  transform: translateX(18px);
+  transition: opacity 0.35s ease-out, transform 0.35s ease-out, visibility 0.35s;
+}
+.hero-slide.active {
+  opacity: 1;
+  visibility: visible;
+  position: relative;
+  z-index: 10;
+  pointer-events: auto;
+  transform: translateX(0);
+}
+.hero-slide.inactive {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  transform: translateX(18px);
+}
+
+.hero-dot {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.hero-dot.active {
+  background-color: var(--primary);
+  width: 32px;
+  box-shadow: 0 0 12px rgba(249, 115, 22, 0.4);
+}
+
+/* ── Equipment Fleet Grid & Cards ───────────────────── */
+.category-section-block {
+  animation: fadeInSection 0.35s ease-out;
+}
+
+@keyframes fadeInSection {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.equipment-card {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease;
+}
+
+.equipment-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(249, 115, 22, 0.45);
+  box-shadow: 0 16px 32px -8px rgba(15, 23, 42, 0.08), 0 4px 12px -2px rgba(15, 23, 42, 0.03);
+}
+
+.fleet-filter-btn {
+  transition: all 0.2s ease;
+}
+
+/* Casino slot roll helper */
+.hero-stat-value {
+  display: inline-block;
+  font-feature-settings: "tnum";
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Trust Orbit Badges & Dynamic Rotation Effects ─── */
+@keyframes trustOrbitRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes trustOrbitCounterRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+.trust-orbit-container:hover .trust-orbit-track,
+.trust-orbit-container:hover .trust-orbit-node {
+  animation-play-state: paused;
+}
+
+.trust-orbit-track {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  border: 1.5px dashed rgba(249, 115, 22, 0.4);
+  background: radial-gradient(circle, rgba(254, 243, 199, 0.25) 0%, rgba(255, 237, 213, 0.35) 60%, rgba(255, 255, 255, 0) 100%);
+  animation: trustOrbitRotate 22s linear infinite;
+  transform-origin: center center;
+}
+
+.trust-orbit-track-inner {
+  position: absolute;
+  inset: 24px;
+  border-radius: 9999px;
+  border: 1px solid rgba(249, 115, 22, 0.25);
+  animation: trustOrbitRotate 14s linear infinite reverse;
+  transform-origin: center center;
+}
+
+.trust-orbit-node {
+  position: absolute;
+  animation: trustOrbitCounterRotate 22s linear infinite;
+  transform-origin: center center;
+}
+
+.trust-orbit-badge {
+  width: 42px;
+  height: 42px;
+  border-radius: 9999px;
+  background: #FFFFFF;
+  border: 1.5px solid rgba(249, 115, 22, 0.35);
+  box-shadow: 0 4px 14px rgba(249, 115, 22, 0.2), 0 2px 6px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s, border-color 0.2s, background-color 0.2s;
+  cursor: pointer;
+}
+
+.trust-orbit-badge:hover {
+  transform: scale(1.18);
+  border-color: var(--primary);
+  box-shadow: 0 8px 22px rgba(249, 115, 22, 0.38);
+  background: #FFF7ED;
+}
+
+/* ── Ecosystem tab buttons ──────────────────────────── */
+.tab-btn {
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.tab-btn--active {
+  background-color: var(--primary);
+  color: #FFFFFF;
+  font-weight: 800;
+}
+.tab-btn[data-tab="customer"].tab-btn--active {
+  background-color: var(--role-customer);
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(249, 115, 22, 0.35);
+}
+.tab-btn[data-tab="owner"].tab-btn--active {
+  background-color: var(--role-owner);
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.35);
+}
+.tab-btn[data-tab="operator"].tab-btn--active {
+  background-color: var(--role-operator);
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(13, 148, 136, 0.35);
+}
+.tab-btn[data-tab="customer"]:hover:not(.tab-btn--active) {
+  color: var(--role-customer);
+  background-color: rgba(249, 115, 22, 0.08);
+}
+.tab-btn[data-tab="owner"]:hover:not(.tab-btn--active) {
+  color: var(--role-owner);
+  background-color: rgba(245, 158, 11, 0.08);
+}
+.tab-btn[data-tab="operator"]:hover:not(.tab-btn--active) {
+  color: var(--role-operator);
+  background-color: rgba(13, 148, 136, 0.08);
+}
+
+/* ── Ecosystem feature list items ───────────────────── */
+.ecosystem-feature {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* ── Trust section pillars ──────────────────────────── */
+.trust-pillar {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: #FFFFFF;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
+}
+.trust-pillar:hover {
+  border-color: rgba(249, 115, 22, 0.45);
+  box-shadow: 0 6px 18px -4px rgba(249, 115, 22, 0.12);
+}
+
+.trust-pillar-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: rgba(249, 115, 22, 0.1);
+  border: 1px solid rgba(249, 115, 22, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--primary);
+}
+
+/* ── Trust stat cards ───────────────────────────────── */
+.trust-stat-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px 8px;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+}
+
+/* ── Footer links ────────────────────────────────────── */
+.footer-link {
+  display: inline-block;
+  font-size: 13px;
+  color: #475569;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-link:hover { color: var(--primary); }
+
+.footer-social-link {
+  color: #64748B;
+  transition: color 0.2s, transform 0.2s;
+  display: inline-flex;
+}
+.footer-social-link:hover { color: var(--primary); transform: translateY(-2px); }
+
+/* ── Header Role Action Buttons ──────────────────────── */
+.role-btn-customer {
+  background-color: transparent;
+  border: 1.5px solid var(--role-customer);
+  color: var(--role-customer);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.role-btn-customer:hover {
+  background-color: var(--role-customer) !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.35);
+  transform: translateY(-2px);
+}
+
+.role-btn-owner {
+  background-color: transparent;
+  border: 1.5px solid var(--role-owner);
+  color: #D97706;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.role-btn-owner:hover {
+  background-color: var(--role-owner) !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.35);
+  transform: translateY(-2px);
+}
+
+.role-btn-operator {
+  background-color: transparent;
+  border: 1.5px solid var(--role-operator);
+  color: var(--role-operator);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.role-btn-operator:hover {
+  background-color: var(--role-operator) !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 12px rgba(13, 148, 136, 0.35);
+  transform: translateY(-2px);
+}
+
+/* ── Modal & Dialogs ────────────────────────────────── */
+.modal-overlay {
+  background-color: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(8px);
+}
+
+/* ── Global Responsiveness & Device Enhancements ────── */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Touch-optimized smooth horizontal scrolling containers */
+.overflow-x-auto,
+#categories-container,
+#fleet-category-filter {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+/* Mobile drawer animation */
+#mobile-menu {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Extra small mobile screens (< 380px) fine-tuning */
+@media (max-width: 380px) {
+  .trust-orbit-container {
+    transform: scale(0.9);
+  }
+  .hero-slide-left h1 {
+    font-size: 1.85rem !important;
+  }
+}
+
+/* Extra large displays (1920px+) readable layout rhythm */
+@media (min-width: 1920px) {
+  .max-w-7xl {
+    max-width: 88rem;
+  }
+}
+
+/* ==========================================================================
+   Mature Customer Planner & Cost Comparison Estimator Styles
+   ========================================================================== */
+.customer-planner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-inline: 1.5rem;
+}
+
+.customer-planner-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2.25rem;
+}
+
+.customer-planner-heading > div {
+  max-width: 720px;
+}
+
+.customer-planner-heading .enquiry-eyebrow {
+  color: #ea580c;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 0.8125rem;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.5rem;
+}
+
+.customer-planner h1 {
+  font-family: 'Poppins', system-ui, sans-serif;
+  font-size: clamp(1.85rem, 3.8vw, 2.75rem);
+  font-weight: 900;
+  color: #0f172a;
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.02em;
+}
+
+.customer-planner-heading p {
+  color: #475569;
+  line-height: 1.7;
+  font-size: 1.0625rem;
+}
+
+.customer-planner button.enquiry-primary,
+button.enquiry-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  min-height: 48px;
+  flex-shrink: 0;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.875rem;
+  font-size: 0.9375rem;
+  font-weight: 800;
+  background: #ea580c;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(234, 88, 12, 0.28);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.customer-planner button.enquiry-primary:hover,
+button.enquiry-primary:hover {
+  background: #c2410c;
+  transform: translateY(-1.5px);
+  box-shadow: 0 6px 20px rgba(234, 88, 12, 0.35);
+}
+
+.customer-planner button.enquiry-primary:active,
+button.enquiry-primary:active {
+  transform: scale(0.97);
+}
+
+.customer-estimator {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2.25rem;
+  align-items: stretch;
+}
+
+.estimate-inputs,
+.estimate-results {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.estimate-results {
+  justify-content: space-between;
+}
+
+.customer-estimator h2 {
+  font-size: 1.35rem;
+  font-weight: 850;
+  margin-bottom: 1.25rem;
+  color: #0f172a;
+  letter-spacing: -0.01em;
+  min-height: 2rem;
+  display: flex;
+  align-items: center;
+}
+
+.estimate-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.estimate-field {
+  margin-bottom: 1rem;
+  min-width: 0;
+}
+
+.estimate-fields .estimate-field {
+  margin-bottom: 0;
+}
+
+.estimate-field label {
+  display: block;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.4rem;
+  color: #334155;
+}
+
+.estimate-field input,
+.estimate-field select {
+  width: 100%;
+  min-width: 0;
+  min-height: 48px;
+  padding: 0.65rem 0.875rem;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 0.75rem;
+  background: #ffffff;
+  color: #0f172a;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.estimate-field input:focus,
+.estimate-field select:focus {
+  outline: none;
+  border-color: #ea580c;
+  box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.15);
+}
+
+.estimate-field input[aria-invalid="true"] {
+  border-color: #dc2626;
+  background-color: #fef2f2;
+}
+
+.estimate-help {
+  font-size: 0.875rem;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 1rem 0;
+}
+
+.estimate-assumptions,
+.estimate-method {
+  border-top: 1px solid #e2e8f0;
+  padding-top: 1.125rem;
+  margin-top: 1.35rem;
+}
+
+.customer-planner summary {
+  min-height: 44px;
+  cursor: pointer;
+  color: #334155;
+  font-weight: 750;
+  font-size: 0.9375rem;
+  display: flex;
+  align-items: center;
+  user-select: none;
+}
+
+.estimate-result-card {
+  border: 1.5px solid #e2e8f0;
+  border-radius: 1.25rem;
+  padding: 1.35rem 1.5rem;
+  background: #ffffff;
+  margin-top: 0.875rem;
+  box-shadow: 0 2px 8px -2px rgba(15, 23, 42, 0.06);
+  transition: all 0.2s ease;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.estimate-result-card:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 8px 20px -4px rgba(15, 23, 42, 0.08);
+}
+
+.estimate-result-card h3 {
+  font-size: 0.8125rem;
+  font-weight: 800;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.estimate-result-card > strong {
+  display: block;
+  font-family: 'Poppins', system-ui, sans-serif;
+  font-size: clamp(1.65rem, 3.2vw, 2.15rem);
+  font-weight: 900;
+  margin: 0.25rem 0 0.75rem;
+  overflow-wrap: anywhere;
+  letter-spacing: -0.02em;
+}
+
+.estimate-result-card dl {
+  margin-top: auto;
+}
+
+.estimate-result-card dl > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.25rem;
+  padding: 0.45rem 0;
+  border-top: 1px solid #f1f5f9;
+  font-size: 0.875rem;
+  line-height: 1.45;
+}
+
+.estimate-result-card dt {
+  color: #64748b;
+  font-weight: 500;
+}
+
+.estimate-result-card dd {
+  font-weight: 750;
+  text-align: right;
+  flex-shrink: 0;
+  color: #0f172a;
+}
+
+.estimate-conclusion {
+  padding: 1.125rem 1.25rem;
+  border-left: 4px solid #ea580c;
+  background: #fff7ed;
+  border-radius: 0 0.875rem 0.875rem 0;
+  margin-top: 1rem;
+  margin-bottom: 0;
+  line-height: 1.6;
+  color: #9a3412;
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+.estimate-callback {
+  margin-top: 0.625rem;
+  width: 100%;
+  min-height: 46px;
+  font-weight: 800;
+  color: #ea580c;
+  background: #ffffff;
+  border: 1.5px solid #fdba74;
+  border-radius: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.9375rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.estimate-callback:hover {
+  background: #fff7ed;
+  border-color: #ea580c;
+}
+
+.estimate-callback:active {
+  transform: scale(0.98);
+}
+
+.estimate-method ul {
+  padding-left: 1.35rem;
+  list-style: disc;
+  max-width: 85ch;
+  margin-top: 0.75rem;
+}
+
+.estimate-method li {
+  padding-bottom: 0.55rem;
+  color: #64748b;
+  font-size: 0.875rem;
+  line-height: 1.65;
+}
+
+@media (max-width: 880px) {
+  .customer-estimator {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .customer-planner-heading {
+    display: block;
+  }
+  .customer-planner-heading > button {
+    margin-top: 1.25rem;
+  }
+}
+
+/* ==========================================================================
+   Our Services Continuous Auto-Scrolling Marquee
+   ========================================================================== */
+@keyframes services-marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.services-marquee-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 1rem 0;
+  mask-image: linear-gradient(to right, transparent 0%, black 3%, black 97%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 3%, black 97%, transparent 100%);
+}
+
+.services-marquee-track {
+  display: flex;
+  gap: 1.5rem;
+  width: max-content;
+  animation: services-marquee 32s linear infinite;
+  will-change: transform;
+}
+
+.services-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* Service Square Card */
+.service-square-card {
+  width: 340px;
+  height: 340px;
+  min-width: 340px;
+  min-height: 340px;
+  aspect-ratio: 1 / 1;
+  border-radius: 1.75rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.service-square-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 20px 35px -8px rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width: 640px) {
+  .service-square-card {
+    width: 290px;
+    height: 290px;
+    min-width: 290px;
+    min-height: 290px;
+    padding: 1.5rem;
+  }
+}
+
+/* ==========================================================================
+   Language Selector & Multilingual Typography (Industry Standard i18n)
+   ========================================================================== */
+.site-language-control {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+  width: 118px;
+  height: 38px;
+  color: #475569;
+}
+
+.site-language-control select {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  height: 100%;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 0.75rem;
+  padding: 0 24px 0 32px;
+  background: #ffffff;
+  color: #1e293b;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+
+.site-language-control select:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  color: #0f172a;
+}
+
+.site-language-control select:focus {
+  outline: none;
+  border-color: #f97316;
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.15);
+}
+
+.site-language-control svg {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.language-globe {
+  left: 9px;
+  width: 16px;
+  height: 16px;
+  color: #64748b;
+}
+
+.language-chevron {
+  right: 8px;
+  width: 14px;
+  height: 14px;
+  color: #94a3b8;
+}
+
+@media (max-width: 640px) {
+  .site-language-control {
+    width: 105px;
+    height: 36px;
+  }
+  .site-language-control select {
+    font-size: 0.75rem;
+    padding: 0 20px 0 28px;
+  }
+}
+
+/* Multilingual Typography for Telugu & Hindi */
+html[lang="te"] body,
+html[lang="te"] .font-display {
+  font-family: "Noto Sans Telugu", "Telugu Sangam MN", "Mukta Vaani", system-ui, -apple-system, sans-serif;
+}
+
+html[lang="hi"] body,
+html[lang="hi"] .font-display {
+  font-family: "Noto Sans Devanagari", "Devanagari Sangam MN", "Mukta", system-ui, -apple-system, sans-serif;
+}
+
+html[lang="te"] h1,
+html[lang="te"] h2,
+html[lang="te"] h3,
+html[lang="hi"] h1,
+html[lang="hi"] h2,
+html[lang="hi"] h3 {
+  line-height: 1.45;
+}
+
+html:not([lang="en"]) :is(.uppercase, .tracking-widest, .tracking-wider, .tracking-wide) {
+  letter-spacing: normal;
+}
+
+
+
+

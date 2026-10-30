@@ -1,0 +1,1222 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <base href="/" />
+  <link rel="icon" type="image/svg+xml" href="/images/jcb_logo.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Own Heavy Machinery? Earn Every Week on the App - BookMyEquipment." />
+  <title>Equipment &amp; Fleet Owner | BookMyEquipment</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Noto+Sans+Telugu:wght@400;500;600;700;800&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              primary: '#F97316',
+              primaryDark: '#EA580C',
+              primaryLight: '#FFEDD5',
+              emphasis: '#F59E0B',
+              operator: '#0D9488',
+              operatorBg: '#F0FDFA',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            display: ['Poppins', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="/src/style.css" />
+  <script type="module" src="/src/i18n.js"></script>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans min-h-screen flex flex-col selection:bg-amber-500 selection:text-white">
+
+  <!-- ===== TOP HEADER ===== -->
+  <header class="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-2xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 sm:h-20">
+        
+        <!-- Left: Brand Logo -->
+        <div class="flex items-center">
+          <a href="/" class="flex items-center space-x-2.5 group" title="Return to BookMyEquipment Home">
+            <div class="bg-amber-500 px-3 py-1.5 rounded-[6px] transition-transform group-hover:scale-105 shadow-sm">
+              <span class="text-white font-black text-xl tracking-wider" style="font-family:'Poppins',Impact,sans-serif;">BME</span>
+            </div>
+            <div class="border-l border-slate-200 pl-3">
+              <span class="text-[9px] tracking-[0.22em] text-amber-500 uppercase font-bold block">Heavy Equipment</span>
+              <div class="text-sm font-bold text-slate-900 tracking-tight">BookMyEquipment</div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Center: Primary Navigation Links -->
+        <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold text-slate-600" style="--role-nav-color: #F59E0B;">
+          <a href="#estimation-section" class="role-nav-link active">
+            Why Us?
+          </a>
+          
+          <a href="#why-list-section" class="role-nav-link">
+            Why List?
+          </a>
+          <a href="#faqs-section" class="role-nav-link">
+            FAQs
+          </a>
+          <a href="#download-app-section" class="role-nav-link">
+            Get App
+          </a>
+        </nav>
+
+        <!-- Right: Segmented Role Switcher & Request a Call Action -->
+        <div class="hidden md:flex items-center space-x-3">
+          <!-- Static Language Selector -->
+          
+  <div class="site-language-control" data-i18n-ignore="">
+    <label class="sr-only" for="site-language">
+      <span lang="en">Language</span> / <span lang="te">భాష</span> / <span lang="hi">भाषा</span>
+    </label>
+    <svg class="language-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+      <circle cx="12" cy="12" r="9"/>
+      <path d="M3 12h18M12 3a18 18 0 0 1 0 18 18 18 0 0 1 0-18Z"/>
+    </svg>
+    <select class="site-language-select" aria-label="Select Language">
+      <option value="en" lang="en">English</option>
+      <option value="te" lang="te">తెలుగు</option>
+      <option value="hi" lang="hi">हिन्दी</option>
+    </select>
+    <svg class="language-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+      <path d="m4 6 4 4 4-4"/>
+    </svg>
+  </div>
+
+          <!-- Role Switcher Tabs -->
+          <div class="flex items-center bg-slate-100 p-1 rounded-xl border border-slate-200/80 text-xs font-semibold shadow-2xs">
+            <a href="/customer" class="px-3.5 py-1.5 rounded-lg transition-all text-slate-600 hover:text-slate-900">Customer</a>
+            <a href="/owner" class="px-3.5 py-1.5 rounded-lg transition-all bg-white text-amber-600 font-bold shadow-2xs">Owner</a>
+            <a href="/operator" class="px-3.5 py-1.5 rounded-lg transition-all text-slate-600 hover:text-slate-900">Operator</a>
+          </div>
+
+          <!-- Contact Us Button -->
+          <button onclick="openCallbackModal()" class="inline-flex items-center space-x-1.5 bg-amber-500 hover:bg-amber-600 text-white shadow-sm shadow-amber-500/25 active:scale-95 font-bold text-xs px-4 py-2 rounded-xl transition-all shadow-xs cursor-pointer">
+            <span>Contact Us</span>
+            <i data-lucide="phone-call" class="w-3.5 h-3.5 stroke-[2.2]"></i>
+          </button>
+        </div>
+
+        <!-- Mobile Actions -->
+        <div class="flex items-center space-x-2 md:hidden">
+          
+  <div class="site-language-control" data-i18n-ignore="">
+    <label class="sr-only" for="site-language">
+      <span lang="en">Language</span> / <span lang="te">భాష</span> / <span lang="hi">भाषा</span>
+    </label>
+    <svg class="language-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+      <circle cx="12" cy="12" r="9"/>
+      <path d="M3 12h18M12 3a18 18 0 0 1 0 18 18 18 0 0 1 0-18Z"/>
+    </svg>
+    <select class="site-language-select" aria-label="Select Language">
+      <option value="en" lang="en">English</option>
+      <option value="te" lang="te">తెలుగు</option>
+      <option value="hi" lang="hi">हिन्दी</option>
+    </select>
+    <svg class="language-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+      <path d="m4 6 4 4 4-4"/>
+    </svg>
+  </div>
+          <button onclick="openCallbackModal()" class="border border-amber-500 hover:border-amber-600 text-amber-700 hover:bg-amber-50 font-bold text-xs px-3 py-1.5 rounded-lg">
+            Contact
+          </button>
+          <button id="mobile-toggle" aria-label="Toggle Navigation Menu" class="p-2 text-slate-600 hover:text-slate-950">
+            <i data-lucide="menu" class="w-6 h-6"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-200 px-4 py-4 space-y-3 shadow-lg">
+      <div class="flex items-center justify-between pb-2 border-b border-slate-100">
+        <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Language</span>
+        
+  <div class="site-language-control" data-i18n-ignore="">
+    <label class="sr-only" for="site-language">
+      <span lang="en">Language</span> / <span lang="te">భాష</span> / <span lang="hi">भाषा</span>
+    </label>
+    <svg class="language-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+      <circle cx="12" cy="12" r="9"/>
+      <path d="M3 12h18M12 3a18 18 0 0 1 0 18 18 18 0 0 1 0-18Z"/>
+    </svg>
+    <select class="site-language-select" aria-label="Select Language">
+      <option value="en" lang="en">English</option>
+      <option value="te" lang="te">తెలుగు</option>
+      <option value="hi" lang="hi">हिन्दी</option>
+    </select>
+    <svg class="language-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+      <path d="m4 6 4 4 4-4"/>
+    </svg>
+  </div>
+      </div>
+      <div class="grid grid-cols-3 gap-2 pb-2 border-b border-slate-100 text-center text-xs font-bold">
+        <a href="/customer" class="py-1.5 rounded-lg bg-slate-100 text-slate-700">Customer</a>
+        <a href="/owner" class="py-1.5 rounded-lg bg-amber-500 text-white">Owner</a>
+        <a href="/operator" class="py-1.5 rounded-lg bg-slate-100 text-slate-700">Operator</a>
+      </div>
+      <a href="#estimation-section" class="block text-sm font-bold text-slate-800 py-1.5 border-b border-slate-100">Why Us?</a>
+      <a href="#why-list-section" class="block text-sm font-bold text-slate-800 py-1.5 border-b border-slate-100">Why List?</a>
+      <a href="#faqs-section" class="block text-sm font-bold text-slate-800 py-1.5 border-b border-slate-100">FAQs</a>
+      <a href="#download-app-section" class="block text-sm font-bold text-slate-800 py-1.5 border-b border-slate-100">Download App</a>
+      <button onclick="openCallbackModal()" class="w-full text-center bg-amber-500 hover:bg-amber-600 text-white shadow-sm shadow-amber-500/25 font-bold text-xs py-2.5 rounded-xl flex items-center justify-center space-x-1.5">
+        <span>Contact Us</span>
+        <i data-lucide="phone-call" class="w-3.5 h-3.5"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== MAIN CONTENT (Full-Bleed Responsive Page Bands) ===== -->
+  <main class="flex-grow">
+    <!-- 1. ESTIMATION SECTION -->
+    
+    <!-- ===== OWNER ESTIMATION SECTION ===== -->
+    <section id="estimation-section" class="pt-28 sm:pt-32 pb-16 sm:pb-20 bg-gradient-to-b from-slate-50 via-white to-white scroll-mt-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+        
+        <!-- Header -->
+        <div class="space-y-3">
+          <div class="max-w-3xl space-y-2">
+            <div class="inline-flex items-center space-x-2 bg-amber-50 border-amber-200 text-amber-800 rounded-full px-3.5 py-1 text-xs font-bold tracking-wide uppercase">
+              <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+              <span>Machine Earnings Estimator</span>
+            </div>
+            <h1 class="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+              See How Much Your Machinery Can Earn
+            </h1>
+            <p class="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
+              Choose your machine model and city to see how much money you can take home each month with zero broker cuts.
+            </p>
+          </div>
+        </div>
+
+        <!-- 1-Row Compact Form: Model + City + Calculate Button in Same Row -->
+        <div class="bg-white border border-slate-200/90 rounded-2xl p-5 sm:p-7 shadow-2xs space-y-5">
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-3.5 items-end">
+            
+            <!-- Vehicle / Specialty Select (5 Cols) -->
+            <div class="md:col-span-5">
+              <label for="calc-vehicle-select" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                Select Your Machine Model
+              </label>
+              <div class="relative flex items-center">
+                <span class="absolute left-3.5 text-slate-400 pointer-events-none">
+                  <i data-lucide="truck" class="w-4 h-4"></i>
+                </span>
+                <select id="calc-vehicle-select" class="w-full pl-10 pr-10 py-3 bg-slate-50/70 border border-slate-300 rounded-xl text-xs sm:text-sm font-semibold text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-all cursor-pointer appearance-none">
+                  
+    <option value="JCB 3DX Backhoe Loader" data-rate="130000" selected>
+      JCB 3DX Backhoe Loader
+    </option>
+  
+    <option value="Hydraulic Excavator (20-Ton)" data-rate="250000" >
+      Hydraulic Excavator (20-Ton)
+    </option>
+  
+    <option value="Mobile Hydra Crane (14-Ton)" data-rate="150000" >
+      Mobile Hydra Crane (14-Ton)
+    </option>
+  
+    <option value="Transit Mixer (7 Cu.m)" data-rate="170000" >
+      Transit Mixer (7 Cu.m)
+    </option>
+  
+    <option value="Vibratory Soil Compactor (10-Ton)" data-rate="140000" >
+      Vibratory Soil Compactor (10-Ton)
+    </option>
+  
+    <option value="Wheel Loader (3-Ton)" data-rate="180000" >
+      Wheel Loader (3-Ton)
+    </option>
+  
+    <option value="Mini Excavator (3-Ton)" data-rate="110000" >
+      Mini Excavator (3-Ton)
+    </option>
+  
+    <option value="Concrete Boom Pump (36m)" data-rate="380000" >
+      Concrete Boom Pump (36m)
+    </option>
+  
+    <option value="Tipper / Dumper Truck (16 Cu.m)" data-rate="125000" >
+      Tipper / Dumper Truck (16 Cu.m)
+    </option>
+  
+                </select>
+                <span class="absolute right-3.5 text-slate-400 pointer-events-none">
+                  <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                </span>
+              </div>
+            </div>
+
+            <!-- City / Location Select (4 Cols) -->
+            <div class="md:col-span-4">
+              <label for="calc-city-select" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                Operating City / Location
+              </label>
+              <div class="relative flex items-center">
+                <span class="absolute left-3.5 text-slate-400 pointer-events-none">
+                  <i data-lucide="map-pin" class="w-4 h-4"></i>
+                </span>
+                <select id="calc-city-select" class="w-full pl-10 pr-10 py-3 bg-slate-50/70 border border-slate-300 rounded-xl text-xs sm:text-sm font-semibold text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-all cursor-pointer appearance-none">
+                  
+    <option value="Hyderabad" data-mult="1" selected>
+      Hyderabad
+    </option>
+  
+    <option value="Bengaluru" data-mult="1.08" >
+      Bengaluru
+    </option>
+  
+    <option value="Mumbai - MMR" data-mult="1.15" >
+      Mumbai - MMR
+    </option>
+  
+    <option value="Delhi NCR" data-mult="1.12" >
+      Delhi NCR
+    </option>
+  
+    <option value="Pune" data-mult="1.05" >
+      Pune
+    </option>
+  
+    <option value="Chennai" data-mult="1.04" >
+      Chennai
+    </option>
+  
+    <option value="Ahmedabad" data-mult="0.98" >
+      Ahmedabad
+    </option>
+  
+    <option value="Kolkata" data-mult="0.96" >
+      Kolkata
+    </option>
+  
+                </select>
+                <span class="absolute right-3.5 text-slate-400 pointer-events-none">
+                  <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                </span>
+              </div>
+            </div>
+
+            <!-- Calculate Button (3 Cols - Aligned in Same Row) -->
+            <div class="md:col-span-3">
+              <button id="calc-check-btn" type="button" class="w-full bg-amber-500 hover:bg-amber-600 text-white shadow-sm shadow-amber-500/25 font-extrabold text-xs uppercase tracking-wider py-3 rounded-xl transition-all shadow-sm active:scale-95 cursor-pointer flex items-center justify-center h-[46px]">
+                <span>Calculate</span>
+              </button>
+            </div>
+
+          </div>
+
+          <!-- Result Display Box -->
+          <div id="calc-result-box" class="pt-1">
+            <div class="text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-1.5">
+              Total Estimated Monthly Take-Home (Approx.)
+            </div>
+            <div class="bg-emerald-50/90 border-2 border-emerald-300/80 rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-center justify-between gap-3 shadow-2xs">
+              <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center shrink-0 shadow-xs">
+                  <i data-lucide="indian-rupee" class="w-5 h-5 stroke-[2.5]"></i>
+                </div>
+                <div>
+                  <span class="text-xs font-bold text-emerald-800 uppercase tracking-wide block">Earn up to</span>
+                  <span id="calc-result-amount" class="font-display text-2xl sm:text-3xl font-black text-emerald-950 tracking-tight">
+                    Approx. ₹ 1,30,000/month
+                  </span>
+                </div>
+              </div>
+              <div class="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-emerald-200/80 text-emerald-900 text-xs font-bold">
+                <i data-lucide="check" class="w-3.5 h-3.5 stroke-[3]"></i>
+                <span>Direct Bank Payout</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Action Button -->
+          <div class="pt-2">
+            <a href="#download-app-section" class="w-full bg-amber-500 hover:bg-amber-600 text-white shadow-sm shadow-amber-500/25 font-extrabold text-xs sm:text-sm uppercase tracking-wider py-3.5 rounded-xl transition-all shadow-xs flex items-center justify-center space-x-2">
+              <i data-lucide="smartphone" class="w-4 h-4"></i>
+              <span>Download App to List Fleet</span>
+            </a>
+          </div>
+
+          <!-- Footnote Disclaimer -->
+          <div class="pt-2 border-t border-slate-100">
+            <p class="text-xs text-slate-500 leading-relaxed font-normal">
+              *Based on standard 20+ working days a month. Earnings may vary based on site requirements and machine upkeep.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 2. WHY SECTION (With 65% Decision Matrix & 35% Bold Dark Summary Callout) -->
+    
+    <!-- ===== WHY LISTING ON THE MARKETPLACE BEATS OFFLINE BROKERS DECISION MATRIX & DARK VALUE CALLOUT ===== -->
+    <section id="why-list-section" class="py-16 sm:py-24 bg-slate-50/70 scroll-mt-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+        
+        <!-- Section Header -->
+        <div class="max-w-3xl space-y-2">
+          <div class="inline-flex items-center space-x-2 bg-amber-50 border-amber-200 text-amber-800 rounded-full px-3.5 py-1 text-xs font-bold tracking-wide uppercase">
+            <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+            <span>For Machine &amp; Fleet Owners</span>
+          </div>
+          <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+            Why Listing on the Marketplace Beats Offline Brokers
+          </h2>
+          <p class="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
+            Keep your fleet busy with direct customer bookings. No middlemen taking cuts or delaying your payments.
+          </p>
+        </div>
+
+        <!-- 2-Column Responsive Layout: 65% Factors (Left) + 35% Bold Dark Callout (Right) -->
+        <div class="flex flex-col lg:flex-row gap-8 lg:gap-10 items-stretch">
+          
+          <!-- Left Column (65%): Factor Matrix -->
+          <div class="w-full lg:w-[65%] space-y-3.5">
+            <div class="flex items-center justify-between pb-2.5 border-b border-slate-200">
+              <span class="text-xs sm:text-sm font-black uppercase tracking-wider text-slate-600">Key Decision Points</span>
+              <div class="flex items-center space-x-4 text-xs sm:text-sm font-extrabold">
+                <span class="text-emerald-700 flex items-center space-x-1.5">
+                  <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+                  <span>BOOKMYEQUIPMENT APP</span>
+                </span>
+                <span class="text-rose-600 flex items-center space-x-1.5">
+                  <span class="w-2.5 h-2.5 rounded-full bg-rose-500"></span>
+                  <span>TRADITIONAL BROKERS</span>
+                </span>
+              </div>
+            </div>
+
+            <div class="space-y-3">
+              
+    <div class="p-4 sm:p-5 rounded-2xl bg-white border border-slate-200/90 hover:border-slate-300 hover:shadow-xs transition-all space-y-2.5">
+      <div class="text-sm sm:text-base font-black text-slate-900 flex items-center space-x-2.5">
+        <span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
+        <span>Broker Fees</span>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm">
+        <div class="flex items-center space-x-2.5 bg-emerald-50/90 text-emerald-950 border border-emerald-200/90 rounded-xl px-3.5 py-2.5 font-bold">
+          <i data-lucide="check" class="w-4 h-4 text-emerald-600 stroke-[3] shrink-0"></i>
+          <span class="leading-snug">0% broker commission — keep 100% of your rate</span>
+        </div>
+        <div class="flex items-center space-x-2.5 bg-rose-50/80 text-rose-950 border border-rose-200/90 rounded-xl px-3.5 py-2.5 font-bold">
+          <i data-lucide="x" class="w-4 h-4 text-rose-500 stroke-[3] shrink-0"></i>
+          <span class="leading-snug">15% to 25% taken away by offline brokers</span>
+        </div>
+      </div>
+    </div>
+    <div class="p-4 sm:p-5 rounded-2xl bg-white border border-slate-200/90 hover:border-slate-300 hover:shadow-xs transition-all space-y-2.5">
+      <div class="text-sm sm:text-base font-black text-slate-900 flex items-center space-x-2.5">
+        <span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
+        <span>Monthly Work Days</span>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm">
+        <div class="flex items-center space-x-2.5 bg-emerald-50/90 text-emerald-950 border border-emerald-200/90 rounded-xl px-3.5 py-2.5 font-bold">
+          <i data-lucide="check" class="w-4 h-4 text-emerald-600 stroke-[3] shrink-0"></i>
+          <span class="leading-snug">20+ active working days every single month</span>
+        </div>
+        <div class="flex items-center space-x-2.5 bg-rose-50/80 text-rose-950 border border-rose-200/90 rounded-xl px-3.5 py-2.5 font-bold">
+          <i data-lucide="x" class="w-4 h-4 text-rose-500 stroke-[3] shrink-0"></i>
+          <span class="leading-snug">Weeks of idle parking waiting for broker calls</span>
+        </div>
+      </div>
+    </div>
+    <div class="p-4 sm:p-5 rounded-2xl bg-white border border-slate-200/90 hover:border-slate-300 hover:shadow-xs transition-all space-y-2.5">
+      <div class="text-sm sm:text-base font-black text-slate-900 flex items-center space-x-2.5">
+        <span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
+        <span>Rental Rates</span>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm">
+        <div class="flex items-center space-x-2.5 bg-emerald-50/90 text-emerald-950 border border-emerald-200/90 rounded-xl px-3.5 py-2.5 font-bold">
+          <i data-lucide="check" class="w-4 h-4 text-emerald-600 stroke-[3] shrink-0"></i>
+          <span class="leading-snug">You set your own fixed rate in the app</span>
+        </div>
+        <div class="flex items-center space-x-2.5 bg-rose-50/80 text-rose-950 border border-rose-200/90 rounded-xl px-3.5 py-2.5 font-bold">
+          <i data-lucide="x" class="w-4 h-4 text-rose-500 stroke-[3] shrink-0"></i>
+          <span class="leading-snug">Brokers force heavy discounts on you</span>
+        </div>
+      </div>
+    </div>
+    <div class="p-4 sm:p-5 rounded-2xl bg-white border border-slate-200/90 hover:border-slate-300 hover:shadow-xs transition-all space-y-2.5">
+      <div class="text-sm sm:text-base font-black text-slate-900 flex items-center space-x-2.5">
+        <span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
+        <span>Getting Paid</span>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm">
+        <div class="flex items-center space-x-2.5 bg-emerald-50/90 text-emerald-950 border border-emerald-200/90 rounded-xl px-3.5 py-2.5 font-bold">
+          <i data-lucide="check" class="w-4 h-4 text-emerald-600 stroke-[3] shrink-0"></i>
+          <span class="leading-snug">Money in your bank account every Monday</span>
+        </div>
+        <div class="flex items-center space-x-2.5 bg-rose-50/80 text-rose-950 border border-rose-200/90 rounded-xl px-3.5 py-2.5 font-bold">
+          <i data-lucide="x" class="w-4 h-4 text-rose-500 stroke-[3] shrink-0"></i>
+          <span class="leading-snug">Months of chasing, excuses, and bad debts</span>
+        </div>
+      </div>
+    </div>
+    <div class="p-4 sm:p-5 rounded-2xl bg-white border border-slate-200/90 hover:border-slate-300 hover:shadow-xs transition-all space-y-2.5">
+      <div class="text-sm sm:text-base font-black text-slate-900 flex items-center space-x-2.5">
+        <span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
+        <span>Machine Safety</span>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm">
+        <div class="flex items-center space-x-2.5 bg-emerald-50/90 text-emerald-950 border border-emerald-200/90 rounded-xl px-3.5 py-2.5 font-bold">
+          <i data-lucide="check" class="w-4 h-4 text-emerald-600 stroke-[3] shrink-0"></i>
+          <span class="leading-snug">Free live GPS &amp; remote engine shutoff on phone</span>
+        </div>
+        <div class="flex items-center space-x-2.5 bg-rose-50/80 text-rose-950 border border-rose-200/90 rounded-xl px-3.5 py-2.5 font-bold">
+          <i data-lucide="x" class="w-4 h-4 text-rose-500 stroke-[3] shrink-0"></i>
+          <span class="leading-snug">Zero visibility once machine leaves your yard</span>
+        </div>
+      </div>
+    </div>
+            </div>
+          </div>
+
+          <!-- Right Column (35%): Dark Background Div with Bold Text & Key Points -->
+          <div class="w-full lg:w-[35%] flex flex-col">
+            <div class="h-full bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 border border-slate-800/90 rounded-3xl p-7 sm:p-9 lg:p-10 text-white shadow-xl flex flex-col justify-between relative overflow-hidden group">
+              <div class="absolute -right-12 -bottom-12 w-48 h-48 bg-amber-500/20 rounded-full blur-3xl pointer-events-none opacity-40"></div>
+              
+              <div class="space-y-5 relative z-10">
+                <div class="inline-flex items-center space-x-2 text-xs font-black uppercase tracking-widest text-amber-600">
+                  <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+                  <span>Fleet Owner Advantage</span>
+                </div>
+                
+                <p class="font-display text-2xl sm:text-3xl font-black text-white leading-snug tracking-tight">
+                  "Keep 100% of your rental rates with zero broker cuts, get 20+ active work days every month, and receive guaranteed payouts every Monday."
+                </p>
+
+                
+                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal pt-1">
+                  Connect directly with verified infrastructure contractors nationwide. Monitor machine run-hours and diesel levels with complimentary live GPS, and eliminate bad debts with automated weekly bank payouts.
+                </p>
+
+                
+                <div class="space-y-2.5 pt-2">
+                  
+                    <div class="flex items-start space-x-2 text-xs sm:text-sm font-bold text-slate-200">
+                      <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+                      <span>Keep 100% of your listed rate — zero broker cuts</span>
+                    </div>
+                  
+                    <div class="flex items-start space-x-2 text-xs sm:text-sm font-bold text-slate-200">
+                      <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+                      <span>Guaranteed escrow payouts deposited every Monday</span>
+                    </div>
+                  
+                    <div class="flex items-start space-x-2 text-xs sm:text-sm font-bold text-slate-200">
+                      <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+                      <span>Free live GPS tracking &amp; remote engine immobilizer</span>
+                    </div>
+                  
+                </div>
+              </div>
+
+              <div class="pt-6 mt-6 border-t border-slate-800/80 flex items-center space-x-2.5 text-xs sm:text-sm font-bold text-slate-300 relative z-10">
+                <i data-lucide="shield-check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+                <span>0% broker commission • Direct bank pay • Free live GPS</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3. FAQS SECTION (Clean Left Title, Right Accordion) -->
+    
+    <!-- ===== FAQS SECTION ===== -->
+    <section id="faqs-section" class="py-16 sm:py-24 bg-white scroll-mt-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-start">
+        
+        <!-- Left Half Side (5 Cols: Role Heading & Description Only - Static, No Sticky Movement) -->
+        <div class="lg:col-span-5 space-y-6">
+          
+          <div class="space-y-4">
+            <div class="inline-flex items-center space-x-2 bg-amber-50 border-amber-200 text-amber-800 rounded-full px-4 py-1.5 text-xs font-bold tracking-wide uppercase">
+              <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+              <span>FAQ's</span>
+            </div>
+            
+            <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-[1.12]">
+              Most frequently asked question from Machine Owners
+            </h2>
+            
+            <p class="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
+              Quick, clear answers about booking equipment on the mobile app, payouts, tracking, and on-site support.
+            </p>
+          </div>
+
+          <!-- Helpful Context Pill -->
+          <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 border border-slate-200/90 shadow-2xs space-y-2">
+            <div class="flex items-center space-x-2 text-xs font-extrabold uppercase tracking-wider text-slate-700">
+              <i data-lucide="help-circle" class="w-4 h-4 text-emerald-600"></i>
+              <span>Clear &amp; Transparent Answers</span>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Find answers about rates, payments, mobile tracking, and on-site guarantees. All operational support is available 24/7 inside the app.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Right Half Side (7 Cols: The FAQs Accordion List) -->
+        <div class="lg:col-span-7 space-y-3">
+          <div id="faqs-container" class="space-y-3">
+            
+      <div class="faq-item group bg-white border border-slate-200 rounded-2xl overflow-hidden transition-all duration-200 hover:border-slate-300 hover:shadow-xs">
+        <button class="faq-toggle w-full px-5 py-4 flex items-center justify-between text-left cursor-pointer focus:outline-none" aria-expanded="true">
+          <div class="pr-3 space-y-1">
+            <h3 class="faq-question text-sm sm:text-base font-bold text-slate-900 group-hover:text-amber-600 transition-colors">
+              What machines can I add to the BookMyEquipment App?
+            </h3>
+          </div>
+          <div class="faq-icon-wrapper w-7 h-7 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center shrink-0 text-slate-500 transition-transform duration-200 rotate-180">
+            <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
+          </div>
+        </button>
+        <div class="faq-answer  px-5 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3.5 bg-slate-50/50">
+          <p class="faq-answer-text">You can add Excavators (all sizes), JCB Backhoes, Transit Mixers, Hydra Cranes, Soil Compactors, Tandem Rollers, Tipper Trucks, and Concrete Pumps in good running condition.</p>
+        </div>
+      </div>
+      <div class="faq-item group bg-white border border-slate-200 rounded-2xl overflow-hidden transition-all duration-200 hover:border-slate-300 hover:shadow-xs">
+        <button class="faq-toggle w-full px-5 py-4 flex items-center justify-between text-left cursor-pointer focus:outline-none" aria-expanded="false">
+          <div class="pr-3 space-y-1">
+            <h3 class="faq-question text-sm sm:text-base font-bold text-slate-900 group-hover:text-amber-600 transition-colors">
+              When and how do I receive money for my machine rentals?
+            </h3>
+          </div>
+          <div class="faq-icon-wrapper w-7 h-7 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center shrink-0 text-slate-500 transition-transform duration-200 ">
+            <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
+          </div>
+        </button>
+        <div class="faq-answer hidden px-5 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3.5 bg-slate-50/50">
+          <p class="faq-answer-text">Client funds are locked safely before your machine leaves your yard. Every Monday, your payout is sent directly to your bank account for all completed working hours. No chasing clients, no payment delays.</p>
+        </div>
+      </div>
+      <div class="faq-item group bg-white border border-slate-200 rounded-2xl overflow-hidden transition-all duration-200 hover:border-slate-300 hover:shadow-xs">
+        <button class="faq-toggle w-full px-5 py-4 flex items-center justify-between text-left cursor-pointer focus:outline-none" aria-expanded="false">
+          <div class="pr-3 space-y-1">
+            <h3 class="faq-question text-sm sm:text-base font-bold text-slate-900 group-hover:text-amber-600 transition-colors">
+              How does the app protect my machine from theft or misuse?
+            </h3>
+          </div>
+          <div class="faq-icon-wrapper w-7 h-7 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center shrink-0 text-slate-500 transition-transform duration-200 ">
+            <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
+          </div>
+        </button>
+        <div class="faq-answer hidden px-5 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3.5 bg-slate-50/50">
+          <p class="faq-answer-text">We connect a free tamper-proof GPS unit. You can see your machine&#39;s exact location, diesel consumption, and engine hours 24/7 on your mobile app, with a 1-tap remote engine cutoff switch.</p>
+        </div>
+      </div>
+      <div class="faq-item group bg-white border border-slate-200 rounded-2xl overflow-hidden transition-all duration-200 hover:border-slate-300 hover:shadow-xs">
+        <button class="faq-toggle w-full px-5 py-4 flex items-center justify-between text-left cursor-pointer focus:outline-none" aria-expanded="false">
+          <div class="pr-3 space-y-1">
+            <h3 class="faq-question text-sm sm:text-base font-bold text-slate-900 group-hover:text-amber-600 transition-colors">
+              Does BookMyEquipment charge any joining or monthly fee?
+            </h3>
+          </div>
+          <div class="faq-icon-wrapper w-7 h-7 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center shrink-0 text-slate-500 transition-transform duration-200 ">
+            <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
+          </div>
+        </button>
+        <div class="faq-answer hidden px-5 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3.5 bg-slate-50/50">
+          <p class="faq-answer-text">No. Adding your machines to the app is 100% free. No monthly subscriptions. No broker cuts.</p>
+        </div>
+      </div>
+      <div class="faq-item group bg-white border border-slate-200 rounded-2xl overflow-hidden transition-all duration-200 hover:border-slate-300 hover:shadow-xs">
+        <button class="faq-toggle w-full px-5 py-4 flex items-center justify-between text-left cursor-pointer focus:outline-none" aria-expanded="false">
+          <div class="pr-3 space-y-1">
+            <h3 class="faq-question text-sm sm:text-base font-bold text-slate-900 group-hover:text-amber-600 transition-colors">
+              What happens if a hirer damages my machine on their site?
+            </h3>
+          </div>
+          <div class="faq-icon-wrapper w-7 h-7 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center shrink-0 text-slate-500 transition-transform duration-200 ">
+            <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
+          </div>
+        </button>
+        <div class="faq-answer hidden px-5 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3.5 bg-slate-50/50">
+          <p class="faq-answer-text">Every hirer pays a security deposit upfront and signs site responsibility terms. If damage happens due to site negligence, our technical surveyor inspects within 24 hours and repairs are covered from deposit and operational insurance.</p>
+        </div>
+      </div>
+      <div class="faq-item group bg-white border border-slate-200 rounded-2xl overflow-hidden transition-all duration-200 hover:border-slate-300 hover:shadow-xs">
+        <button class="faq-toggle w-full px-5 py-4 flex items-center justify-between text-left cursor-pointer focus:outline-none" aria-expanded="false">
+          <div class="pr-3 space-y-1">
+            <h3 class="faq-question text-sm sm:text-base font-bold text-slate-900 group-hover:text-amber-600 transition-colors">
+              Can I send my own trusted operator with my machine?
+            </h3>
+          </div>
+          <div class="faq-icon-wrapper w-7 h-7 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center shrink-0 text-slate-500 transition-transform duration-200 ">
+            <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
+          </div>
+        </button>
+        <div class="faq-answer hidden px-5 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3.5 bg-slate-50/50">
+          <p class="faq-answer-text">Yes! You can choose &#39;With My Operator&#39; or &#39;Machine Only&#39;. When you send your own operator, their wages and site allowances are added directly to your weekly payout.</p>
+        </div>
+      </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+    <!-- 4. DOWNLOAD APP SECTION -->
+    
+    <!-- ===== DOWNLOAD APP SECTION (2-Part Split Layout) ===== -->
+    <section id="download-app-section" class="py-16 sm:py-24 bg-white scroll-mt-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+
+        <!-- Section Header -->
+        <div class="max-w-3xl space-y-2">
+          <div class="inline-flex items-center space-x-2 bg-amber-50 border-amber-200 text-amber-800 rounded-full px-3.5 py-1 text-xs font-bold tracking-wide uppercase">
+            <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+            <span>Get the Fleet Owner App</span>
+          </div>
+          <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+            Manage Your Machinery Fleet &amp; Payouts 24/7
+          </h2>
+          <p class="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
+            Download the official BookMyEquipment application on Android and iOS to access instant bookings, live telemetry, and direct escrow payouts.
+          </p>
+        </div>
+
+        <!-- 2-Part Responsive Grid: Left Dark Card (7 Cols) + Right Direct Image (5 Cols) Same Height -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
+          
+          <!-- Left Part (7 cols): Dark Background Card (Fixed Height Matching Image on lg) -->
+          <div class="lg:col-span-7 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 border border-slate-800/90 rounded-3xl p-8 sm:p-10 lg:p-12 text-white shadow-xl flex flex-col justify-between relative overflow-hidden group lg:h-[520px]">
+            <div class="absolute -right-16 -bottom-16 w-64 h-64 bg-amber-500/20 rounded-full blur-3xl pointer-events-none opacity-40"></div>
+            <div class="absolute -left-16 -top-16 w-64 h-64 bg-amber-500/20 rounded-full blur-3xl pointer-events-none opacity-30"></div>
+
+            <div class="space-y-6 relative z-10">
+              <div class="inline-flex items-center space-x-2 bg-amber-500/20 border-amber-500/30 text-amber-300 rounded-full px-3.5 py-1 text-xs font-bold uppercase tracking-wider">
+                <i data-lucide="smartphone" class="w-3.5 h-3.5"></i>
+                <span>Fleet Owners Partner App</span>
+              </div>
+
+              <h3 class="font-display text-2xl sm:text-3xl lg:text-4xl font-black text-white leading-tight tracking-tight">
+                Everything You Need on iOS &amp; Android
+              </h3>
+
+              <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-xl font-normal">
+                List your machines in seconds, accept direct hirer requests, monitor engine run-hours in real time, and receive your rental payouts directly into your bank account every Monday.
+              </p>
+
+              <!-- App Store Badges -->
+              <div class="flex flex-wrap items-center gap-4 pt-2">
+                <a href="#" class="inline-block transition-transform duration-200 hover:scale-105 active:scale-95 drop-shadow-md rounded-[7px] overflow-hidden" aria-label="Get it on Google Play">
+                  <img src="/images/google-play-badge.svg" alt="Get it on Google Play" class="h-11 w-auto block">
+                </a>
+                <a href="#" class="inline-block transition-transform duration-200 hover:scale-105 active:scale-95 drop-shadow-md rounded-[7px] overflow-hidden" aria-label="Download on the App Store">
+                  <img src="/images/app-store-badge.svg" alt="Download on the App Store" class="h-11 w-auto block">
+                </a>
+              </div>
+            </div>
+
+            <!-- Features Footer Inside Left Dark Card -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-6 mt-6 border-t border-slate-800/80 text-xs text-slate-300 relative z-10">
+              
+    <div class="flex items-center space-x-2">
+      <i data-lucide="shield-check" class="w-4 h-4 text-amber-400 shrink-0"></i>
+      <span>0% Broker Cuts</span>
+    </div>
+  
+    <div class="flex items-center space-x-2">
+      <i data-lucide="map-pin" class="w-4 h-4 text-amber-400 shrink-0"></i>
+      <span>Remote Engine Shutoff</span>
+    </div>
+  
+    <div class="flex items-center space-x-2">
+      <i data-lucide="wallet" class="w-4 h-4 text-amber-400 shrink-0"></i>
+      <span>Guaranteed Monday Payouts</span>
+    </div>
+  
+            </div>
+          </div>
+
+          <!-- Right Part (5 cols): Direct Image Pasted Directly with Exact Same Height (520px on lg) -->
+          <div class="lg:col-span-5 flex items-center justify-center lg:h-[520px]">
+            <img 
+              src="/images/idle.png" 
+              alt="BookMyEquipment Owner Idle & Earnings Dashboard" 
+              class="w-auto h-auto max-h-[460px] lg:h-[520px] lg:max-h-[520px] object-contain rounded-3xl shadow-2xl drop-shadow-2xl transition-transform duration-300 hover:scale-[1.02] shrink-0"
+            />
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== REQUEST A CALL MODAL ===== -->
+  <div id="request-call-modal" class="hidden fixed inset-0 z-50 items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm" style="display: none;">
+    <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl border border-slate-200 relative animate-in fade-in zoom-in-95 duration-200">
+      
+      <button onclick="closeCallbackModal()" class="absolute top-5 right-5 p-1.5 text-slate-400 hover:text-slate-700 rounded-full hover:bg-slate-100 transition-colors" aria-label="Close Modal">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div id="request-call-form-container">
+        <div class="space-y-2 mb-6">
+          <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center">
+            <i data-lucide="phone-call" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-display text-xl font-bold text-slate-900">Request a Callback</h3>
+          <p class="text-xs text-slate-500">Need personal machinery guidance? Our coordinator will call your phone in 15 minutes.</p>
+        </div>
+
+        <form id="request-call-form" class="space-y-4" onsubmit="handleCallbackSubmit(event)">
+          <div>
+            <label for="callback-name" class="block text-xs font-bold text-slate-700 mb-1">Your Full Name</label>
+            <input type="text" id="callback-name" required placeholder="e.g. Ramesh Sharma" class="w-full px-3.5 py-2.5 text-sm rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500" />
+          </div>
+
+          <div>
+            <label for="callback-phone" class="block text-xs font-bold text-slate-700 mb-1">Phone Number (+91)</label>
+            <div class="relative flex items-center">
+              <span class="absolute left-3.5 text-xs font-bold text-slate-400">+91</span>
+              <input type="tel" id="callback-phone" required pattern="[6-9][0-9]{9}" placeholder="98765 43210" class="w-full pl-12 pr-3.5 py-2.5 text-sm rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500" />
+            </div>
+          </div>
+
+          <div>
+            <label for="callback-role" class="block text-xs font-bold text-slate-700 mb-1">Role</label>
+            <input type="text" id="callback-role" readonly value="Equipment &amp; Fleet Owner" class="w-full px-3.5 py-2.5 text-sm rounded-xl border border-slate-200 bg-slate-50 text-slate-700 font-medium" />
+          </div>
+
+          <div>
+            <label for="callback-query" class="block text-xs font-bold text-slate-700 mb-1">Equipment / Query Details</label>
+            <input type="text" id="callback-query" placeholder="e.g. 20-Ton Excavator booking, weekly hire inquiry..." class="w-full px-3.5 py-2.5 text-sm rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500" />
+          </div>
+
+          <button type="submit" class="w-full bg-amber-500 hover:bg-amber-600 text-white shadow-sm shadow-amber-500/25 font-extrabold text-xs uppercase py-3 rounded-xl transition-all cursor-pointer">
+            Confirm &amp; Request Callback
+          </button>
+        </form>
+      </div>
+
+      <div id="request-call-success" class="hidden text-center py-6 space-y-4">
+        <div class="w-14 h-14 mx-auto rounded-full bg-amber-100 text-amber-600 flex items-center justify-center">
+          <i data-lucide="check-circle" class="w-8 h-8"></i>
+        </div>
+        <h4 class="font-display text-lg font-bold text-slate-900">Callback Requested!</h4>
+        <p class="text-xs text-slate-600 max-w-xs mx-auto">
+          <span>Thank you! Our fleet specialist will call you at</span> <strong id="confirmed-phone" class="text-slate-900">your number</strong> <span>within 15 minutes.</span>
+        </p>
+        <button onclick="closeCallbackModal()" class="px-6 py-2 rounded-xl bg-slate-900 text-white text-xs font-bold transition-colors">
+          Close Window
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  
+  <!-- ===== FOOTER ===== -->
+  <footer id="footer-section" class="bg-slate-50 text-slate-600 border-t border-slate-200 pt-16 pb-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10">
+        
+        <!-- Col 1: Brand & Bio -->
+        <div class="lg:col-span-4 space-y-4">
+          <a href="/" class="flex items-center space-x-2.5 group" title="Return to BookMyEquipment Home">
+            <div class="bg-brand-primary px-3 py-1.5 rounded-[4px] shadow-sm transition-transform group-hover:scale-105">
+              <span class="text-white font-black text-xl tracking-wider" style="font-family:'Poppins',Impact,sans-serif;">BME</span>
+            </div>
+            <div class="border-l border-slate-300 pl-3">
+              <span class="text-[9px] tracking-[0.22em] text-brand-primary uppercase font-bold block">Heavy Equipment</span>
+              <div class="text-sm font-bold text-slate-900 tracking-tight">BookMyEquipment</div>
+            </div>
+          </a>
+          <p class="text-slate-600 text-sm max-w-sm leading-relaxed">
+            India&#39;s #1 B2B heavy equipment rental and listing platform. Zero middlemen. Complete transparency for every stakeholder.
+          </p>
+        </div>
+
+        <!-- Col 2: Company Links -->
+        <div class="lg:col-span-2">
+          <h4 class="text-brand-primary font-bold text-xs uppercase tracking-wider mb-4">Company</h4>
+          <ul class="space-y-2.5">
+            <li><a href="/about" class="footer-link">About Us</a></li>
+            <li><a href="/#ecosystem" class="footer-link">How It Works</a></li>
+            <li><a href="/#fleet" class="footer-link">Fleet Categories</a></li>
+            <li><a href="/#trust" class="footer-link">Trust &amp; Safety</a></li>
+            <li><a href="#" class="footer-link">Careers</a></li>
+            <li><a href="javascript:void(0)" onclick="openCallbackModal()" class="footer-link">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Portals & Legal Links -->
+        <div class="lg:col-span-2">
+          <h4 class="text-brand-primary font-bold text-xs uppercase tracking-wider mb-4">Portals &amp; Legal</h4>
+          <ul class="space-y-2.5">
+            <li><a href="/customer" class="footer-link ">Customer Portal</a></li>
+            <li><a href="/owner" class="footer-link font-bold text-slate-900">Machine Owner</a></li>
+            <li><a href="/operator" class="footer-link ">Certified Operator</a></li>
+            <li><a href="#" class="footer-link">Fleet Guidelines</a></li>
+            <li><a href="#" class="footer-link">Terms &amp; Conditions</a></li>
+            <li><a href="#" class="footer-link">Privacy Policy</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: App Download Badges & Support Contacts -->
+        <div class="lg:col-span-4 space-y-3.5">
+          <h4 class="text-brand-primary font-bold text-xs uppercase tracking-wider">Get the App</h4>
+          <p class="text-slate-600 text-xs leading-relaxed">Available on iOS and Android. Free to download, transparent pricing.</p>
+          
+          <!-- For Customers -->
+          <div class="space-y-1.5 pt-1">
+            <span class="inline-block text-[11px] font-bold text-brand-primary uppercase tracking-wider">For Customers</span>
+            <div class="flex flex-wrap items-center gap-2.5">
+              <a href="#" class="inline-block transition-transform duration-200 hover:scale-105 active:scale-95 drop-shadow-md rounded-[7px] overflow-hidden" aria-label="Get it on Google Play">
+                <img src="/images/google-play-badge.svg" alt="Get it on Google Play" class="h-9 w-auto block">
+              </a>
+              <a href="#" class="inline-block transition-transform duration-200 hover:scale-105 active:scale-95 drop-shadow-md rounded-[7px] overflow-hidden" aria-label="Download on the App Store">
+                <img src="/images/app-store-badge.svg" alt="Download on the App Store" class="h-9 w-auto block">
+              </a>
+            </div>
+          </div>
+
+          <!-- For Partners -->
+          <div class="space-y-1.5 pt-1">
+            <span class="inline-block text-[11px] font-bold text-amber-600 uppercase tracking-wider">For Fleet Owners &amp; Operators</span>
+            <div class="flex flex-wrap items-center gap-2.5">
+              <a href="#" class="inline-block transition-transform duration-200 hover:scale-105 active:scale-95 drop-shadow-md rounded-[7px] overflow-hidden" aria-label="Get it on Google Play">
+                <img src="/images/google-play-badge.svg" alt="Get it on Google Play" class="h-9 w-auto block">
+              </a>
+              <a href="#" class="inline-block transition-transform duration-200 hover:scale-105 active:scale-95 drop-shadow-md rounded-[7px] overflow-hidden" aria-label="Download on the App Store">
+                <img src="/images/app-store-badge.svg" alt="Download on the App Store" class="h-9 w-auto block">
+              </a>
+            </div>
+          </div>
+
+          <div class="text-xs text-slate-600 space-y-1.5 pt-2 border-t border-slate-200">
+            <div class="flex items-center space-x-1.5">
+              <i data-lucide="mail" class="w-3.5 h-3.5 text-brand-primary"></i>
+              <a href="mailto:hello@bookmyequipment.in" class="hover:text-brand-primary transition-colors">hello@bookmyequipment.in</a>
+            </div>
+            <div class="flex items-center space-x-1.5">
+              <i data-lucide="phone" class="w-3.5 h-3.5 text-brand-primary"></i>
+              <a href="tel:+918000000000" class="hover:text-brand-primary transition-colors">+91 80000 00000</a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Bottom Copyright & Compliance Bar -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-slate-200 pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+      <div>&copy; 2026 BookMyEquipment. All rights reserved. Made with <span class="text-red-500">&hearts;</span> in India.</div>
+      <div class="flex items-center space-x-6">
+        <span class="flex items-center space-x-1.5">
+          <i data-lucide="shield-check" class="w-4 h-4 text-emerald-600"></i>
+          <span class="text-slate-700 font-medium">SSL 256-bit Encrypted</span>
+        </span>
+        <span class="text-slate-300">&bull;</span>
+        <span class="text-slate-700 font-medium">GST Registered</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Interactive JavaScript Logic -->
+  <script>
+    // Lucide Icons initialization
+    if (typeof lucide !== 'undefined') lucide.createIcons();
+
+    // Mobile Menu Toggle
+    const mobileToggle = document.getElementById('mobile-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileToggle?.addEventListener('click', () => mobileMenu?.classList.toggle('hidden'));
+    mobileMenu?.querySelectorAll('a').forEach(l => l.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+
+    // Modal Handlers
+    const modal = document.getElementById('request-call-modal');
+    const formContainer = document.getElementById('request-call-form-container');
+    const successContainer = document.getElementById('request-call-success');
+
+    function openCallbackModal() {
+      if (modal) {
+        modal.style.display = 'flex';
+        modal.classList.remove('hidden');
+        if (formContainer) formContainer.classList.remove('hidden');
+        if (successContainer) successContainer.classList.add('hidden');
+      }
+    }
+
+    function closeCallbackModal() {
+      if (modal) {
+        modal.style.display = 'none';
+        modal.classList.add('hidden');
+      }
+    }
+
+    modal?.addEventListener('click', (e) => {
+      if (e.target === modal) closeCallbackModal();
+    });
+
+    function handleCallbackSubmit(e) {
+      e.preventDefault();
+      const phone = document.getElementById('callback-phone')?.value;
+      if (formContainer) formContainer.classList.add('hidden');
+      if (successContainer) {
+        successContainer.classList.remove('hidden');
+        const phoneEl = document.getElementById('confirmed-phone');
+        if (phoneEl) phoneEl.textContent = phone;
+      }
+      if (typeof lucide !== 'undefined') lucide.createIcons();
+    }
+
+    // ── Customer Mature Estimator Calculation Engine ──
+    const durationDaysMap = { day: 1, week: 7, month: 30 };
+    function computeCustomerEstimate(input) {
+      const amountKeys = ['rate', 'deposit', 'rentalExtras', 'down', 'emi', 'maint', 'buyExtras'];
+      if (!durationDaysMap[input.durationUnit] || !durationDaysMap[input.rateUnit]) return null;
+      const duration = Number(input.duration);
+      if (!Number.isInteger(duration) || duration < 1 || duration > 3650) return null;
+      const amounts = {};
+      for (const key of amountKeys) {
+        if (input[key] === '' || input[key] === null || input[key] === undefined) return null;
+        const number = Number(input[key]);
+        if (!Number.isFinite(number) || number < 0 || number > 100000000) return null;
+        amounts[key] = number;
+      }
+      if (amounts.rate <= 0) return null;
+      const days = duration * durationDaysMap[input.durationUnit];
+      const months = Math.ceil(days / 30);
+      const round = val => Math.round((val + Number.EPSILON) * 100) / 100;
+      const baseRental = round(amounts.rate * days / durationDaysMap[input.rateUnit]);
+      const loan = round(amounts.emi * months);
+      const upkeep = round(amounts.maint * months);
+      const rental = round(baseRental + amounts.deposit + amounts.rentalExtras);
+      const purchase = round(amounts.down + loan + upkeep + amounts.buyExtras);
+      return {
+        baseRental,
+        loan,
+        upkeep,
+        rental,
+        purchase,
+        depositTotal: amounts.deposit,
+        rentalExtrasTotal: amounts.rentalExtras,
+        downTotal: amounts.down,
+        buyExtrasTotal: amounts.buyExtras,
+        difference: round(Math.abs(rental - purchase)),
+        lower: rental === purchase ? 'equal' : rental < purchase ? 'rental' : 'purchase'
+      };
+    }
+
+    function initCustomerEstimate() {
+      const machine = document.getElementById('cust-machine-select');
+      if (!machine) return;
+      const ids = {
+        duration: 'cust-duration-select',
+        durationUnit: 'cust-duration-unit',
+        rate: 'cust-rate',
+        rateUnit: 'cust-rate-unit',
+        deposit: 'cust-deposit',
+        rentalExtras: 'cust-rental-extras',
+        down: 'cust-down',
+        emi: 'cust-emi',
+        maint: 'cust-maint',
+        buyExtras: 'cust-buy-extras'
+      };
+      const controls = Object.fromEntries(Object.entries(ids).map(([k, id]) => [k, document.getElementById(id)]));
+      const outputs = {
+        rental: 'cust-rent-total',
+        purchase: 'cust-buy-total',
+        baseRental: 'cust-base-rental',
+        depositTotal: 'cust-deposit-total',
+        rentalExtrasTotal: 'cust-rental-extras-total',
+        downTotal: 'cust-buy-down',
+        loan: 'cust-buy-emi',
+        upkeep: 'cust-buy-maint',
+        buyExtrasTotal: 'cust-buy-extras-total'
+      };
+      const money = val => 'Approx. ₹ ' + val.toLocaleString('en-IN', { maximumFractionDigits: 0 });
+
+      function update() {
+        const input = Object.fromEntries(Object.entries(controls).map(([k, el]) => [k, el ? el.value : '']));
+        const res = computeCustomerEstimate(input);
+        for (const el of Object.values(controls)) {
+          if (el && el.type === 'number') {
+            el.setAttribute('aria-invalid', String(el.value === '' || !el.validity.valid));
+          }
+        }
+        for (const [key, id] of Object.entries(outputs)) {
+          const el = document.getElementById(id);
+          if (el) el.textContent = res ? money(res[key]) : '—';
+        }
+        const errorEl = document.getElementById('estimate-error');
+        if (errorEl) {
+          errorEl.hidden = Boolean(res);
+          errorEl.textContent = res ? '' : 'Enter valid amounts and a whole-number project duration to compare.';
+        }
+        const verdictEl = document.getElementById('estimate-verdict');
+        if (verdictEl) {
+          verdictEl.textContent = !res
+            ? 'Enter amounts to compare cash outflows.'
+            : res.lower === 'equal'
+            ? 'Both options have the same estimated cash outflow.'
+            : res.lower === 'rental'
+            ? 'Renting has lower estimated cash outflow by'
+            : 'Purchasing has lower estimated cash outflow by';
+        }
+        const diffEl = document.getElementById('estimate-difference');
+        if (diffEl) {
+          diffEl.textContent = res && res.lower !== 'equal' ? money(res.difference) : '';
+        }
+      }
+
+      function loadExample() {
+        const opt = machine.selectedOptions[0];
+        if (!opt) return;
+        const data = opt.dataset;
+        for (const [k, src] of [['rate', 'rent'], ['down', 'down'], ['emi', 'emi'], ['maint', 'maint']]) {
+          if (controls[k]) controls[k].value = data[src] || '';
+        }
+        for (const k of ['deposit', 'rentalExtras', 'buyExtras']) {
+          if (controls[k]) controls[k].value = '0';
+        }
+        if (controls.rateUnit) controls.rateUnit.value = 'month';
+        const sourceEl = document.getElementById('estimate-source');
+        if (sourceEl) {
+          sourceEl.textContent = data.rent
+            ? 'Example inputs only. Replace them with your supplier and finance quotes.'
+            : 'No example rates for this machine. Enter your quote amounts or request a site quote.';
+        }
+        update();
+      }
+
+      for (const el of Object.values(controls)) {
+        if (el) el.addEventListener('input', update);
+        if (el) el.addEventListener('change', update);
+      }
+      machine.addEventListener('change', loadExample);
+      loadExample();
+    }
+    initCustomerEstimate();
+
+    // ── Owner & Operator Interactive Earnings Estimator ──
+    const calcVehicle = document.getElementById('calc-vehicle-select');
+    const calcCity = document.getElementById('calc-city-select');
+    const calcBtn = document.getElementById('calc-check-btn');
+    const calcResultAmount = document.getElementById('calc-result-amount');
+
+    function updateEarnings() {
+      if (!calcVehicle || !calcCity || !calcResultAmount) return;
+      const vehicleOpt = calcVehicle.selectedOptions[0];
+      const cityOpt = calcCity.selectedOptions[0];
+      const baseRate = parseFloat(vehicleOpt?.getAttribute('data-rate') || 0);
+      const mult = parseFloat(cityOpt?.getAttribute('data-mult') || 1);
+      const total = Math.round(baseRate * mult);
+      calcResultAmount.textContent = 'Approx. ₹ ' + total.toLocaleString('en-IN') + '/month';
+    }
+
+    calcVehicle?.addEventListener('change', updateEarnings);
+    calcCity?.addEventListener('change', updateEarnings);
+    calcBtn?.addEventListener('click', (e) => {
+      e.preventDefault();
+      updateEarnings();
+    });
+
+    // ── Accordion Expand/Collapse ──
+    document.querySelectorAll('.faq-toggle').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const answer = item.querySelector('.faq-answer');
+        const icon = btn.querySelector('.faq-icon-wrapper');
+        const isCurrentlyOpen = !answer.classList.contains('hidden');
+
+        // Close all
+        document.querySelectorAll('.faq-answer').forEach(a => a.classList.add('hidden'));
+        document.querySelectorAll('.faq-icon-wrapper').forEach(ic => ic.classList.remove('rotate-180'));
+        document.querySelectorAll('.faq-toggle').forEach(t => t.setAttribute('aria-expanded', 'false'));
+
+        if (!isCurrentlyOpen) {
+          answer.classList.remove('hidden');
+          icon.classList.add('rotate-180');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    // ── Dynamic Role Page ScrollSpy Active Section Indicator ──
+    const roleNavLinks = Array.from(document.querySelectorAll('.role-nav-link'));
+    const roleSections = roleNavLinks.map(link => {
+      const href = link.getAttribute('href');
+      const id = href ? href.replace('#', '') : '';
+      return { id, link, el: document.getElementById(id) };
+    }).filter(s => s.el);
+
+    function updateRoleActiveNav() {
+      const scrollPos = window.scrollY + 140;
+      const isAtBottom = (window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 120);
+
+      let activeSection = roleSections[0];
+      if (isAtBottom && roleSections.length) {
+        activeSection = roleSections[roleSections.length - 1];
+      } else {
+        for (const item of roleSections) {
+          if (scrollPos >= item.el.offsetTop) {
+            activeSection = item;
+          }
+        }
+      }
+
+      roleSections.forEach(item => {
+        if (activeSection && item.id === activeSection.id) {
+          item.link.classList.add('active');
+        } else {
+          item.link.classList.remove('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', updateRoleActiveNav, { passive: true });
+    window.addEventListener('DOMContentLoaded', updateRoleActiveNav);
+    updateRoleActiveNav();
+
+    // Smooth scroll on click
+    roleNavLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          const el = document.querySelector(href);
+          if (el) {
+            e.preventDefault();
+            const top = el.getBoundingClientRect().top + window.scrollY - 80;
+            window.scrollTo({ top, behavior: 'smooth' });
+            history.pushState(null, null, href);
+            updateRoleActiveNav();
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>

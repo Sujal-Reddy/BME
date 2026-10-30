@@ -1,0 +1,48 @@
+{
+  "role": "operator",
+  "displayName": "Certified Machine Operator",
+  "badgeText": "Certified Operators Hub",
+  "headline": "Heavy Machinery Operator? Get Regular Work on the App",
+  "subheadline": "Get steady construction site jobs near you. Transparent salary sent directly to your bank account, fixed 8-hour duty shifts, and free ₹5,00,000 accident cover.",
+  "accentColor": "#0D9488",
+  "accentBg": "#F0FDFA",
+  "categories": ["All", "Getting Started", "Salary & Allowances", "Duty Hours & Overtime", "Free Insurance"],
+  "faqs": [
+    {
+      "id": "op-faq-1",
+      "category": "Getting Started",
+      "question": "How do I register as a machine operator on the app?",
+      "answer": "Download the BookMyEquipment Operator Mobile App. Upload a photo of your Aadhaar and Heavy Vehicle Driving License. Our team verifies your profile and activates your account within 24 hours."
+    },
+    {
+      "id": "op-faq-2",
+      "category": "Salary & Allowances",
+      "question": "When and how do I receive my salary and daily food allowance?",
+      "answer": "Your earnings are transferred directly to your bank account or UPI every 15 days (1st and 16th of every month) with zero commission cuts. Daily food allowances are sent instantly via UPI."
+    },
+    {
+      "id": "op-faq-3",
+      "category": "Duty Hours & Overtime",
+      "question": "How are duty hours and overtime calculated?",
+      "answer": "A standard shift is 8 hours. Whenever your machine operates beyond 8 hours, extra time is automatically tracked in your app and paid out as 1.5x overtime wage."
+    },
+    {
+      "id": "op-faq-4",
+      "category": "Free Insurance",
+      "question": "Am I covered by medical or accident insurance while on duty?",
+      "answer": "Yes! Every active operator gets free ₹5,00,000 accident cover and ₹1,50,000 emergency medical hospital cover from Day 1 of deployment."
+    },
+    {
+      "id": "op-faq-5",
+      "category": "Duty Hours & Overtime",
+      "question": "What if the contractor and I disagree on working hours?",
+      "answer": "No arguments or guesswork. Digital machine sensors record exact operating hours directly in your app. The hours recorded in the app are final and guaranteed."
+    },
+    {
+      "id": "op-faq-6",
+      "category": "Free Insurance",
+      "question": "What happens if working conditions on a site are unsafe?",
+      "answer": "You have the right to safe work. If soil is sliding or power lines are too close, tap 'Report Unsafe Site' in your app. Our safety team will stop the machine immediately until site safety is fixed."
+    }
+  ]
+}

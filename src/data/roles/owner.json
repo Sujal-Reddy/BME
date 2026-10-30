@@ -1,0 +1,48 @@
+{
+  "role": "owner",
+  "displayName": "Equipment & Fleet Owner",
+  "badgeText": "Fleet Owners Partner Hub",
+  "headline": "Own Heavy Machinery? Earn Every Week on the App",
+  "subheadline": "Keep your machines busy 20+ days a month. Zero broker cuts, live GPS tracking on your phone, and money sent directly to your bank every Monday.",
+  "accentColor": "#F59E0B",
+  "accentBg": "#FFFBEB",
+  "categories": ["All", "Listing Machinery", "Weekly Payouts", "GPS Tracking & Safety", "Damage Protection"],
+  "faqs": [
+    {
+      "id": "o-faq-1",
+      "category": "Listing Machinery",
+      "question": "What machines can I add to the BookMyEquipment App?",
+      "answer": "You can add Excavators (all sizes), JCB Backhoes, Transit Mixers, Hydra Cranes, Soil Compactors, Tandem Rollers, Tipper Trucks, and Concrete Pumps in good running condition."
+    },
+    {
+      "id": "o-faq-2",
+      "category": "Weekly Payouts",
+      "question": "When and how do I receive money for my machine rentals?",
+      "answer": "Client funds are locked safely before your machine leaves your yard. Every Monday, your payout is sent directly to your bank account for all completed working hours. No chasing clients, no payment delays."
+    },
+    {
+      "id": "o-faq-3",
+      "category": "GPS Tracking & Safety",
+      "question": "How does the app protect my machine from theft or misuse?",
+      "answer": "We connect a free tamper-proof GPS unit. You can see your machine's exact location, diesel consumption, and engine hours 24/7 on your mobile app, with a 1-tap remote engine cutoff switch."
+    },
+    {
+      "id": "o-faq-4",
+      "category": "Listing Machinery",
+      "question": "Does BookMyEquipment charge any joining or monthly fee?",
+      "answer": "No. Adding your machines to the app is 100% free. No monthly subscriptions. No broker cuts."
+    },
+    {
+      "id": "o-faq-5",
+      "category": "Damage Protection",
+      "question": "What happens if a hirer damages my machine on their site?",
+      "answer": "Every hirer pays a security deposit upfront and signs site responsibility terms. If damage happens due to site negligence, our technical surveyor inspects within 24 hours and repairs are covered from deposit and operational insurance."
+    },
+    {
+      "id": "o-faq-6",
+      "category": "Listing Machinery",
+      "question": "Can I send my own trusted operator with my machine?",
+      "answer": "Yes! You can choose 'With My Operator' or 'Machine Only'. When you send your own operator, their wages and site allowances are added directly to your weekly payout."
+    }
+  ]
+}

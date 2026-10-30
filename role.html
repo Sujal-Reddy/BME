@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecting...</title>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const role = params.get('role');
+    if (role === 'owner') {
+      window.location.replace('./owner.html');
+    } else if (role === 'operator') {
+      window.location.replace('./operator.html');
+    } else {
+      window.location.replace('./customer.html');
+    }
+  </script>
+</head>
+<body>
+  <p>Redirecting to role portal...</p>
+</body>
+</html>

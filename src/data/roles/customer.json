@@ -1,0 +1,54 @@
+{
+  "role": "customer",
+  "displayName": "Customer & Hirer",
+  "badgeText": "Equipment Hirers Hub",
+  "headline": "Need Heavy Equipment? Rent Fast on the App",
+  "subheadline": "Hire verified JCBs, Cranes, and Excavators in minutes. Zero down payment, experienced operators included, and guaranteed replacement if work ever stops.",
+  "accentColor": "#F97316",
+  "accentBg": "#FFF7ED",
+  "categories": ["All", "Delivery & Site", "Pricing & Bills", "Repairs & Safety", "Extending Rental"],
+  "faqs": [
+    {
+      "id": "c-faq-1",
+      "category": "Delivery & Site",
+      "question": "How fast can machines reach my construction site?",
+      "answer": "In city areas, equipment reaches your site in 2 to 4 hours. For regional or highway sites, transport trailers deliver within 6 to 12 hours. You can track your machine live on the mobile app from yard to site gate."
+    },
+    {
+      "id": "c-faq-2",
+      "category": "Pricing & Bills",
+      "question": "What is included in the rental price? Are there hidden charges?",
+      "answer": "No hidden charges. Your price includes the machine, a certified operator, and free routine maintenance. Diesel can be included or supplied by you. You see the final transparent price before you book in the app."
+    },
+    {
+      "id": "c-faq-3",
+      "category": "Repairs & Safety",
+      "question": "What happens if a machine stops working on site?",
+      "answer": "A mobile service team reaches your site within 3 hours. If it cannot be repaired on the spot, we dispatch a replacement machine at zero extra delivery charge. Your billing automatically freezes while the machine is paused."
+    },
+    {
+      "id": "c-faq-4",
+      "category": "Pricing & Bills",
+      "question": "How quickly do I get my security deposit back?",
+      "answer": "Your deposit is kept safe in digital escrow. The moment your project finishes, the remaining balance is sent back directly to your bank account or UPI within 24 hours."
+    },
+    {
+      "id": "c-faq-5",
+      "category": "Extending Rental",
+      "question": "Can I extend my rental if the project needs more time?",
+      "answer": "Yes! Just tap 'Extend' in the BookMyEquipment mobile app anytime. Your machine stays on site working without any delay."
+    },
+    {
+      "id": "c-faq-6",
+      "category": "Repairs & Safety",
+      "question": "Are the machine operators trained and licensed?",
+      "answer": "Yes. Every operator has a valid heavy vehicle license, passed background checks, and brings at least 3 years of hands-on site experience."
+    },
+    {
+      "id": "c-faq-7",
+      "category": "Pricing & Bills",
+      "question": "Do I get a proper GST tax invoice for my company?",
+      "answer": "Yes. Every completed booking automatically generates a GST commercial tax invoice so your company gets full input tax credit."
+    }
+  ]
+}
